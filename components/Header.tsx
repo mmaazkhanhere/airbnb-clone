@@ -1,5 +1,7 @@
+"use client"
+
 import Image from 'next/image'
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { BsSearch } from "react-icons/bs"
 import { TbWorld } from "react-icons/tb"
 import { GiHamburgerMenu } from "react-icons/gi"
@@ -14,39 +16,91 @@ function Avatar() {
 }
 
 const Header = () => {
+
+    const [menu, setMenu] = useState<boolean>(false);
+
+    const handleMenu = () => {
+        setMenu(!menu);
+    };
+
+    const menuRef = useRef<HTMLDivElement | null>(null);
+
+    useEffect(() => {
+        const handleOutsideClick = (event: MouseEvent) => {
+            if (menuRef && !menuRef.current?.contains(event.target as Node)) {
+                setMenu(false);
+            };
+        };
+
+        if (menu) {
+            document.addEventListener("click", handleOutsideClick);
+        } else {
+            document.removeEventListener("click", handleOutsideClick);
+        }
+
+        return () => {
+            document.removeEventListener("click", handleOutsideClick);
+        }
+    }, [menu])
+
     return (
-        <nav className='flex items-center justify-between'>
-            {/*Logo */}
-            <Image src="/assets/logo.png" alt="Airbnb Logo" width={100} height={100} />
-            {/*Search bar */}
-            <div className='flex items-center justify-center rounded-2xl p-2 border-2 shadow-lg hover:shadow-2xl'>
-                <div className='border-l border-l-gray-300 text-lg font-bold'>
-                    Anywhere
-                </div>
-                <div className='border-l border-l-gray-300 text-lg font-bold'>
-                    Any week
-                </div>
-                <div className='flex items-center justify-center'>
-                    <input placeholder='Add guests' className=' placeholder:text-gray-400' />
-                    <div className='p-2 bg-[#fe385d]'>
-                        <BsSearch />
+        <nav className="fixed top-0 left-30 bg-white z-20 w-[1750px]">
+            <div className="max-w-[1750px] mx-auto flex items-center justify-between py-4">
+                {/*Logo */}
+                <Image src="/assets/logo.png" alt="Airbnb Logo" width={110} height={110} />
+                {/*Search bar */}
+                <nav className='flex items-center justify-center rounded-3xl border shadow-sm hover:shadow-lg'>
+                    <div className='border-r-2 border-l-gray-500 text-base font-semibold px-4'>
+                        Anywhere
                     </div>
-                </div>
-            </div>
-            {/*User profile and other */}
-            <div className='flex items-center gap-3'>
-                <p className='font-semibold'>Airbnb your home</p>
-                <TbWorld />
-                <div className='border-2 flex items-center justify-center'>
-                    <button>
-                        <GiHamburgerMenu />
-                    </button>
-                    <div>
-                        <Avatar />
+                    <div className='border-r-2 border-l-gray-500 text-base font-semibold px-4'>
+                        Any week
                     </div>
-                </div>
+                    <div className='flex items-center justify-center p-2'>
+                        <input placeholder='Add guests' className=' placeholder:text-gray-500 w-24' />
+                        <div className='p-2 bg-[#fe385d] rounded-full'>
+                            <BsSearch className="text-white font-black" />
+                        </div>
+                    </div>
+                </nav>
+                {/*User profile and other */}
+                <nav className='flex items-center gap-5 '>
+                    <p className='font-semibold text-gray-600 leading-tight'>Airbnb your home</p>
+                    <TbWorld size={22} className="text-gray-700" />
+                    <div className='border-2 flex items-center justify-between rounded-3xl 
+                    gap-2 px-4 py-1 hover:shadow-md cursor-pointer'>
+                        <button onClick={handleMenu}>
+                            <GiHamburgerMenu className="text-gray-600" />
+                        </button>
+                        <div className="text-gray-500">
+                            <Avatar />
+                        </div>
+                    </div>
+                </nav>
             </div>
+            {
+                menu && (
+                    <section
+                        ref={menuRef}
+                        className='absolute border p-4 rounded-lg text-sm shadow-md w-52 top-20 right-0'>
+                        <div className='w-full p-2 hover:bg-gray-100 font-semibold cursor-pointer'>
+                            Sign up
+                        </div>
+                        <div className='w-full p-2 hover:bg-gray-100 cursor-pointer'>
+                            Log in
+                        </div>
+                        <div className='w-full border my-2 border-gray-200' />
+                        <div className='w-full p-2 hover:bg-gray-100 cursor-pointer'>
+                            Airbnb your home
+                        </div>
+                        <div className='w-full p-2 hover:bg-gray-100 cursor-pointer'>
+                            Help Center
+                        </div>
+                    </section>
+                )
+            }
         </nav>
+
     )
 }
 

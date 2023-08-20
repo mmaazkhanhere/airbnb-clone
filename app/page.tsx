@@ -5,7 +5,7 @@ type Props = {}
 
 const Home = (props: Props) => {
   return (
-    <div className=''>
+    <div className='max-w-[1750px] mx-auto relative '>
       <Header />
     </div>
   )
