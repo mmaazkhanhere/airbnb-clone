@@ -5,6 +5,11 @@ import React, { useEffect, useRef, useState } from 'react'
 import { BsSearch } from "react-icons/bs"
 import { TbWorld } from "react-icons/tb"
 import { GiHamburgerMenu } from "react-icons/gi"
+import '@splidejs/react-splide/css';
+import { Splide, SplideSlide } from '@splidejs/react-splide';
+import SubCategoryItem from './SubCategoryItem';
+import '@splidejs/splide/dist/css/themes/splide-default.min.css';
+import { HiAdjustmentsHorizontal } from "react-icons/hi2"
 
 function Avatar() {
     return (
@@ -16,6 +21,9 @@ function Avatar() {
 }
 
 const Header = () => {
+
+    const totalItems = 40;   // Total number of items
+    const itemsPerPage = 17;
 
     const [menu, setMenu] = useState<boolean>(false);
 
@@ -78,11 +86,39 @@ const Header = () => {
                     </div>
                 </nav>
             </div>
+            <section className='-z-20'>
+                <div className='border border-gray-200 w-full' />
+                <div className='flex items-center justify-start max-w-[1750] gap-4'>
+                    <section className='mt-[20px] max-w-[1600px]'>
+                        <Splide
+                            options={{
+                                perPage: itemsPerPage,
+                                pagination: false,
+                                gap: '1rem',
+                                rewind: false,
+                                focus: 'center',
+                                perMove: itemsPerPage,
+                            }}
+                        >
+                            {Array.from({ length: totalItems }).map((_, index) => (
+                                <SplideSlide key={index}>
+                                    <SubCategoryItem />
+                                </SplideSlide>
+                            ))}
+                        </Splide>
+                    </section>
+                    <div className='flex items-center justify-center py-4 px-2 gap-2 border rounded-lg'>
+                        <HiAdjustmentsHorizontal size={22} />
+                        <p>Filter</p>
+                    </div>
+                </div>
+
+            </section>
             {
                 menu && (
                     <section
                         ref={menuRef}
-                        className='absolute border p-4 rounded-lg text-sm shadow-md w-52 top-20 right-0'>
+                        className='absolute border p-4 rounded-lg text-sm shadow-md w-52 top-20 right-0 z-50 bg-white'>
                         <div className='w-full p-2 hover:bg-gray-100 font-semibold cursor-pointer'>
                             Sign up
                         </div>
