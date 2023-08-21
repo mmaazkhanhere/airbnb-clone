@@ -1,6 +1,5 @@
 import Header from '@/components/Header'
 import PriceBox from '@/components/PriceBox'
-import SubCategory from '@/components/SubCategory'
 import React from 'react'
 
 type Props = {}
