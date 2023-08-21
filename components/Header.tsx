@@ -88,8 +88,8 @@ const Header = () => {
             </div>
             <section className='-z-20'>
                 <div className='border border-gray-200 w-full' />
-                <div className='flex items-center justify-start max-w-[1750] gap-4'>
-                    <section className='mt-[20px] max-w-[1600px]'>
+                <div className='flex items-center justify-start max-w-[1750px] gap-4'>
+                    <section className='mt-[20px] max-w-[1650px]'>
                         <Splide
                             options={{
                                 perPage: itemsPerPage,

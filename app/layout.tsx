@@ -1,6 +1,7 @@
 import './globals.css'
 import type { Metadata } from 'next'
-
+import Footer from '@/components/Footer'
+import Header from '@/components/Header'
 
 
 export const metadata: Metadata = {
@@ -15,8 +16,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body >
+      <body className='h-screen max-w-[1750px] mx-auto' >
+        <Header />
         {children}
+        <Footer />
       </body>
     </html>
   )
