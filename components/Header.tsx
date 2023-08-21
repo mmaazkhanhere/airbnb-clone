@@ -103,7 +103,7 @@ const Header = () => {
             {
                 pathName !== '/' && (
                     <nav className='relative w-full'>
-                        <nav className='flex items-center justify-between max-w-5xl mx-auto py-4 '>
+                        <nav className='flex items-center justify-between max-w-6xl mx-auto py-4 '>
                             {/*Icon */}
                             <Link href="/">
                                 <Image src="/assets/logo.png" alt="Airbnb Logo" width={110} height={110} />
@@ -139,7 +139,7 @@ const Header = () => {
             }
             {
                 pathName === "/" && (
-                    <section className='-z-20'>
+                    <section className='-z-20 mb-4'>
                         <div className='border border-gray-200 w-full' />
                         <div className='flex items-center justify-start max-w-[1750px] gap-4'>
                             <section className='mt-[20px] max-w-[1650px]'>
