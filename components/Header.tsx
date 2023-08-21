@@ -2,14 +2,20 @@
 
 import Image from 'next/image'
 import React, { useEffect, useRef, useState } from 'react'
+
+import '@splidejs/react-splide/css';
+import { Splide, SplideSlide } from '@splidejs/react-splide';
+import '@splidejs/splide/dist/css/themes/splide-default.min.css';
+
+import SubCategoryItem from './SubCategoryItem';
+
+import { HiAdjustmentsHorizontal } from "react-icons/hi2"
 import { BsSearch } from "react-icons/bs"
 import { BiGlobe } from "react-icons/bi"
 import { GiHamburgerMenu } from "react-icons/gi"
-import '@splidejs/react-splide/css';
-import { Splide, SplideSlide } from '@splidejs/react-splide';
-import SubCategoryItem from './SubCategoryItem';
-import '@splidejs/splide/dist/css/themes/splide-default.min.css';
-import { HiAdjustmentsHorizontal } from "react-icons/hi2"
+
+import { usePathname } from 'next/navigation';
+import Link from 'next/link';
 
 function Avatar() {
     return (
@@ -26,6 +32,8 @@ const Header = () => {
     const itemsPerPage = 17;
 
     const [menu, setMenu] = useState<boolean>(false);
+
+    const pathName = usePathname();
 
     const handleMenu = () => {
         setMenu(!menu);
@@ -52,68 +60,115 @@ const Header = () => {
     }, [menu])
 
     return (
-        <nav className="fixed top-0 left-30 bg-white z-20 w-[1750px]">
-            <div className="max-w-[1750px] mx-auto flex items-center justify-between py-4">
-                {/*Logo */}
-                <Image src="/assets/logo.png" alt="Airbnb Logo" width={110} height={110} />
-                {/*Search bar */}
-                <nav className='flex items-center justify-center rounded-3xl border shadow-sm hover:shadow-lg'>
-                    <div className='border-r-2 border-l-gray-500 text-base font-semibold px-4'>
-                        Anywhere
-                    </div>
-                    <div className='border-r-2 border-l-gray-500 text-base font-semibold px-4'>
-                        Any week
-                    </div>
-                    <div className='flex items-center justify-center p-2'>
-                        <input placeholder='Add guests' className=' placeholder:text-gray-500 w-24' />
-                        <div className='p-2 bg-[#fe385d] rounded-full'>
-                            <BsSearch className="text-white font-black" />
-                        </div>
-                    </div>
-                </nav>
-                {/*User profile and other */}
-                <nav className='flex items-center gap-5 '>
-                    <p className='font-semibold text-gray-600 leading-tight'>Airbnb your home</p>
-                    <BiGlobe size={22} className="text-gray-700" />
-                    <div className='border-2 flex items-center justify-between rounded-3xl 
+        <nav className={`${pathName === '/' ? 'fixed' : 'block'} top-0 left-30 bg-white z-20 w-[1750px]`}>
+            {
+                pathName === '/' && (
+                    <div className="max-w-[1750px] mx-auto flex items-center justify-between py-4">
+                        {/*Logo */}
+                        <Link href="/">
+                            <Image src="/assets/logo.png" alt="Airbnb Logo" width={110} height={110} />
+                        </Link>
+                        {/*Search bar */}
+                        <nav className='flex items-center justify-center rounded-3xl border shadow-sm hover:shadow-lg'>
+                            <div className='border-r-2 border-l-gray-500 text-base font-semibold px-4'>
+                                Anywhere
+                            </div>
+                            <div className='border-r-2 border-l-gray-500 text-base font-semibold px-4'>
+                                Any week
+                            </div>
+                            <div className='flex items-center justify-center p-2'>
+                                <input placeholder='Add guests' className=' placeholder:text-gray-500 w-24' />
+                                <div className='p-2 bg-[#fe385d] rounded-full'>
+                                    <BsSearch className="text-white font-black" />
+                                </div>
+                            </div>
+                        </nav>
+                        {/*User profile and other */}
+                        <nav className='flex items-center gap-5 '>
+                            <p className='font-semibold text-gray-600 leading-tight'>Airbnb your home</p>
+                            <BiGlobe size={22} className="text-gray-700" />
+                            <div className='border-2 flex items-center justify-between rounded-3xl 
                     gap-2 px-4 py-1 hover:shadow-md cursor-pointer'>
-                        <button onClick={handleMenu}>
-                            <GiHamburgerMenu className="text-gray-600" />
-                        </button>
-                        <div className="text-gray-500">
-                            <Avatar />
-                        </div>
+                                <button onClick={handleMenu}>
+                                    <GiHamburgerMenu className="text-gray-600" />
+                                </button>
+                                <div className="text-gray-500">
+                                    <Avatar />
+                                </div>
+                            </div>
+                        </nav>
                     </div>
-                </nav>
-            </div>
-            <section className='-z-20'>
-                <div className='border border-gray-200 w-full' />
-                <div className='flex items-center justify-start max-w-[1750px] gap-4'>
-                    <section className='mt-[20px] max-w-[1650px]'>
-                        <Splide
-                            options={{
-                                perPage: itemsPerPage,
-                                pagination: false,
-                                gap: '1rem',
-                                rewind: false,
-                                focus: 'center',
-                                perMove: itemsPerPage,
-                            }}
-                        >
-                            {Array.from({ length: totalItems }).map((_, index) => (
-                                <SplideSlide key={index}>
-                                    <SubCategoryItem />
-                                </SplideSlide>
-                            ))}
-                        </Splide>
-                    </section>
-                    <div className='flex items-center justify-center py-4 px-2 gap-2 border rounded-lg'>
-                        <HiAdjustmentsHorizontal size={22} />
-                        <p>Filter</p>
-                    </div>
-                </div>
+                )
+            }
+            {
+                pathName !== '/' && (
+                    <nav className='relative w-full'>
+                        <nav className='flex items-center justify-between max-w-5xl mx-auto py-4 '>
+                            {/*Icon */}
+                            <Link href="/">
+                                <Image src="/assets/logo.png" alt="Airbnb Logo" width={110} height={110} />
+                            </Link>
+                            {/*Search bar */}
+                            <nav className='flex items-center justify-center rounded-3xl border shadow-md 
+                        hover:shadow-lg p-2 cursor-pointer'
+                            >
+                                <input placeholder='Start your search' className=' placeholder:text-gray-700 font-semibold w-60' />
+                                <div className='p-2 bg-[#fe385d] rounded-full'>
+                                    <BsSearch className="text-white font-black" />
+                                </div>
+                            </nav>
+                            {/*User and avatar */}
+                            <nav className='flex items-center gap-5 '>
+                                <p className='font-semibold text-gray-600 leading-tight'>Airbnb your home</p>
+                                <BiGlobe size={22} className="text-gray-700" />
+                                <div className='border-2 flex items-center justify-between rounded-3xl 
+                                    gap-2 px-4 py-1 hover:shadow-md cursor-pointer'>
+                                    <button onClick={handleMenu}>
+                                        <GiHamburgerMenu className="text-gray-600" />
+                                    </button>
+                                    <div className="text-gray-500">
+                                        <Avatar />
+                                    </div>
+                                </div>
+                            </nav>
+                        </nav>
+                        <div className='absolute bottom-0 left-0 z-10 border border-gray-100 w-full' />
+                    </nav>
 
-            </section>
+                )
+            }
+            {
+                pathName === "/" && (
+                    <section className='-z-20'>
+                        <div className='border border-gray-200 w-full' />
+                        <div className='flex items-center justify-start max-w-[1750px] gap-4'>
+                            <section className='mt-[20px] max-w-[1650px]'>
+                                <Splide
+                                    options={{
+                                        perPage: itemsPerPage,
+                                        pagination: false,
+                                        gap: '1rem',
+                                        rewind: false,
+                                        focus: 'center',
+                                        perMove: itemsPerPage,
+                                    }}
+                                >
+                                    {Array.from({ length: totalItems }).map((_, index) => (
+                                        <SplideSlide key={index}>
+                                            <SubCategoryItem />
+                                        </SplideSlide>
+                                    ))}
+                                </Splide>
+                            </section>
+                            <div className='flex items-center justify-center py-4 px-2 gap-2 border rounded-lg'>
+                                <HiAdjustmentsHorizontal size={22} />
+                                <p>Filter</p>
+                            </div>
+                        </div>
+                    </section>
+                )
+
+            }
             {
                 menu && (
                     <section

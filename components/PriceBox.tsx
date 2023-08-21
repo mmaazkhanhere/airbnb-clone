@@ -19,7 +19,7 @@ const PriceBox = () => {
     }
 
     return (
-        <article className='mx-auto max-w-2xl mt-[200px] border-2 rounded-lg'>
+        <article className='mx-auto max-w-2xl mt-[200px] border rounded-xl'>
             <div className='flex items-center justify-between py-5 px-2'>
                 <div className='flex items-center gap-4'>
                     <p className='font-semibold border-r border-r-gray-300 px-4'>Display total price</p>
