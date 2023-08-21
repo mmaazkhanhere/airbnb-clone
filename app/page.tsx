@@ -1,3 +1,4 @@
+import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import PriceBox from '@/components/PriceBox'
 import React from 'react'
@@ -9,6 +10,7 @@ const Home = (props: Props) => {
     <div className='max-w-[1750px] mx-auto h-[1000px] relative'>
       <Header />
       <PriceBox />
+      <Footer />
     </div>
   )
 }

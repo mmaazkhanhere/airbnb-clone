@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import React, { useEffect, useRef, useState } from 'react'
 import { BsSearch } from "react-icons/bs"
-import { TbWorld } from "react-icons/tb"
+import { BiGlobe } from "react-icons/bi"
 import { GiHamburgerMenu } from "react-icons/gi"
 import '@splidejs/react-splide/css';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
@@ -74,7 +74,7 @@ const Header = () => {
                 {/*User profile and other */}
                 <nav className='flex items-center gap-5 '>
                     <p className='font-semibold text-gray-600 leading-tight'>Airbnb your home</p>
-                    <TbWorld size={22} className="text-gray-700" />
+                    <BiGlobe size={22} className="text-gray-700" />
                     <div className='border-2 flex items-center justify-between rounded-3xl 
                     gap-2 px-4 py-1 hover:shadow-md cursor-pointer'>
                         <button onClick={handleMenu}>
