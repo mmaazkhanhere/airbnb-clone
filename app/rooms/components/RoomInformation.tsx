@@ -9,7 +9,7 @@ import AmenitiesBox from './AmenitiesBox'
 
 const Information = () => {
     return (
-        <main className='flex flex-col items-start justify-center inset-0 mb-[200px] pr-10'>
+        <main className='flex flex-col items-start justify-center inset-0 pr-10'>
 
             {/*Beds and host information */}
             <section className='flex items-center justify-between w-full'>

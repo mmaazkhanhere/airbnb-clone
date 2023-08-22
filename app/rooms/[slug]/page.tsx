@@ -5,6 +5,7 @@ import { LuShare } from "react-icons/lu"
 import { AiOutlineHeart } from "react-icons/ai"
 import ImageGrid from '../components/ImageGrid'
 import Information from '../components/RoomInformation'
+import ReserveBox from '../components/ReserveBox'
 
 const roomHref = [
     {
@@ -58,12 +59,12 @@ const RoomDetails = () => {
                 }
 
             </div>
-            <div className='flex w-full items-center justify-center mt-10'>
+            <div className='flex w-full items-start justify-center mt-10'>
                 <div className=' w-3/5'>
                     <Information />
                 </div>
-                <div className='w-2/5 h-[100px] border-2'>
-
+                <div className='w-2/5 mr-6'>
+                    <ReserveBox />
                 </div>
             </div>
 
