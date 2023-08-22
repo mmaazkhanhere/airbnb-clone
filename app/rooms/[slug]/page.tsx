@@ -19,7 +19,7 @@ const roomHref = [
 
 const RoomDetails = () => {
     return (
-        <main className='mt-6 max-w-6xl mx-auto'>
+        <main className='mt-6 max-w-6xl mx-auto h-[6000px]'>
             <h1 className='font-semibold text-2xl'>Lovely Studio with Burj Khalifa views from Balcony</h1>
             {/*Review and location */}
             <div className='flex items-center justify-between gap-5 mt-2 text-sm'>
@@ -60,10 +60,10 @@ const RoomDetails = () => {
 
             </div>
             <div className='flex w-full items-start justify-center mt-10'>
-                <div className=' w-3/5'>
+                <div className=' w-2/3'>
                     <Information />
                 </div>
-                <div className='w-2/5 mr-6'>
+                <div className='w-1/3 mr-6'>
                     <ReserveBox />
                 </div>
             </div>

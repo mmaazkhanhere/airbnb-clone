@@ -1,11 +1,37 @@
-import React from 'react'
+"use client"
+
+import React, { useEffect, useState } from 'react'
 import { AiFillStar } from "react-icons/ai"
 
 const ReserveBox = () => {
-    return (
-        <section className='flex flex-col items-start justify-center p-4 border shadow-md 
-        sticky z-20 ml-10 rounded-xl'>
 
+    const [show, setShow] = useState('block');
+    const [lastScrollY, setLastScrollY] = useState(0);
+
+    useEffect(() => {
+        const controlBox = () => {
+            const scrollY = window.scrollY;
+
+            if (scrollY > 400 && scrollY <= 1300) {
+                setShow('sticky-center'); // Stick to the center
+            } else {
+                setShow('block'); // Show as a normal block
+            }
+
+            setLastScrollY(scrollY);
+        };
+
+        window.addEventListener('scroll', controlBox);
+
+        return () => {
+            window.removeEventListener('scroll', controlBox);
+        };
+    }, [lastScrollY]);
+
+    return (
+        <section
+            className={`border shadow-2xl ml-10 rounded-xl ${show} z-10 w-full p-4 max-w-sm`}
+        >
             {/*Price and Review */}
 
             <div className='flex items-center justify-between w-full'>
@@ -32,27 +58,27 @@ const ReserveBox = () => {
 
             <div className='grid grid-cols-2 border rounded-xl w-full mt-6'>
                 <div className='w-full p-2 flex flex-col items-start justify-center border-r'>
-                    <p className='text-xs uppercase font-medium border-b'>check-in</p>
-                    <span className='w-full p-2'>9/3/2023</span>
+                    <p className='text-xs uppercase font-medium'>check-in</p>
+                    <span className='w-full py-2'>9/3/2023</span>
                 </div>
                 <div className='w-full p-2 flex flex-col items-start justify-center border-b'>
                     <p className='text-xs uppercase font-medium'>checkout</p>
-                    <span className='w-full p-2'>12/3/2023</span>
+                    <span className='w-full py-2'>12/3/2023</span>
                 </div>
                 <div className=' col-span-2 w-full border-t p-2'>
                     <p className='text-xs uppercase font-medium'>guests</p>
-                    <select name="guest" id="guests" className='w-full mt-2'>
+                    <select name="guest" id="guests" className='w-full mt-2 py-1'>
                         <option value="1">
                             1 Adult
                         </option>
-                        <option value="1">
-                            2 Adult
+                        <option value="2">
+                            2 Adults
                         </option>
-                        <option value="1">
-                            3 Adult
+                        <option value="3">
+                            3 Adults
                         </option>
-                        <option value="1">
-                            4 Adult
+                        <option value="4">
+                            4 Adults
                         </option>
                     </select>
                 </div>
@@ -60,14 +86,36 @@ const ReserveBox = () => {
 
             {/*Button */}
 
-            <button className='w-full py-3 bg-[#fe385d] text-white rounded-lg mt-6 font-bold'>
+            <button className='w-full py-3 bg-[#dd3c59] text-white rounded-lg mt-4 font-bold'>
                 Reserve
             </button>
             <span className='py-4 self-center text-gray-500'>
                 You wont be charged yet
             </span>
+
+            {/*Price Calculation  */}
+
+            <div className='flex items-center justify-between w-full mt-5'>
+                <p className='underline text-gray-600'><span>$519</span> x <span>7</span> nights</p>
+                <span>$3632</span>
+            </div>
+            <div className='flex items-center justify-between w-full mt-5'>
+                <p className='text-gray-600'>Weekly stay discounts</p>
+                <span className='text-green-500'>-$726</span>
+            </div>
+
+            {/*Line Separator */}
+            <div className='my-4 border border-gray-200 w-full' />
+
+            {/*Total cost */}
+            <div className='flex items-center justify-between w-full pb-2'>
+                <p className='font-semibold'>Total before taxes</p>
+                <span className='font-semibold'>$2906</span>
+            </div>
         </section>
+
     )
 }
 
 export default ReserveBox
+

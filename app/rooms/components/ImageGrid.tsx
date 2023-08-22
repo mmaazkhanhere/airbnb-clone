@@ -38,13 +38,13 @@ const ImageGrid: React.FC<ImageGridProps> = (href) => {
             <div className='w-full h-full'>
                 <Image src={href.href.href4} alt="Room Picture" width={300} height={250}
                     loading='lazy'
-                    className='w-[300px] h-[250px] object-cover'
+                    className='w-[300px] h-[245px] object-cover'
                 />
             </div>
             <div className='w-full h-full rounded-br-xl overflow-hidden'>
                 <Image src={href.href.href5} alt="Room Picture" width={300} height={250}
                     loading='lazy'
-                    className='w-[300px] h-[250px] object-cover'
+                    className='w-[300px] h-[245px] object-cover'
                 />
             </div>
             <div className='absolute bottom-8 right-10 z-20 flex items-center justify-center gap-2
