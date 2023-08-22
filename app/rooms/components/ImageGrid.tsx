@@ -2,37 +2,47 @@ import Image from 'next/image'
 import React from 'react'
 import { CgMenuGridO } from "react-icons/cg"
 
-const ImageGrid = () => {
+interface ImageGridProps {
+    href: {
+        href1: string,
+        href2: string,
+        href3: string,
+        href4: string,
+        href5: string,
+    }
+}
+
+const ImageGrid: React.FC<ImageGridProps> = (href) => {
     return (
         <section className='grid grid-cols-4 items-center justify-center gap-2
-        max-w-6xl mt-5 relative mb-[200px]'>
+        max-w-6xl mt-5 relative'>
             <div className='border col-span-2 row-span-2 rounded-tl-xl 
             rounded-bl-xl overflow-hidden'>
-                <Image src='/assets/room3.webp' alt="Room Picture" width={600} height={500}
+                <Image src={href.href.href1} alt="Room Picture" width={600} height={500}
                     loading='lazy'
                     className='w-[600px] h-[500px] object-cover'
                 />
             </div>
             <div className='w-full h-full'>
-                <Image src='/assets/room4.webp' alt="Room Picture" width={300} height={250}
+                <Image src={href.href.href2} alt="Room Picture" width={300} height={250}
                     loading='lazy'
                     className='w-[300px] h-[250px] object-cover'
                 />
             </div>
             <div className='w-full h-full rounded-tr-xl overflow-hidden'>
-                <Image src='/assets/room5.webp' alt="Room Picture" width={300} height={250}
+                <Image src={href.href.href3} alt="Room Picture" width={300} height={250}
                     loading='lazy'
                     className='w-[300px] h-[250px] object-cover'
                 />
             </div>
             <div className='w-full h-full'>
-                <Image src='/assets/room6.webp' alt="Room Picture" width={300} height={250}
+                <Image src={href.href.href4} alt="Room Picture" width={300} height={250}
                     loading='lazy'
                     className='w-[300px] h-[250px] object-cover'
                 />
             </div>
             <div className='w-full h-full rounded-br-xl overflow-hidden'>
-                <Image src='/assets/room7.webp' alt="Room Picture" width={300} height={250}
+                <Image src={href.href.href5} alt="Room Picture" width={300} height={250}
                     loading='lazy'
                     className='w-[300px] h-[250px] object-cover'
                 />

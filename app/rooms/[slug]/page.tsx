@@ -4,6 +4,17 @@ import { IoMdMedal } from "react-icons/io"
 import { LuShare } from "react-icons/lu"
 import { AiOutlineHeart } from "react-icons/ai"
 import ImageGrid from '../components/ImageGrid'
+import Information from '../components/RoomInformation'
+
+const roomHref = [
+    {
+        href1: '/assets/room3.webp',
+        href2: '/assets/room4.webp',
+        href3: '/assets/room5.webp',
+        href4: '/assets/room6.webp',
+        href5: '/assets/room7.webp'
+    },
+]
 
 const RoomDetails = () => {
     return (
@@ -40,7 +51,20 @@ const RoomDetails = () => {
                 </div>
             </div>
             <div>
-                <ImageGrid />
+                {
+                    roomHref.map((ref) => (
+                        <ImageGrid key={ref.href1} href={ref} />
+                    ))
+                }
+
+            </div>
+            <div className='flex w-full items-center justify-center mt-10'>
+                <div className=' w-3/5'>
+                    <Information />
+                </div>
+                <div className='w-2/5 h-[100px] border-2'>
+
+                </div>
             </div>
 
         </main>
