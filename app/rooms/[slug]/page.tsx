@@ -8,15 +8,15 @@ import ImageGrid from '../components/ImageGrid'
 const RoomDetails = () => {
     return (
         <main className='mt-6 max-w-6xl mx-auto'>
-            <h1 className='font-semibold text-3xl'>Lovely Studio with Burj Khalifa views from Balcony</h1>
+            <h1 className='font-semibold text-2xl'>Lovely Studio with Burj Khalifa views from Balcony</h1>
             {/*Review and location */}
-            <div className='flex items-center justify-between gap-5 mt-2'>
+            <div className='flex items-center justify-between gap-5 mt-2 text-sm'>
                 <div className='flex items-center justify-center gap-4'>
-                    <div className='flex items-center gap-2'>
+                    <div className='flex items-center gap-2 '>
                         <BsFillStarFill />
-                        <span>5</span>
+                        <span>4.81</span>
                     </div>
-                    <p className='underline font-semibold cursor-pointer'>
+                    <p className='underline font-semibold cursor-pointer leading-tight'>
                         <span>20</span> reviews
                     </p>
                     <div className='flex items-center gap-2'>
