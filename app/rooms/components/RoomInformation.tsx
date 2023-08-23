@@ -14,9 +14,9 @@ const Information = () => {
             {/*Beds and host information */}
             <section className='flex items-center justify-between w-full'>
                 <div className='flex flex-col items-start justify-center'>
-                    <h1 className='text-2xl font-semibold'>
+                    <h2 className='text-2xl font-semibold'>
                         Entire villa hosted by <span>Shreya</span>
-                    </h1>
+                    </h2>
                     <ul className='flex items-center justify-center text-sm list-inside list-disc 
                     text-gray-600 mt-1'>
                         <li>12 guests</li>
@@ -81,7 +81,7 @@ const Information = () => {
             {/*Bedrooms Picture */}
 
             <section className='w-full'>
-                <h1 className='text-2xl font-semibold'>Where you&apos;ll sleep</h1>
+                <h2 className='text-2xl font-semibold'>Where you&apos;ll sleep</h2>
                 <div className='grid grid-cols-2 items-center justify-between'>
                     {/*1st Bedroom */}
                     <Bedroom />
@@ -95,9 +95,9 @@ const Information = () => {
             {/*Amenities */}
 
             <section className='w-full'>
-                <h1 className='text-2xl font-semibold'>
+                <h2 className='text-2xl font-semibold'>
                     What this place offers
-                </h1>
+                </h2>
                 <div className='grid grid-cols-2 items-start justify-center text-xl mt-8'>
                     <AmenitiesBox />
                     <AmenitiesBox />
@@ -114,7 +114,7 @@ const Information = () => {
             </section>
 
             {/*Separator line */}
-            <div className='my-6 border border-gray-200 w-full' />
+            <div className='my-14 border border-gray-200 w-full' />
 
         </main>
     )

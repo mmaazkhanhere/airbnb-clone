@@ -10,10 +10,11 @@ import { selectedDateRange, setSelectedDateRange } from '@/app/uitls/dateUtils';
 const BookingCalendar = () => {
     const [date, setDate] = useState(selectedDateRange);
 
-    console.log(date)
-
     return (
         <div>
+            <h2 className='text-2xl font-semibold mb-5'>
+                1 night in <span>Pimplad Nasik</span>
+            </h2>
             <DateRange
                 editableDateInputs={true}
                 onChange={item => {
@@ -28,6 +29,7 @@ const BookingCalendar = () => {
                 minDate={new Date()}
                 disabledDates={[new Date]}
                 color='#b0aeae'
+
             />
         </div>
     )

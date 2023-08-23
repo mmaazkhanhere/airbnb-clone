@@ -20,14 +20,13 @@ const ReserveBox = () => {
     };
 
     const formattedStartDate = formatDateString(startDate);
-    console.log(formattedStartDate)
     const formattedEndDate = formatDateString(endDate);
 
     useEffect(() => {
         const controlBox = () => {
             const scrollY = window.scrollY;
 
-            if (scrollY > 400 && scrollY <= 1300) {
+            if (scrollY > 400 && scrollY <= 1800) {
                 setShow('sticky-center'); // Stick to the center
             } else {
                 setShow('block'); // Show as a normal block
