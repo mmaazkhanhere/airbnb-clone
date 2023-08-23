@@ -6,6 +6,7 @@ import { AiOutlineHeart } from "react-icons/ai"
 import ImageGrid from '../components/ImageGrid'
 import Information from '../components/RoomInformation'
 import ReserveBox from '../components/ReserveBox'
+import BookingCalendar from '../components/BookingCalendar'
 
 const roomHref = [
     {
@@ -21,7 +22,9 @@ const RoomDetails = () => {
     return (
         <main className='mt-6 max-w-6xl mx-auto h-[6000px]'>
             <h1 className='font-semibold text-2xl'>Lovely Studio with Burj Khalifa views from Balcony</h1>
+
             {/*Review and location */}
+
             <div className='flex items-center justify-between gap-5 mt-2 text-sm'>
                 <div className='flex items-center justify-center gap-4'>
                     <div className='flex items-center gap-2 '>
@@ -51,6 +54,9 @@ const RoomDetails = () => {
                     </div>
                 </div>
             </div>
+
+            {/*Image Grid */}
+
             <div>
                 {
                     roomHref.map((ref) => (
@@ -59,6 +65,9 @@ const RoomDetails = () => {
                 }
 
             </div>
+
+            {/*Information */}
+
             <div className='flex w-full items-start justify-center mt-10'>
                 <div className=' w-2/3'>
                     <Information />
@@ -66,6 +75,12 @@ const RoomDetails = () => {
                 <div className='w-1/3 mr-6'>
                     <ReserveBox />
                 </div>
+            </div>
+
+            {/*Calendar */}
+
+            <div>
+                <BookingCalendar />
             </div>
 
         </main>

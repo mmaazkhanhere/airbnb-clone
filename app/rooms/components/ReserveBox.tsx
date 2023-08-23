@@ -1,5 +1,6 @@
 "use client"
 
+import { selectedDateRange } from '@/app/uitls/dateUtils';
 import React, { useEffect, useState } from 'react'
 import { AiFillStar } from "react-icons/ai"
 
@@ -7,6 +8,20 @@ const ReserveBox = () => {
 
     const [show, setShow] = useState('block');
     const [lastScrollY, setLastScrollY] = useState(0);
+
+    const startDate = selectedDateRange[0].startDate;
+    const endDate = selectedDateRange[0].endDate;
+
+    const formatDateString = (date: any) => {
+        const day = date.getDate().toString().padStart(2, '0');
+        const month = (date.getMonth() + 1).toString().padStart(2, '0');
+        const year = date.getFullYear().toString();
+        return `${day}/${month}/${year}`;
+    };
+
+    const formattedStartDate = formatDateString(startDate);
+    console.log(formattedStartDate)
+    const formattedEndDate = formatDateString(endDate);
 
     useEffect(() => {
         const controlBox = () => {
@@ -59,11 +74,11 @@ const ReserveBox = () => {
             <div className='grid grid-cols-2 border rounded-xl w-full mt-6'>
                 <div className='w-full p-2 flex flex-col items-start justify-center border-r'>
                     <p className='text-xs uppercase font-medium'>check-in</p>
-                    <span className='w-full py-2'>9/3/2023</span>
+                    <span className='w-full py-2'>{formattedStartDate}</span>
                 </div>
                 <div className='w-full p-2 flex flex-col items-start justify-center border-b'>
                     <p className='text-xs uppercase font-medium'>checkout</p>
-                    <span className='w-full py-2'>12/3/2023</span>
+                    <span className='w-full py-2'>{formattedEndDate}</span>
                 </div>
                 <div className=' col-span-2 w-full border-t p-2'>
                     <p className='text-xs uppercase font-medium'>guests</p>
