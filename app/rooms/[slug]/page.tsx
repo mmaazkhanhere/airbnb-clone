@@ -8,6 +8,7 @@ import Information from '../components/RoomInformation'
 import ReserveBox from '../components/ReserveBox'
 import BookingCalendar from '../components/BookingCalendar'
 import RatingList from '../components/RatingList'
+import Map from '../components/Map'
 
 const roomHref = [
     {
@@ -87,6 +88,11 @@ const RoomDetails = () => {
             <div>
                 <div className='my-14 border border-gray-200 w-full' />
                 <RatingList />
+            </div>
+
+            <div>
+                <div className='my-14 border border-gray-200 w-full' />
+                <Map />
             </div>
 
         </main>

@@ -10,7 +10,7 @@ interface RatingCriteriaProps {
 const RatingCriteria: React.FC<RatingCriteriaProps> = ({ criteria }) => {
     const ratingPercentage = (criteria.rating * 2) * 10
     return (
-        <div className='flex items-center justify-between gap-4 mr-10'>
+        <article className='flex items-center justify-between gap-4 mr-10'>
             <span className='text-xl'>{criteria.name}</span>
             <div className='flex items-center justify-center gap-4'>
                 <div className='relative w-[150px] h-1 bg-gray-300 rounded-lg'>
@@ -19,7 +19,7 @@ const RatingCriteria: React.FC<RatingCriteriaProps> = ({ criteria }) => {
                 <span>{criteria.rating}</span>
             </div>
 
-        </div>
+        </article>
     )
 }
 

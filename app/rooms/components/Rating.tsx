@@ -3,7 +3,7 @@ import React from 'react'
 
 const Rating = () => {
     return (
-        <div className='flex flex-col items-start justify-center w-full'>
+        <article className='flex flex-col items-start justify-center w-full'>
             <div className='flex items-center justify-center gap-5'>
                 <div className='w-14 h-14 rounded-full overflow-hidden'>
                     <Image src="/assets/person1.webp" alt='Person Profile'
@@ -22,7 +22,7 @@ const Rating = () => {
                     It is a complete package... must visit!
                 </p>
             </div>
-        </div>
+        </article>
     )
 }
 

@@ -32,7 +32,7 @@ const rating = [
 
 const RatingList = () => {
     return (
-        <article>
+        <section>
             <div className='flex items-center justify-items-center gap-3'>
                 <FaStar size={26} />
                 <span className='font-semibold text-2xl'>5.0</span>
@@ -53,7 +53,7 @@ const RatingList = () => {
                 <Rating />
                 <Rating />
             </div>
-        </article>
+        </section>
     )
 }
 
