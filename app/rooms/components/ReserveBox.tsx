@@ -26,9 +26,10 @@ const ReserveBox = () => {
         const controlBox = () => {
             const scrollY = window.scrollY;
 
-            if (scrollY > 400 && scrollY <= 1800) {
+            if (scrollY > 400 && scrollY <= 1900) {
                 setShow('sticky-center'); // Stick to the center
-            } else {
+            }
+            else {
                 setShow('block'); // Show as a normal block
             }
 

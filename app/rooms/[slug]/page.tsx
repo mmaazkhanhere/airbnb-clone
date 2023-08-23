@@ -7,6 +7,7 @@ import ImageGrid from '../components/ImageGrid'
 import Information from '../components/RoomInformation'
 import ReserveBox from '../components/ReserveBox'
 import BookingCalendar from '../components/BookingCalendar'
+import RatingList from '../components/RatingList'
 
 const roomHref = [
     {
@@ -79,8 +80,13 @@ const RoomDetails = () => {
 
             {/*Calendar */}
 
-            <div>
+            <div className='w-2/3'>
                 <BookingCalendar />
+            </div>
+
+            <div>
+                <div className='my-14 border border-gray-200 w-full' />
+                <RatingList />
             </div>
 
         </main>

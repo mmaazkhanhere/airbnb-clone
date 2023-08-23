@@ -3,9 +3,9 @@
 import { DateRange } from 'react-date-range';
 import 'react-date-range/dist/styles.css'; // main css file
 import 'react-date-range/dist/theme/default.css'; // theme css file
-
 import React, { useState } from 'react'
 import { selectedDateRange, setSelectedDateRange } from '@/app/uitls/dateUtils';
+import { FaRegKeyboard } from "react-icons/fa"
 
 const BookingCalendar = () => {
     const [date, setDate] = useState(selectedDateRange);
@@ -31,6 +31,10 @@ const BookingCalendar = () => {
                 color='#b0aeae'
 
             />
+            <div className='py-6 flex items-center justify-between w-full max-w-[650px]'>
+                <FaRegKeyboard size={24} />
+                <p className=' tracking-wide underline font-semibold text-gray-700'>Clear dates</p>
+            </div>
         </div>
     )
 }
