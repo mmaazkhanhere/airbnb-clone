@@ -8,9 +8,8 @@ import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/splide/dist/css/themes/splide-default.min.css';
 
 import SubCategoryItem from './SubCategoryItem';
-
-import { HiAdjustmentsHorizontal } from "react-icons/hi2"
 import { BsSearch } from "react-icons/bs"
+import { HiAdjustmentsHorizontal } from "react-icons/hi2"
 import { BiGlobe } from "react-icons/bi"
 import { GiHamburgerMenu } from "react-icons/gi"
 
@@ -88,7 +87,7 @@ const Header = () => {
                             <p className='font-semibold text-gray-600 leading-tight'>Airbnb your home</p>
                             <BiGlobe size={22} className="text-gray-700" />
                             <div className='border-2 flex items-center justify-between rounded-3xl 
-                    gap-2 px-4 py-1 hover:shadow-md cursor-pointer'>
+                                gap-2 px-4 py-1 hover:shadow-md cursor-pointer'>
                                 <button onClick={handleMenu}>
                                     <GiHamburgerMenu className="text-gray-600" />
                                 </button>
@@ -98,43 +97,6 @@ const Header = () => {
                             </div>
                         </nav>
                     </div>
-                )
-            }
-            {
-                pathName !== '/' && (
-                    <nav className='relative w-full'>
-                        <nav className='flex items-center justify-between max-w-6xl mx-auto py-4 '>
-                            {/*Icon */}
-                            <Link href="/">
-                                <Image src="/assets/logo.png" alt="Airbnb Logo" width={110} height={110} />
-                            </Link>
-                            {/*Search bar */}
-                            <nav className='flex items-center justify-center rounded-3xl border shadow-md 
-                        hover:shadow-lg p-2 cursor-pointer'
-                            >
-                                <input placeholder='Start your search' className=' placeholder:text-gray-700 font-semibold w-60' />
-                                <div className='p-2 bg-[#fe385d] rounded-full'>
-                                    <BsSearch className="text-white font-black" />
-                                </div>
-                            </nav>
-                            {/*User and avatar */}
-                            <nav className='flex items-center gap-5 '>
-                                <p className='font-semibold text-gray-600 leading-tight'>Airbnb your home</p>
-                                <BiGlobe size={22} className="text-gray-700" />
-                                <div className='border-2 flex items-center justify-between rounded-3xl 
-                                    gap-2 px-4 py-1 hover:shadow-md cursor-pointer'>
-                                    <button onClick={handleMenu}>
-                                        <GiHamburgerMenu className="text-gray-600" />
-                                    </button>
-                                    <div className="text-gray-500">
-                                        <Avatar />
-                                    </div>
-                                </div>
-                            </nav>
-                        </nav>
-                        <div className='absolute bottom-0 left-0 z-10 border border-gray-100 w-full' />
-                    </nav>
-
                 )
             }
             {

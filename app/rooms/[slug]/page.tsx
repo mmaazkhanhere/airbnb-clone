@@ -12,6 +12,7 @@ import Map from '../components/Map'
 import HostDetail from '../components/HostDetail'
 import Rules from '../components/Rules'
 import Footer from '../components/Footer'
+import Header from '../components/Header'
 
 const roomHref = [
     {
@@ -25,8 +26,9 @@ const roomHref = [
 
 const RoomDetails = () => {
     return (
-        <main className='mt-6'>
-            <div className='max-w-6xl mx-auto'>
+        <main >
+            <Header />
+            <div className='max-w-6xl mx-auto mt-6'>
                 <h1 className='font-semibold text-2xl'>Lovely Studio with Burj Khalifa views from Balcony</h1>
             </div>
 
