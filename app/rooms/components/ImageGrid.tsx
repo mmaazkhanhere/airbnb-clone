@@ -15,7 +15,7 @@ interface ImageGridProps {
 const ImageGrid: React.FC<ImageGridProps> = (href) => {
     return (
         <article className='grid grid-cols-4 items-center justify-center gap-2
-        max-w-6xl mt-5 relative'>
+        max-w-6xl mt-5 relative mx-auto'>
             <div className='border col-span-2 row-span-2 rounded-tl-xl 
             rounded-bl-xl overflow-hidden'>
                 <Image src={href.href.href1} alt="Room Picture" width={600} height={500}

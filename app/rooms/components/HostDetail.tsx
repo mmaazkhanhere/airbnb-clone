@@ -6,7 +6,7 @@ import { RiShieldUserFill } from "react-icons/ri"
 
 const HostDetail = () => {
     return (
-        <article className='max-w-6xl'>
+        <article>
             <div className='flex items-center justify-start gap-5'>
                 <div className='w-16 h-16 rounded-full overflow-hidden'>
                     <Image src={"/assets/person1.webp"} alt="Host Picture"

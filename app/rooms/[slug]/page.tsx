@@ -25,12 +25,15 @@ const roomHref = [
 
 const RoomDetails = () => {
     return (
-        <main className='mt-6 mx-auto h-[6000px]'>
-            <h1 className='font-semibold text-2xl'>Lovely Studio with Burj Khalifa views from Balcony</h1>
+        <main className='mt-6'>
+            <div className='max-w-6xl mx-auto'>
+                <h1 className='font-semibold text-2xl'>Lovely Studio with Burj Khalifa views from Balcony</h1>
+            </div>
+
 
             {/*Review and location */}
 
-            <div className='flex items-center justify-between gap-5 mt-2 text-sm'>
+            <div className='flex items-center justify-between gap-5 mt-2 text-sm max-w-6xl mx-auto'>
                 <div className='flex items-center justify-center gap-4'>
                     <div className='flex items-center gap-2 '>
                         <BsFillStarFill />
@@ -73,7 +76,7 @@ const RoomDetails = () => {
 
             {/*Information */}
 
-            <section className='flex w-full items-start justify-center mt-10'>
+            <section className='flex w-full items-start justify-center mt-10 max-w-6xl mx-auto'>
                 <div className=' w-2/3'>
                     <Information />
                 </div>
@@ -84,40 +87,40 @@ const RoomDetails = () => {
 
             {/*Calendar */}
 
-            <section className='w-2/3'>
+            <section className='w-2/3 max-w-6xl mx-auto'>
                 <BookingCalendar />
             </section>
 
             {/*Ratings */}
 
-            <section>
+            <section className='max-w-6xl mx-auto'>
                 <div className='my-14 border border-gray-200 w-full' />
                 <RatingList />
             </section>
 
             {/*Map */}
 
-            <section>
+            <section className='max-w-6xl mx-auto'>
                 <div className='my-14 border border-gray-200 w-full' />
                 {/* {<Map />} */}
             </section>
 
             {/*Host Information */}
-            <section>
+            <section className='mx-auto max-w-6xl'>
                 <div className='my-14 border border-gray-200 w-full' />
                 <HostDetail />
             </section>
 
             {/*Rules and safety */}
 
-            <section>
+            <section className='max-w-6xl mx-auto'>
                 <div className='my-14 border border-gray-200 w-full' />
                 <Rules />
             </section>
 
             {/*Footer */}
 
-            <section>
+            <section className='w-full bg-gray-100'>
                 <div className='mt-14 border border-gray-200 w-full' />
                 <Footer />
             </section>

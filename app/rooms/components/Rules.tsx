@@ -3,7 +3,7 @@ import { IoIosArrowForward } from "react-icons/io"
 
 const Rules = () => {
     return (
-        <div className='max-w-6xl w-full mx-auto'>
+        <div>
             <h2 className='text-2xl font-semibold pb-6'>Things to know</h2>
             <div className='flex items-start justify-between w-full'>
                 <div className='flex flex-col items-start justify-center gap-2 text-lg max-w-xs'>
