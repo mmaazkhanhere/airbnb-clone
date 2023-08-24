@@ -1,6 +1,7 @@
 "use client"
 
 import { selectedDateRange } from '@/app/uitls/dateUtils';
+import Link from 'next/link';
 import React, { useEffect, useState } from 'react'
 import { AiFillStar } from "react-icons/ai"
 
@@ -101,9 +102,11 @@ const ReserveBox = () => {
 
             {/*Button */}
 
-            <button className='w-full py-3 bg-[#dd3c59] text-white rounded-lg mt-4 font-bold'>
-                Reserve
-            </button>
+            <Link href="/book/1">
+                <button className='w-full py-3 bg-[#dd3c59] text-white rounded-lg mt-4 font-bold'>
+                    Reserve
+                </button>
+            </Link>
             <span className='py-4 self-center text-gray-500'>
                 You wont be charged yet
             </span>

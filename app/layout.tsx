@@ -18,9 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className='h-screen max-w-[1750px] mx-auto' >
-        <Header />
         {children}
-        <Footer />
       </body>
     </html>
   )
