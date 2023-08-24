@@ -44,7 +44,7 @@ const ReserveBox = () => {
     }, [lastScrollY]);
 
     return (
-        <section
+        <article
             className={`border shadow-2xl ml-10 rounded-xl ${show} z-10 w-full p-4 max-w-sm`}
         >
             {/*Price and Review */}
@@ -127,7 +127,7 @@ const ReserveBox = () => {
                 <p className='font-semibold'>Total before taxes</p>
                 <span className='font-semibold'>$2906</span>
             </div>
-        </section>
+        </article>
 
     )
 }

@@ -71,40 +71,46 @@ const RoomDetails = () => {
 
             {/*Information */}
 
-            <div className='flex w-full items-start justify-center mt-10'>
+            <section className='flex w-full items-start justify-center mt-10'>
                 <div className=' w-2/3'>
                     <Information />
                 </div>
                 <div className='w-1/3 mr-6'>
                     <ReserveBox />
                 </div>
-            </div>
+            </section>
 
             {/*Calendar */}
 
-            <div className='w-2/3'>
+            <section className='w-2/3'>
                 <BookingCalendar />
-            </div>
+            </section>
 
             {/*Ratings */}
 
-            <div>
+            <section>
                 <div className='my-14 border border-gray-200 w-full' />
                 <RatingList />
-            </div>
+            </section>
 
             {/*Map */}
 
-            <div>
+            <section>
                 <div className='my-14 border border-gray-200 w-full' />
-                <Map />
-            </div>
+                {/* {<Map />} */}
+            </section>
 
             {/*Host Information */}
-            <div>
+            <section>
                 <div className='my-14 border border-gray-200 w-full' />
                 <HostDetail />
-            </div>
+            </section>
+
+            {/*Rules and safety */}
+
+            <section>
+
+            </section>
 
         </main>
     )

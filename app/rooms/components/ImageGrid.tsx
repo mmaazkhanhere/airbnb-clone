@@ -14,7 +14,7 @@ interface ImageGridProps {
 
 const ImageGrid: React.FC<ImageGridProps> = (href) => {
     return (
-        <section className='grid grid-cols-4 items-center justify-center gap-2
+        <article className='grid grid-cols-4 items-center justify-center gap-2
         max-w-6xl mt-5 relative'>
             <div className='border col-span-2 row-span-2 rounded-tl-xl 
             rounded-bl-xl overflow-hidden'>
@@ -52,7 +52,7 @@ const ImageGrid: React.FC<ImageGridProps> = (href) => {
                 <CgMenuGridO />
                 <span>Show all photos</span>
             </div>
-        </section>
+        </article>
     )
 }
 

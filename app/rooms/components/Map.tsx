@@ -18,7 +18,7 @@ const Map = () => {
     const attribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
 
     return (
-        <section>
+        <article>
             <h2 className='text-2xl font-semibold my-2'>
                 Where you&absp;ll be
             </h2>
@@ -62,7 +62,7 @@ const Map = () => {
                     Adventure and culture combine at the Pandav Leni Caves, where you can set up your hiking trails, 20 minutes from the villa.
                 </p>
             </div>
-        </section>
+        </article>
     )
 }
 
