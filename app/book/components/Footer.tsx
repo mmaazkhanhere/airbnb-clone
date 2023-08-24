@@ -8,7 +8,7 @@ const Footer = () => {
     return (
         <footer className='w-full bg-slate-200 md:p-8 xl:p-4 mt-20'>
             <footer className='flex flex-col xl:flex-row gap-4 xl:gap-0 items-start
-            md:items-center justify-between max-w-6xl mx-auto'
+            md:items-center justify-between max-w-6xl mx-auto p-4 md:p-0'
             >
                 <div className='flex items-center justify-center gap-5 order-2 xl:order-1'>
                     <ul className='flex flex-col md:flex-row item-start md:items-center 

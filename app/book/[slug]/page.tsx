@@ -5,7 +5,7 @@ import Footer from '../components/Footer'
 
 const Home = () => {
     return (
-        <div>
+        <div className='max-w-sm md:max-w-2xl lg:max-w-4xl xl:max-w-6xl mx-auto'>
             <Header />
             <BookingDetail />
             <Footer />

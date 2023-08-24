@@ -4,6 +4,7 @@ import { MdOutlineKeyboardArrowLeft } from "react-icons/md"
 import { GoMail } from "react-icons/go"
 import Image from 'next/image'
 import { FaStar } from 'react-icons/fa'
+import BookingDetailMobile from './BookingDetailMobile'
 
 const BookingDetail = () => {
     return (
@@ -18,6 +19,7 @@ const BookingDetail = () => {
                     </h1>
                 </div>
                 <div className='flex items-start justify-between w-full  '>
+                    {/*Left Section */}
                     <article className='md:w-1/2 lg:w-3/5 flex flex-col items-start justify-center gap-5 mr-10'>
                         <h2 className='text-2xl font-semibold mt-10'>Your trip</h2>
                         <div className='flex items-center justify-between w-full'>
@@ -93,6 +95,7 @@ const BookingDetail = () => {
                             <p className='text-lg font-semibold text-center w-full'>Contiue with mail</p>
                         </button>
                     </article>
+                    {/*Right Section */}
                     <article className='flex flex-col items-start justify-center md:gap-3 xl:gap-5 md:w-1/2 lg:w-2/5
                     border border-gray-300 rounded-lg p-6 md:sticky md:top-0 md:left-0'>
                         <div className='flex items-center justify-start gap-3 '>
@@ -136,6 +139,10 @@ const BookingDetail = () => {
                     </article>
                 </div>
             </section>
+            <div>
+                <BookingDetailMobile />
+            </div>
+
         </>
 
     )
