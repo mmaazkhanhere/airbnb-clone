@@ -10,6 +10,8 @@ import BookingCalendar from '../components/BookingCalendar'
 import RatingList from '../components/RatingList'
 import Map from '../components/Map'
 import HostDetail from '../components/HostDetail'
+import Rules from '../components/Rules'
+import Footer from '../components/Footer'
 
 const roomHref = [
     {
@@ -23,7 +25,7 @@ const roomHref = [
 
 const RoomDetails = () => {
     return (
-        <main className='mt-6 max-w-6xl mx-auto h-[6000px]'>
+        <main className='mt-6 mx-auto h-[6000px]'>
             <h1 className='font-semibold text-2xl'>Lovely Studio with Burj Khalifa views from Balcony</h1>
 
             {/*Review and location */}
@@ -109,7 +111,15 @@ const RoomDetails = () => {
             {/*Rules and safety */}
 
             <section>
+                <div className='my-14 border border-gray-200 w-full' />
+                <Rules />
+            </section>
 
+            {/*Footer */}
+
+            <section>
+                <div className='mt-14 border border-gray-200 w-full' />
+                <Footer />
             </section>
 
         </main>
