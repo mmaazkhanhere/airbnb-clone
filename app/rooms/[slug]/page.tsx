@@ -1,4 +1,6 @@
-import React from 'react'
+"use client"
+
+import React, { useEffect, useState } from 'react'
 import { BsFillStarFill } from 'react-icons/bs'
 import { IoMdMedal } from "react-icons/io"
 import { LuShare } from "react-icons/lu"
@@ -13,23 +15,39 @@ import HostDetail from '../components/HostDetail'
 import Rules from '../components/Rules'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
+import { RoomProps } from "@/interface";
+import Image from 'next/image'
+import { getDetails } from '@/app/uitls/getDetails'
+import { Image as SanityImage } from 'sanity'
 
-const roomHref = [
-    {
-        href1: '/assets/room3.webp',
-        href2: '/assets/room4.webp',
-        href3: '/assets/room5.webp',
-        href4: '/assets/room6.webp',
-        href5: '/assets/room7.webp'
-    },
-]
+const RoomDetails = ({ params }: { params: { slug: string } }) => {
 
-const RoomDetails = () => {
+    const [data, setData] = useState<RoomProps | null>(null);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const productData = await getDetails(params.slug);
+                setData(productData);
+            } catch (error) {
+                console.error("Error facing while calling getDetails function: ", error);
+                throw new Error("Error while using getDetails function")
+            }
+        };
+        fetchData();
+    }, [params.slug])
+
+    if (data === null) {
+        return <div className='w-full h-screen flex items-center justify-center'>
+            <Image src="/assets/logo.png" alt='Logo Picture' width={200} height={200} />
+        </div>
+    }
+
     return (
         <main >
             <Header />
             <div className='max-w-6xl mx-auto mt-6'>
-                <h1 className='font-semibold text-2xl'>Lovely Studio with Burj Khalifa views from Balcony</h1>
+                <h1 className='font-semibold text-2xl'>{data.name}</h1>
             </div>
 
 
@@ -39,17 +57,21 @@ const RoomDetails = () => {
                 <div className='flex items-center justify-center gap-4'>
                     <div className='flex items-center gap-2 '>
                         <BsFillStarFill />
-                        <span>4.81</span>
+                        <span>{data.ratingsReceived}</span>
                     </div>
                     <p className='underline font-semibold cursor-pointer leading-tight'>
-                        <span>20</span> reviews
+                        <span>{data.reviews}</span> reviews
                     </p>
-                    <div className='flex items-center gap-2'>
-                        <IoMdMedal />
-                        <span>Superhost</span>
-                    </div>
+                    {
+                        data.superhost && (
+                            <div className='flex items-center gap-2'>
+                                <IoMdMedal />
+                                <span>Superhost</span>
+                            </div>
+                        )
+                    }
                     <p className='font-semibold underline'>
-                        <span>Dubai</span>, <span>United Arab Emirates</span>
+                        <span>{data.city}</span>, <span>{data.country}</span>
                     </p>
                 </div>
                 {/*Share and save */}
@@ -69,8 +91,8 @@ const RoomDetails = () => {
 
             <div>
                 {
-                    roomHref.map((ref) => (
-                        <ImageGrid key={ref.href1} href={ref} />
+                    data.images.map((image) => (
+                        <ImageGrid key={image.asset?._key} image={[image]} />
                     ))
                 }
 

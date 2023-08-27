@@ -1,6 +1,6 @@
 import { defineField, defineType } from "sanity";
 
-export const room = defineType({
+export const home = defineType({
     name: 'homes',
     title: 'Homes',
     type: 'document',

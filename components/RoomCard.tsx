@@ -64,23 +64,21 @@ const RoomCard: React.FC<{ details: RoomCardProps, dateStart: string, dateEnd: s
                     </section>
                 </div>
             </div>
-            <Link href={`/rooms/${details.slug}`}>
-                <div className='w-full mt-4'>
-                    <div className='flex flex-col sm:flex-row items-start justify-between'>
-                        <div className='flex flex-col items-start justify-center'>
-                            <p className='font-bold'>{details.city}, {details.country}</p>
-                            <p className='text-gray-400'>{details.subDirection}</p>
-                            <p className='text-gray-400'><span>{dateStart}</span> - <span>{dateEnd}</span></p>
-                            <p><span className='font-bold'>${details.price}</span> night</p>
-                        </div>
-                        <div className='flex items-center mt-4 sm:mt-0 gap-2'>
-                            <BsFillStarFill />
-                            {details.ratingsRecieved}
-                        </div>
+            <Link href={`/rooms/${details.slug}`}
+                className='w-full mt-4'>
+                <div className='flex flex-col sm:flex-row items-start justify-between'>
+                    <div className='flex flex-col items-start justify-center'>
+                        <p className='font-bold'>{details.city}, {details.country}</p>
+                        <p className='text-gray-400'>{details.sub_direction}</p>
+                        <p className='text-gray-400'><span>{dateStart}</span> - <span>{dateEnd}</span></p>
+                        <p><span className='font-bold'>${details.price}</span> night</p>
+                    </div>
+                    <div className='flex items-center mt-4 sm:mt-0 gap-2'>
+                        <BsFillStarFill />
+                        {details.ratingsRecieved}
                     </div>
                 </div>
             </Link>
-
         </article >
     )
 }
