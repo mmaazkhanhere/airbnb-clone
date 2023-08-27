@@ -61,6 +61,15 @@ export interface RoomProps {
     discount: number,
     sub_direction?: string,
     bedrooms: number,
+    bedroomImages: Image[],
     host: HostProps
+}
+
+export interface RoomInformationProps {
+    host: HostProps,
+    bedroom: number,
+    information: string,
+    bedroomImages: Image[]
+    amenities: AmenityProps[]
 }
 

@@ -168,6 +168,13 @@ export const home = defineType({
             validation: (rule) => rule.required(),
         }),
         defineField({
+            name: 'bedroomImages',
+            title: 'Bedroom Images',
+            type: 'array',
+            of: [{ type: 'image' }],
+            validation: (rule) => rule.required(),
+        }),
+        defineField({
             name: 'host',
             title: 'Host',
             type: 'reference',

@@ -23,7 +23,9 @@ export const getDetails = async (slug: string): Promise<RoomProps> => {
             price,
             discount,
             sub_direction,
+            amenities,
             bedrooms,
+            bedroomImages,
             host
         }`;
 

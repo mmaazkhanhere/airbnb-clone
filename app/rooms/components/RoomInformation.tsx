@@ -1,28 +1,31 @@
+
 import Image from 'next/image'
 import React from 'react'
 import { GiDesk } from "react-icons/gi"
 import { BsDoorOpen } from "react-icons/bs"
-import { FaArrowUpFromWaterPump, FaLocationDot } from "react-icons/fa6"
-import { AiOutlineWifi } from 'react-icons/ai'
+import { FaLocationDot } from "react-icons/fa6"
 import Bedroom from './Bedroom'
 import AmenitiesBox from './AmenitiesBox'
+import { RoomInformationProps } from '@/interface'
 
-const Information = () => {
+
+const Information: React.FC<RoomInformationProps> = ({ amenities, bedroom, bedroomImages, host, information }) => {
+    console.log(amenities)
+
     return (
         <main className='flex flex-col items-start justify-center inset-0 pr-10'>
-
             {/*Beds and host information */}
             <section className='flex items-center justify-between w-full'>
                 <div className='flex flex-col items-start justify-center'>
                     <h2 className='text-2xl font-semibold'>
-                        Entire villa hosted by <span>Shreya</span>
+                        Entire villa hosted by <span></span>
                     </h2>
                     <ul className='flex items-center justify-center text-sm list-inside list-disc 
                     text-gray-600 mt-1'>
                         <li>12 guests</li>
-                        <li className='ml-2'>3 bedrooms</li>
-                        <li className='ml-2'> 3 beds</li>
-                        <li className='ml-2'>3 baths</li>
+                        <li className='ml-2'>{bedroom} bedrooms</li>
+                        <li className='ml-2'> {bedroom} beds</li>
+                        <li className='ml-2'>{bedroom} baths</li>
                     </ul>
                 </div>
                 <div className='w-16 h-16 rounded-full overflow-hidden'>
@@ -69,9 +72,7 @@ const Information = () => {
             {/*Detailed Information */}
             <section className='w-full'>
                 <p className='text-md'>
-                    Jannat blends the most luxurious backdrop of your fantasy with nature’s incredible marvels to create a
-                    tranquil utopia that caters to your comfort where Breakfast is complimentary! This 3Bed pool villa in Nashik
-                    is a hidden paradise waiting to dazzle you with its tranquil charm.
+                    {information}
                 </p>
             </section>
 
@@ -84,8 +85,11 @@ const Information = () => {
                 <h2 className='text-2xl font-semibold'>Where you&apos;ll sleep</h2>
                 <div className='grid grid-cols-2 items-center justify-between'>
                     {/*1st Bedroom */}
-                    <Bedroom />
-                    <Bedroom />
+                    {
+                        bedroomImages.map((image, index) => (
+                            <Bedroom image={image} index={index} key={image.asset?._key} />
+                        ))
+                    }
                 </div>
             </section>
 
@@ -98,15 +102,12 @@ const Information = () => {
                 <h2 className='text-2xl font-semibold'>
                     What this place offers
                 </h2>
-                <div className='grid grid-cols-2 items-start justify-center text-xl mt-8'>
-                    <AmenitiesBox />
-                    <AmenitiesBox />
-                    <AmenitiesBox />
-                    <AmenitiesBox />
-                    <AmenitiesBox />
-                    <AmenitiesBox />
-                    <AmenitiesBox />
-                    <AmenitiesBox />
+                <div className='grid grid-cols-2 gap-4 items-start justify-center text-xl mt-8'>
+                    {
+                        amenities.map((amentiy) => (
+                            <AmenitiesBox amenity={amentiy} key={amentiy.name} />
+                        ))
+                    }
                 </div>
                 <button className=' border border-black py-2 px-4 rounded-lg text-lg font-semibold mt-8'>
                     Show all 42 amenities

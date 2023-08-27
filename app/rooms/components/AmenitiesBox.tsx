@@ -1,12 +1,19 @@
+import { urlForImage } from '@/sanity/lib/image'
+import Image from 'next/image'
 import React from 'react'
-import { FaWifi } from 'react-icons/fa'
+import { Image as SanityImage } from 'sanity'
 
+interface AmenityBoxProps {
+    name: string,
+    image: SanityImage
+}
 
-const AmenitiesBox = () => {
+const AmenitiesBox: React.FC<{ amenity: AmenityBoxProps }> = ({ amenity }) => {
+    console.log(amenity.image)
     return (
         <div className='w-full flex items-center justify-start gap-4 mt-4'>
-            <FaWifi size={28} />
-            <span>Wifi</span>
+            <Image src={urlForImage(amenity.image).url()} alt={amenity.name} width={28} height={28} />
+            <span>{amenity.name}</span>
         </div>
     )
 }

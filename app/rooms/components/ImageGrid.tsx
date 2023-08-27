@@ -9,8 +9,6 @@ interface ImageGridProps {
 }
 
 const ImageGrid: React.FC<ImageGridProps> = (image) => {
-
-    console.log(image.image[0])
     return (
         <article className='grid grid-cols-4 items-center justify-center gap-2
         max-w-6xl mt-5 relative mx-auto'>

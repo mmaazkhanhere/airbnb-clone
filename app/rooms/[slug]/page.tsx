@@ -18,7 +18,6 @@ import Header from '../components/Header'
 import { RoomProps } from "@/interface";
 import Image from 'next/image'
 import { getDetails } from '@/app/uitls/getDetails'
-import { Image as SanityImage } from 'sanity'
 
 const RoomDetails = ({ params }: { params: { slug: string } }) => {
 
@@ -90,19 +89,20 @@ const RoomDetails = ({ params }: { params: { slug: string } }) => {
             {/*Image Grid */}
 
             <div>
-                {
-                    data.images.map((image) => (
-                        <ImageGrid key={image.asset?._key} image={[image]} />
-                    ))
-                }
-
+                <ImageGrid key={data.name} image={data.images} />
             </div>
 
             {/*Information */}
 
             <section className='flex w-full items-start justify-center mt-10 max-w-6xl mx-auto'>
                 <div className=' w-2/3'>
-                    <Information />
+                    <Information
+                        host={data.host}
+                        bedroom={data.bedrooms}
+                        information={data.information}
+                        bedroomImages={data.bedroomImages}
+                        amenities={data.amenities}
+                    />
                 </div>
                 <div className='w-1/3 mr-6'>
                     <ReserveBox />
