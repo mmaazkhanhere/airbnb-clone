@@ -1,6 +1,7 @@
 "use client"
 
 import { selectedDateRange } from '@/app/uitls/dateUtils';
+import { formatDateString } from '@/app/uitls/formatDateString';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react'
 import { AiFillStar } from "react-icons/ai"
@@ -12,13 +13,6 @@ const ReserveBox = () => {
 
     const startDate = selectedDateRange[0].startDate;
     const endDate = selectedDateRange[0].endDate;
-
-    const formatDateString = (date: any) => {
-        const day = date.getDate().toString().padStart(2, '0');
-        const month = (date.getMonth() + 1).toString().padStart(2, '0');
-        const year = date.getFullYear().toString();
-        return `${day}/${month}/${year}`;
-    };
 
     const formattedStartDate = formatDateString(startDate);
     const formattedEndDate = formatDateString(endDate);
