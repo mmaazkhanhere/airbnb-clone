@@ -7,7 +7,13 @@ import React, { useState } from 'react'
 import { selectedDateRange, setSelectedDateRange } from '@/app/uitls/dateUtils';
 import { FaRegKeyboard } from "react-icons/fa"
 
-const BookingCalendar = () => {
+interface BookingCalendarProps {
+    dateBooked: Date[]
+}
+
+
+const BookingCalendar: React.FC<BookingCalendarProps> = ({ dateBooked }) => {
+
     const [date, setDate] = useState(selectedDateRange);
 
     return (
@@ -27,13 +33,13 @@ const BookingCalendar = () => {
                 direction={"horizontal"}
                 rangeColors={['black']}
                 minDate={new Date()}
-                disabledDates={[new Date]}
+                disabledDates={[new Date()]}
                 color='#b0aeae'
 
             />
             <div className='py-6 flex items-center justify-between w-full max-w-[650px]'>
-                <FaRegKeyboard size={24} />
-                <p className=' tracking-wide underline font-semibold text-gray-700'>Clear dates</p>
+                <FaRegKeyboard size={24} className="cursor-pointer" />
+                <p className=' tracking-wide underline font-semibold text-gray-700 cursor-pointer'>Clear dates</p>
             </div>
         </div>
     )

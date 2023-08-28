@@ -13,7 +13,6 @@ import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/splide/dist/css/themes/splide-default.min.css';
 
 const RoomCard: React.FC<{ details: RoomCardProps, dateStart: string, dateEnd: string }> = ({ details, dateStart, dateEnd }) => {
-
     return (
         <article className='mt-6 flex inset-0 flex-col items-start justify-center relative max-w-xs'>
             <div className='rounded-lg overflow-hidden'>
@@ -69,7 +68,7 @@ const RoomCard: React.FC<{ details: RoomCardProps, dateStart: string, dateEnd: s
                 <div className='flex flex-col sm:flex-row items-start justify-between'>
                     <div className='flex flex-col items-start justify-center'>
                         <p className='font-bold'>{details.city}, {details.country}</p>
-                        <p className='text-gray-400'>{details.sub_direction}</p>
+                        <p className='text-gray-400'>{details.subtitle}</p>
                         <p className='text-gray-400'><span>{dateStart}</span> - <span>{dateEnd}</span></p>
                         <p><span className='font-bold'>${details.price}</span> night</p>
                     </div>

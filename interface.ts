@@ -4,7 +4,7 @@ export interface RoomCardProps {
     name: string,
     city: string,
     country: string,
-    sub_direction: string,
+    subtitle: string,
     thumbnail: Image,
     date: string,
     price: number,
@@ -59,7 +59,7 @@ export interface RoomProps {
     original_price: number,
     price: number,
     discount: number,
-    sub_direction?: string,
+    sub_direction: string,
     bedrooms: number,
     bedroomImages: Image[],
     host: HostProps
@@ -79,5 +79,21 @@ export interface ReserveBoxProps {
     ratings_recieved: number,
     review: number,
     discount?: number
+}
+
+export interface HeaderProps {
+    original_price: number,
+    price: number,
+    ratings_recieved: number,
+    review: number,
+}
+
+export interface MapProps {
+    longtitude: number,
+    latitude: number,
+    city: string,
+    state: string,
+    country: string,
+    sub_direction: string
 }
 

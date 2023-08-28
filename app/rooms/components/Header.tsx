@@ -7,6 +7,7 @@ import Image from 'next/image'
 import { GiHamburgerMenu } from "react-icons/gi"
 import { BiGlobe } from "react-icons/bi"
 import { FaStar } from 'react-icons/fa';
+import { HeaderProps } from '@/interface';
 
 
 function Avatar() {
@@ -18,7 +19,7 @@ function Avatar() {
     )
 }
 
-const Header = () => {
+const Header: React.FC<HeaderProps> = ({ price, original_price, ratings_recieved, review }) => {
 
     const [menu, setMenu] = useState<boolean>(false);
 
@@ -140,10 +141,18 @@ const Header = () => {
                                 lastScrollY >= 1900 && (
                                     <div className='flex items-center justify-center gap-4'>
                                         <div className='flex flex-col items-start gap-2'>
-                                            <p><span className='font-semibold'>$507</span> night</p>
-                                            <div className='flex items-center justify-start'>
-                                                <FaStar />
-                                                <p className='text-xs'><span>5.00</span> (5 reviews)</p>
+                                            <div className='flex items-center justify-center gap-2 text-lg font-semibold'>
+                                                <p className=' text-gray-500 line-through'>${original_price}</p>
+                                                <p><span>${price}</span> night</p>
+                                            </div>
+                                            <div className='flex items-center justify-start gap-2'>
+                                                <div className='flex items-start justify-center gap-1'>
+                                                    <FaStar />
+                                                    <p className='text-xs'>{ratings_recieved}</p>
+                                                </div>
+                                                <p className='underline text-medium text-gray-400 text-xs'>
+                                                    ({review} reviews)
+                                                </p>
                                             </div>
                                         </div>
                                         <button className='py-4 px-6 text-white font-bold bg-[#dd3c59] 

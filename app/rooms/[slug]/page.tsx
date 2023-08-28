@@ -41,9 +41,17 @@ const RoomDetails = ({ params }: { params: { slug: string } }) => {
             <Image src="/assets/logo.png" alt='Logo Picture' width={200} height={200} />
         </div>
     }
+
+    console.log(data.sub_direction)
+
     return (
         <main >
-            <Header />
+            <Header
+                price={data.price}
+                original_price={data.original_price}
+                ratings_recieved={data.ratings_recieved}
+                review={data.reviews}
+            />
             <div className='max-w-6xl mx-auto mt-6'>
                 <h1 className='font-semibold text-2xl'>{data.name}</h1>
             </div>
@@ -117,7 +125,7 @@ const RoomDetails = ({ params }: { params: { slug: string } }) => {
             {/*Calendar */}
 
             <section className='w-2/3 max-w-6xl mx-auto'>
-                <BookingCalendar />
+                <BookingCalendar dateBooked={[data.dateBooked]} />
             </section>
 
             {/*Ratings */}
@@ -131,7 +139,14 @@ const RoomDetails = ({ params }: { params: { slug: string } }) => {
 
             <section className='max-w-6xl mx-auto'>
                 <div className='my-14 border border-gray-200 w-full' />
-                {/* {<Map />} */}
+                {/* <Map
+                    latitude={data.latitude}
+                    longtitude={data.longtitude}
+                    city={data.city}
+                    state={data.state}
+                    country={data.country}
+                    sub_direction={data.sub_direction}
+                /> */}
             </section>
 
             {/*Host Information */}

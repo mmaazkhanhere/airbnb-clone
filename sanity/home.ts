@@ -149,6 +149,12 @@ export const home = defineType({
             type: 'number',
         }),
         defineField({
+            name: 'subtitle',
+            title: 'Subtitle',
+            type: 'string',
+            validation: (rule) => rule.required(),
+        }),
+        defineField({
             name: 'sub_direction',
             title: 'Direction',
             type: 'string',

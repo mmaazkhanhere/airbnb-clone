@@ -9,7 +9,7 @@ const getRoomDetail = async () => {
         city,
         state,
         country,
-        sub_direction,
+        subtitle,
         price,
         thumbnail,
         ratingsRecieved,
