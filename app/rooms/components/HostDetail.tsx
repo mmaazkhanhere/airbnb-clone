@@ -1,22 +1,27 @@
+
+import { HostProps } from '@/interface'
+import { urlForImage } from '@/sanity/lib/image'
 import Image from 'next/image'
 import React from 'react'
 import { FaStar } from 'react-icons/fa'
 import { MdVerifiedUser } from "react-icons/md"
 import { RiShieldUserFill } from "react-icons/ri"
 
-const HostDetail = () => {
+
+const HostDetail: React.FC<{ host: HostProps }> = ({ host }) => {
+
     return (
         <article>
             <div className='flex items-center justify-start gap-5'>
                 <div className='w-16 h-16 rounded-full overflow-hidden'>
-                    <Image src={"/assets/person1.webp"} alt="Host Picture"
-                        width={100} height={100}
+                    <Image src={urlForImage(host.profile).url()} alt="Host Picture"
+                        width={120} height={120}
                         className='object-cover'
                     />
                 </div>
                 <div className='flex flex-col items-start justify-center'>
                     <h2 className=' text-3xl font-bold tracking-wide'>
-                        Hosted by <span>Shreya</span>
+                        Hosted by <span>{host.name}</span>
                     </h2>
                 </div>
             </div>
@@ -26,7 +31,7 @@ const HostDetail = () => {
                     <div className='flex items-center justify-between gap-5'>
                         <div className='flex items-center justify-center gap-2'>
                             <FaStar size={20} />
-                            <p className='text-xl'><span>66 Reviews</span></p>
+                            <p className='text-xl'><span>{host.review} Reviews</span></p>
                         </div>
                         <div className='flex items-center justify-center gap-2'>
                             <MdVerifiedUser size={20} />
@@ -34,17 +39,16 @@ const HostDetail = () => {
                         </div>
                     </div>
                     <p className='text-lg'>
-                        Hi! I’m Shreya and I’m eager to host families and friends in our private villas, on behalf
-                        of Saffron Stays , a leading private villa rental & luxury hospitality start-up.
+                        {host.background}
                     </p>
                     <div className='flex flex-col gap-2 items-start'>
                         <h4 className='font-semibold text-xl'>Co-Hosts</h4>
                         <div className='flex items-center justify-center gap-4'>
-                            <Image src="/assets/person1.webp" alt="Co-host picture"
+                            <Image src={urlForImage(host.co_host.image).url()} alt={host.co_host.name}
                                 width={100} height={100}
                                 className='w-12 h-12 rounded-full object-cover overflow-hidden'
                             />
-                            <span className='text-lg'>Tejas</span>
+                            <span className='text-lg'>{host.co_host.name}</span>
                         </div>
                     </div>
                     <div className='flex flex-col gap-2'>
@@ -54,9 +58,9 @@ const HostDetail = () => {
 
                 </div>
                 <div className='text-lg flex flex-col items-start gap-6 w-full'>
-                    <p>Language: <span>English</span> </p>
-                    <p>Responsive Rate: <span>90%</span></p>
-                    <p>Response time: within an hour</p>
+                    <p>Language: <span>{host.languages}</span> </p>
+                    <p>Responsive Rate: <span>{host.response_rate}%</span></p>
+                    <p>Response time: {host.response_time}</p>
                     <button className='py-2 px-6 border border-black rounded-lg font-semibold'>
                         Contact Host
                     </button>

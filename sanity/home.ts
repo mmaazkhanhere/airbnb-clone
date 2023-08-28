@@ -1,4 +1,5 @@
 import { defineField, defineType } from "sanity";
+import { category } from "./category";
 
 export const home = defineType({
     name: 'homes',
@@ -51,26 +52,7 @@ export const home = defineType({
             name: 'ratings',
             title: 'Ratings',
             type: 'array',
-            of: [
-                {
-                    type: 'object',
-                    fields: [
-                        {
-                            name: 'category',
-                            title: 'Rating Category',
-                            type: 'reference',
-                            to: [{ type: 'rating' }],
-                            validation: (rule) => rule.required(),
-                        },
-                        {
-                            name: 'value',
-                            title: 'Rating Value',
-                            type: 'number',
-                            validation: (rule) => rule.required(),
-                        }
-                    ],
-                }
-            ],
+            of: [{ type: 'rating' }],
             validation: (rule) => rule.required(),
         }),
         defineField({

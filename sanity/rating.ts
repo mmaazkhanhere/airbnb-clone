@@ -6,9 +6,14 @@ export const rating = defineType({
     type: "document",
     fields: [
         defineField({
-            name: 'name',
+            name: 'category',
             title: "Rating Criteria",
             type: "string"
+        }),
+        defineField({
+            name: 'value',
+            title: "Rating Value",
+            type: "number"
         })
     ]
 })

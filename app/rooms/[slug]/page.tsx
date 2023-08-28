@@ -42,8 +42,6 @@ const RoomDetails = ({ params }: { params: { slug: string } }) => {
         </div>
     }
 
-    console.log(data.sub_direction)
-
     return (
         <main >
             <Header
@@ -132,7 +130,7 @@ const RoomDetails = ({ params }: { params: { slug: string } }) => {
 
             <section className='max-w-6xl mx-auto'>
                 <div className='my-14 border border-gray-200 w-full' />
-                <RatingList />
+                <RatingList criteria={data.ratings} />
             </section>
 
             {/*Map */}
@@ -152,7 +150,7 @@ const RoomDetails = ({ params }: { params: { slug: string } }) => {
             {/*Host Information */}
             <section className='mx-auto max-w-6xl'>
                 <div className='my-14 border border-gray-200 w-full' />
-                <HostDetail />
+                <HostDetail host={data.host} />
             </section>
 
             {/*Rules and safety */}

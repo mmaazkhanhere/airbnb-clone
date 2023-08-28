@@ -14,25 +14,6 @@ export interface RoomCardProps {
     images: Image[]
 }
 
-export interface HostProps {
-    name: string;
-    review: number;
-    ratings: number;
-    background: string;
-    languages: string[];
-    profile: Image,
-    response_rate: number;
-    reponse_time: string;
-    super_host: boolean;
-}
-
-export interface RatingProps {
-    _key: string;
-    category: {
-        _ref: string
-    };
-    value: number;
-}
 
 export interface AmenityProps {
     name: string,
@@ -47,7 +28,7 @@ export interface RoomProps {
     latitude: number,
     longtitude: number,
     ratings_recieved: number,
-    ratings: RatingProps[],
+    ratings: RatingCriteriaProps[],
     amenities: AmenityProps[],
     reviews: number,
     dateBooked: Date,
@@ -97,3 +78,25 @@ export interface MapProps {
     sub_direction: string
 }
 
+export interface RatingCriteriaProps {
+    category: string,
+    value: number
+}
+
+export interface HostProps {
+    name: string,
+    review: number,
+    ratings: number,
+    background: string,
+    languages: string[],
+    profile: Image,
+    response_rate: number,
+    response_time: number,
+    super_host: boolean,
+    co_host: CoHostProps
+}
+
+interface CoHostProps {
+    name: string,
+    image: Image
+}
