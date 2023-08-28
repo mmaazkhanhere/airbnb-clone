@@ -9,7 +9,6 @@ interface AmenityBoxProps {
 }
 
 const AmenitiesBox: React.FC<{ amenity: AmenityBoxProps }> = ({ amenity }) => {
-    console.log(amenity.image)
     return (
         <div className='w-full flex items-center justify-start gap-4 mt-4'>
             <Image src={urlForImage(amenity.image).url()} alt={amenity.name} width={28} height={28} />

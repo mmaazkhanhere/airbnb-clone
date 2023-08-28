@@ -42,7 +42,7 @@ export const home = defineType({
             validation: (rule) => rule.required(),
         }),
         defineField({
-            name: 'ratingsRecieved',
+            name: 'ratings_recieved',
             title: 'Rating Recieved',
             type: 'number',
             validation: (rule) => rule.required(),
@@ -177,8 +177,7 @@ export const home = defineType({
         defineField({
             name: 'host',
             title: 'Host',
-            type: 'reference',
-            to: [{ type: 'host' }],
+            type: 'host',
             validation: (rule) => rule.required(),
         }),
     ]

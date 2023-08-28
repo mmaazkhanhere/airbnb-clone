@@ -10,7 +10,7 @@ export const getDetails = async (slug: string): Promise<RoomProps> => {
             country,
             latitude,
             longtitude,
-            ratingsReceived, 
+            ratings_recieved, 
             ratings,
             reviews,
             dateBooked,

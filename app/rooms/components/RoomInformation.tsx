@@ -7,18 +7,17 @@ import { FaLocationDot } from "react-icons/fa6"
 import Bedroom from './Bedroom'
 import AmenitiesBox from './AmenitiesBox'
 import { RoomInformationProps } from '@/interface'
+import { urlForImage } from '@/sanity/lib/image'
 
 
 const Information: React.FC<RoomInformationProps> = ({ amenities, bedroom, bedroomImages, host, information }) => {
-    console.log(amenities)
-
     return (
         <main className='flex flex-col items-start justify-center inset-0 pr-10'>
             {/*Beds and host information */}
             <section className='flex items-center justify-between w-full'>
                 <div className='flex flex-col items-start justify-center'>
                     <h2 className='text-2xl font-semibold'>
-                        Entire villa hosted by <span></span>
+                        Entire villa hosted by <span>{host.name}</span>
                     </h2>
                     <ul className='flex items-center justify-center text-sm list-inside list-disc 
                     text-gray-600 mt-1'>
@@ -29,7 +28,7 @@ const Information: React.FC<RoomInformationProps> = ({ amenities, bedroom, bedro
                     </ul>
                 </div>
                 <div className='w-16 h-16 rounded-full overflow-hidden'>
-                    <Image src="/assets/person1.webp" alt="Host Picture" width={100} height={100}
+                    <Image src={urlForImage(host.profile).url()} alt={host.name} width={130} height={130}
                         className='object-cover'
                     />
                 </div>

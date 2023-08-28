@@ -41,7 +41,6 @@ const RoomDetails = ({ params }: { params: { slug: string } }) => {
             <Image src="/assets/logo.png" alt='Logo Picture' width={200} height={200} />
         </div>
     }
-
     return (
         <main >
             <Header />
@@ -56,7 +55,7 @@ const RoomDetails = ({ params }: { params: { slug: string } }) => {
                 <div className='flex items-center justify-center gap-4'>
                     <div className='flex items-center gap-2 '>
                         <BsFillStarFill />
-                        <span>{data.ratingsReceived}</span>
+                        <span>{data.ratings_recieved}</span>
                     </div>
                     <p className='underline font-semibold cursor-pointer leading-tight'>
                         <span>{data.reviews}</span> reviews
@@ -105,7 +104,13 @@ const RoomDetails = ({ params }: { params: { slug: string } }) => {
                     />
                 </div>
                 <div className='w-1/3 mr-6'>
-                    <ReserveBox />
+                    <ReserveBox
+                        original_price={data.original_price}
+                        price={data.price}
+                        ratings_recieved={data.ratings_recieved}
+                        review={data.reviews}
+                        discount={data.discount}
+                    />
                 </div>
             </section>
 

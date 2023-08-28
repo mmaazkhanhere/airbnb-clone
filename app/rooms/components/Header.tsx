@@ -62,10 +62,6 @@ const Header = () => {
 
     }, [lastScrollY])
 
-    console.log(lastScrollY)
-    // const [show, setShow] = useState('block');
-
-
     return (
         <header className='relative w-full'>
             {

@@ -1,12 +1,15 @@
 "use client"
 
+import { calculateTotal } from '@/app/uitls/calculateTotal';
+import calculateTotalDays from '@/app/uitls/calculateTotalDays';
 import { selectedDateRange } from '@/app/uitls/dateUtils';
 import { formatDateString } from '@/app/uitls/formatDateString';
+import { ReserveBoxProps } from '@/interface';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react'
 import { AiFillStar } from "react-icons/ai"
 
-const ReserveBox = () => {
+const ReserveBox: React.FC<ReserveBoxProps> = ({ original_price, price, ratings_recieved, review, discount }) => {
 
     const [show, setShow] = useState('block');
     const [lastScrollY, setLastScrollY] = useState(0);
@@ -16,6 +19,8 @@ const ReserveBox = () => {
 
     const formattedStartDate = formatDateString(startDate);
     const formattedEndDate = formatDateString(endDate);
+
+    const totalDays = calculateTotalDays(startDate, endDate);
 
     useEffect(() => {
         const controlBox = () => {
@@ -38,6 +43,8 @@ const ReserveBox = () => {
         };
     }, [lastScrollY]);
 
+    const total = price * totalDays;
+
     return (
         <article
             className={`border shadow-2xl ml-10 rounded-xl ${show} z-10 w-full p-4 max-w-sm`}
@@ -48,10 +55,10 @@ const ReserveBox = () => {
                 {/*Price */}
                 <div className='flex items-center justify-center gap-2'>
                     <span className='text-2xl line-through font-semibold text-gray-400'>
-                        $519
+                        ${original_price}
                     </span>
                     <span className='text-2xl  font-semibold'>
-                        $415
+                        ${price}
                     </span>
                     <span className='font-thin self-end'>night</span>
                 </div>
@@ -59,8 +66,8 @@ const ReserveBox = () => {
                 {/*Ratings */}
                 <div className='flex items-center justify-center gap-2'>
                     <AiFillStar />
-                    <span className='font-semibold'>5.0</span>
-                    <span className='text-gray-500'>5 reviews</span>
+                    <span className='font-semibold'>{ratings_recieved}</span>
+                    <span className='text-gray-500 underline font-medium'>{review} reviews</span>
                 </div>
             </div>
 
@@ -108,13 +115,19 @@ const ReserveBox = () => {
             {/*Price Calculation  */}
 
             <div className='flex items-center justify-between w-full mt-5'>
-                <p className='underline text-gray-600'><span>$519</span> x <span>7</span> nights</p>
-                <span>$3632</span>
+                <p className='underline text-gray-600'><span>${price}</span> x <span>{totalDays}</span> nights</p>
+                <span>{total}</span>
             </div>
-            <div className='flex items-center justify-between w-full mt-5'>
-                <p className='text-gray-600'>Weekly stay discounts</p>
-                <span className='text-green-500'>-$726</span>
-            </div>
+
+            {
+                discount && (
+                    <div className='flex items-center justify-between w-full mt-5'>
+                        <p className='text-gray-600'>Weekly stay discounts</p>
+                        <span className='text-green-500'>-$726</span>
+                    </div>
+                )
+            }
+
 
             {/*Line Separator */}
             <div className='my-4 border border-gray-200 w-full' />
@@ -122,7 +135,7 @@ const ReserveBox = () => {
             {/*Total cost */}
             <div className='flex items-center justify-between w-full pb-2'>
                 <p className='font-semibold'>Total before taxes</p>
-                <span className='font-semibold'>$2906</span>
+                <span className='font-semibold'>${calculateTotal(total)}</span>
             </div>
         </article>
 

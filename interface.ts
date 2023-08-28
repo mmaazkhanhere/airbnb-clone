@@ -46,7 +46,7 @@ export interface RoomProps {
     country: string,
     latitude: number,
     longtitude: number,
-    ratingsReceived: number,
+    ratings_recieved: number,
     ratings: RatingProps[],
     amenities: AmenityProps[],
     reviews: number,
@@ -71,5 +71,13 @@ export interface RoomInformationProps {
     information: string,
     bedroomImages: Image[]
     amenities: AmenityProps[]
+}
+
+export interface ReserveBoxProps {
+    original_price: number,
+    price: number,
+    ratings_recieved: number,
+    review: number,
+    discount?: number
 }
 
