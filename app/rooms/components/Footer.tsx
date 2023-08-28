@@ -36,35 +36,35 @@ const Footer = () => {
             <div className='flex items-start justify-between gap-5 max-w-6xl mx-auto'>
                 <div className='flex flex-col items-start justify-center gap-4'>
                     <h3 className='font-semibold'>Support</h3>
-                    <p className='hover:underline'>Help Center</p>
-                    <p className='hover:underline'>Air Cover</p>
-                    <p className='hover:underline'>Supporting people with disabilities</p>
-                    <p className='hover:underline'>Cancelation options</p>
-                    <p className='hover:underline'>Our COVID-19 Response</p>
-                    <p className='hover:underline'>Report a neighborhood concern</p>
+                    <p className='hover:underline cursor-pointer'>Help Center</p>
+                    <p className='hover:underline cursor-pointer'>Air Cover</p>
+                    <p className='hover:underline cursor-pointer'>Supporting people with disabilities</p>
+                    <p className='hover:underline cursor-pointer'>Cancelation options</p>
+                    <p className='hover:underline cursor-pointer'>Our COVID-19 Response</p>
+                    <p className='hover:underline cursor-pointer'>Report a neighborhood concern</p>
                 </div>
                 <div className='flex flex-col items-start justify-center gap-4'>
                     <h3 className='font-semibold'>Community</h3>
-                    <p className='hover:underline'>Airbnb.org: disaster relief housing</p>
-                    <p className='hover:underline'>Combatinf discrimination</p>
+                    <p className='hover:underline cursor-pointer'>Airbnb.org: disaster relief housing</p>
+                    <p className='hover:underline cursor-pointer'>Combatinf discrimination</p>
                 </div>
                 <div className='flex flex-col items-start justify-center gap-4'>
                     <h3 className='font-semibold'>Hosting</h3>
-                    <p className='hover:underline'>Airbnb your home</p>
-                    <p className='hover:underline'>AirCover for hosts</p>
-                    <p className='hover:underline'>Exploring hosting resources</p>
-                    <p className='hover:underline'>Visit our community forum</p>
-                    <p className='hover:underline'>How to host responsibly</p>
-                    <p className='hover:underline'>Airbnb-friendly apartments</p>
+                    <p className='hover:underline cursor-pointer'>Airbnb your home</p>
+                    <p className='hover:underline cursor-pointer'>AirCover for hosts</p>
+                    <p className='hover:underline cursor-pointer'>Exploring hosting resources</p>
+                    <p className='hover:underline cursor-pointer'>Visit our community forum</p>
+                    <p className='hover:underline cursor-pointer'>How to host responsibly</p>
+                    <p className='hover:underline cursor-pointer'>Airbnb-friendly apartments</p>
                 </div>
                 <div className='flex flex-col items-start justify-center gap-4'>
                     <h3 className='font-semibold'>Airbnb</h3>
-                    <p className='hover:underline'>Newsroom</p>
-                    <p className='hover:underline'>Learn about new features</p>
-                    <p className='hover:underline'>Letter from our founders</p>
-                    <p className='hover:underline'>Careers</p>
-                    <p className='hover:underline'>Investors</p>
-                    <p className='hover:underline'>Gift cards</p>
+                    <p className='hover:underline cursor-pointer'>Newsroom</p>
+                    <p className='hover:underline cursor-pointer'>Learn about new features</p>
+                    <p className='hover:underline cursor-pointer'>Letter from our founders</p>
+                    <p className='hover:underline cursor-pointer'>Careers</p>
+                    <p className='hover:underline cursor-pointer'>Investors</p>
+                    <p className='hover:underline cursor-pointer'>Gift cards</p>
                 </div>
             </div>
             <div className='my-5 w-full border border-gray-200' />
