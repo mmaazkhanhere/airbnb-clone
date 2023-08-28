@@ -12,7 +12,7 @@ const getRoomDetail = async () => {
         subtitle,
         price,
         thumbnail,
-        ratingsRecieved,
+        ratings_recieved,
         "slug":slug.current,
         dateGap,
         images

@@ -8,7 +8,7 @@ export interface RoomCardProps {
     thumbnail: Image,
     date: string,
     price: number,
-    ratingsRecieved: number,
+    ratings_recieved: number,
     slug: string,
     dateGap: number,
     images: Image[]
@@ -93,7 +93,7 @@ export interface HostProps {
     response_rate: number,
     response_time: number,
     super_host: boolean,
-    co_host: CoHostProps
+    co_host?: CoHostProps
 }
 
 interface CoHostProps {

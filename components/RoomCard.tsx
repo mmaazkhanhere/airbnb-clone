@@ -44,7 +44,7 @@ const RoomCard: React.FC<{ details: RoomCardProps, dateStart: string, dateEnd: s
                         >
                             {
                                 details.images.map((image) => (
-                                    <SplideSlide key={image.asset?._key}>
+                                    <SplideSlide key={image.asset?._ref}>
                                         <Link href={`/rooms/${details.slug}`}>
                                             <Image src={urlForImage(image).url()} alt={"Room Images"}
                                                 width={353}
@@ -74,7 +74,7 @@ const RoomCard: React.FC<{ details: RoomCardProps, dateStart: string, dateEnd: s
                     </div>
                     <div className='flex items-center mt-4 sm:mt-0 gap-2'>
                         <BsFillStarFill />
-                        {details.ratingsRecieved}
+                        {details.ratings_recieved}
                     </div>
                 </div>
             </Link>

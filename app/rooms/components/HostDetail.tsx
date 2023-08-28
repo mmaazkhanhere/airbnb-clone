@@ -3,7 +3,7 @@ import { HostProps } from '@/interface'
 import { urlForImage } from '@/sanity/lib/image'
 import Image from 'next/image'
 import React from 'react'
-import { FaStar } from 'react-icons/fa'
+import { FaMedal, FaStar } from 'react-icons/fa'
 import { MdVerifiedUser } from "react-icons/md"
 import { RiShieldUserFill } from "react-icons/ri"
 
@@ -14,7 +14,7 @@ const HostDetail: React.FC<{ host: HostProps }> = ({ host }) => {
         <article>
             <div className='flex items-center justify-start gap-5'>
                 <div className='w-16 h-16 rounded-full overflow-hidden'>
-                    <Image src={urlForImage(host.profile).url()} alt="Host Picture"
+                    <Image src={urlForImage(host.profile).url()} alt={host.name}
                         width={120} height={120}
                         className='object-cover'
                     />
@@ -37,19 +37,31 @@ const HostDetail: React.FC<{ host: HostProps }> = ({ host }) => {
                             <MdVerifiedUser size={20} />
                             <p className='text-xl'><span>Identity verified</span></p>
                         </div>
+                        {
+                            host.super_host && (
+                                <div className='flex items-center justify-center gap-2'>
+                                    <FaMedal siz={20} />
+                                    <p className='text-xl'><span>Superhost</span></p>
+                                </div>
+                            )
+                        }
                     </div>
                     <p className='text-lg'>
                         {host.background}
                     </p>
                     <div className='flex flex-col gap-2 items-start'>
                         <h4 className='font-semibold text-xl'>Co-Hosts</h4>
-                        <div className='flex items-center justify-center gap-4'>
-                            <Image src={urlForImage(host.co_host.image).url()} alt={host.co_host.name}
-                                width={100} height={100}
-                                className='w-12 h-12 rounded-full object-cover overflow-hidden'
-                            />
-                            <span className='text-lg'>{host.co_host.name}</span>
-                        </div>
+                        {
+                            host.co_host && (
+                                <div className='flex items-center justify-center gap-4'>
+                                    <Image src={urlForImage(host.co_host.image).url()} alt={host.co_host.name}
+                                        width={100} height={100}
+                                        className='w-12 h-12 rounded-full object-cover overflow-hidden'
+                                    />
+                                    <span className='text-lg'>{host.co_host.name}</span>
+                                </div>
+                            )
+                        }
                     </div>
                     <div className='flex flex-col gap-2'>
                         <h4 className='font-semibold text-xl'>During your stay</h4>
@@ -58,7 +70,7 @@ const HostDetail: React.FC<{ host: HostProps }> = ({ host }) => {
 
                 </div>
                 <div className='text-lg flex flex-col items-start gap-6 w-full'>
-                    <p>Language: <span>{host.languages}</span> </p>
+                    <p>Language: <span>{host.languages.toString().split(' ')}</span> </p>
                     <p>Responsive Rate: <span>{host.response_rate}%</span></p>
                     <p>Response time: {host.response_time}</p>
                     <button className='py-2 px-6 border border-black rounded-lg font-semibold'>

@@ -101,8 +101,8 @@ export const home = defineType({
         defineField({
             name: 'subcat',
             title: 'Sub Category',
-            type: 'reference',
-            to: [{ type: 'category' }]
+            type: 'array',
+            of: [{ type: 'category' }]
         }),
         defineField({
             name: 'slug',

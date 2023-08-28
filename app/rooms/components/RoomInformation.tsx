@@ -28,7 +28,7 @@ const Information: React.FC<RoomInformationProps> = ({ amenities, bedroom, bedro
                     </ul>
                 </div>
                 <div className='w-16 h-16 rounded-full overflow-hidden'>
-                    <Image src={urlForImage(host.profile).url()} alt={host.name} width={130} height={130}
+                    <Image src={urlForImage(host.profile).url()} alt={host.name} width={80} height={80}
                         className='object-cover'
                     />
                 </div>
