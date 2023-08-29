@@ -104,3 +104,9 @@ export interface CoHostProps {
     name: string,
     image: Image
 }
+
+export interface SubCategoryProps {
+    sub_category: string,
+    image: Image,
+    slug: string
+}

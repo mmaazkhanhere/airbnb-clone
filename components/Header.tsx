@@ -14,6 +14,7 @@ import { GiHamburgerMenu } from "react-icons/gi"
 
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
+import { SubCategoryProps } from '@/interface';
 
 function Avatar() {
     return (
@@ -24,10 +25,7 @@ function Avatar() {
     )
 }
 
-const Header = () => {
-
-    const totalItems = 22;   // Total number of items
-    const itemsPerPage = 12;
+const Header: React.FC<{ category: SubCategoryProps[] }> = ({ category }) => {
 
     const [menu, setMenu] = useState<boolean>(false);
 
@@ -58,8 +56,8 @@ const Header = () => {
     }, [menu])
 
     return (
-        <nav className={`${pathName === '/' ? 'fixed' : 'block'} top-0  md:right-0 md:left-30 bg-white z-20 
-            max-w-sm md:max-w-3xl lg:max-w-5xl xl:max-w-[1750px] md:px-6 lg:px-4 xl:px-0 mx-auto`}>
+        <nav className={`${pathName === '/' ? 'fixed' : 'block'} top-0 md:left-30 bg-white z-20 
+            w-sm md:w-3xl lg:w-5xl xl:w-[1750px] md:px-6 lg:px-4 xl:px-0 mx-auto`}>
             {
                 pathName === '/' && (
                     <div className=" mx-auto flex items-center justify-center md:justify-between py-4 ">
@@ -111,40 +109,39 @@ const Header = () => {
                         <div className='border border-gray-200 w-full' />
                         <div className='flex items-center justify-start 
                         md:gap-1 lg:gap-3 xl:gap-4'>
-                            <section className='mt-[20px] max-w-sm md:max-w-[584px] 
-                            lg:max-w-[824px] xl:max-w-[1650px]'>
+                            <section className='mt-[20px] w-[380px] md:w-[584px] 
+                            lg:w-[824px] xl:w-full'>
                                 <Splide
                                     options={{
                                         pagination: false,
                                         rewind: false,
                                         gap: '12px',
                                         focus: 'center',
-                                        perPage: itemsPerPage,
-                                        perMove: 9,
+                                        perPage: 15,
+                                        perMove: 2,
                                         breakpoints: {
                                             1024: {
                                                 perPage: 9,
-                                                perMove: 6,
                                                 gap: '10px'
                                             },
                                             765: {
                                                 perPage: 7,
-                                                perMove: 4,
                                                 gap: '8px'
                                             },
                                             380: {
                                                 perPage: 4,
-                                                perMove: 2,
                                                 gap: '6px'
                                             }
                                         }
                                     }}
                                 >
-                                    {Array.from({ length: totalItems }).map((_, index) => (
-                                        <SplideSlide key={index}>
-                                            <SubCategoryItem />
-                                        </SplideSlide>
-                                    ))}
+                                    {
+                                        category.map((cat) => (
+                                            <SplideSlide key={cat.sub_category}>
+                                                <SubCategoryItem subCat={cat} />
+                                            </SplideSlide>
+                                        ))
+                                    }
                                 </Splide>
                             </section>
                             <div className='hidden md:flex items-center justify-center py-4 px-2 gap-2 border rounded-lg'>
