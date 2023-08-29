@@ -44,7 +44,8 @@ export const host = defineType({
         defineField({
             name: 'co_host',
             title: 'Co Host',
-            type: 'cohost',
+            type: 'array',
+            of: [{ type: 'cohost' }]
         }),
         defineField({
             name: 'reponse_time',

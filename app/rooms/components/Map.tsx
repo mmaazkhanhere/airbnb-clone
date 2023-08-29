@@ -1,7 +1,6 @@
 "use client"
 
 import React from 'react'
-import L from 'leaflet';
 import { Circle, LayerGroup, MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
 
 import 'leaflet/dist/leaflet.css'

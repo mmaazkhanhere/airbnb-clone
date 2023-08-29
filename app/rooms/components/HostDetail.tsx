@@ -6,6 +6,7 @@ import React from 'react'
 import { FaMedal, FaStar } from 'react-icons/fa'
 import { MdVerifiedUser } from "react-icons/md"
 import { RiShieldUserFill } from "react-icons/ri"
+import Cohost from './Cohost'
 
 
 const HostDetail: React.FC<{ host: HostProps }> = ({ host }) => {
@@ -52,13 +53,13 @@ const HostDetail: React.FC<{ host: HostProps }> = ({ host }) => {
                     <div className='flex flex-col gap-2 items-start'>
                         <h4 className='font-semibold text-xl'>Co-Hosts</h4>
                         {
-                            host.co_host && (
-                                <div className='flex items-center justify-center gap-4'>
-                                    <Image src={urlForImage(host.co_host.image).url()} alt={host.co_host.name}
-                                        width={100} height={100}
-                                        className='w-12 h-12 rounded-full object-cover overflow-hidden'
-                                    />
-                                    <span className='text-lg'>{host.co_host.name}</span>
+                            host.co_host?.length > 0 && (
+                                <div className='flex items-center justify-start gap-4'>
+                                    {
+                                        host.co_host?.map((host) => (
+                                            <Cohost host={host} key={host.name} />
+                                        ))
+                                    }
                                 </div>
                             )
                         }

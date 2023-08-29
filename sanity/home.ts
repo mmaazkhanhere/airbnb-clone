@@ -38,7 +38,6 @@ export const home = defineType({
             name: 'state',
             title: 'State',
             type: 'string',
-            validation: (rule) => rule.required(),
         }),
         defineField({
             name: 'country',
@@ -154,14 +153,14 @@ export const home = defineType({
             validation: (rule) => rule.required(),
         }),
         defineField({
-            name: 'longtitude',
-            title: 'Longtitude',
+            name: 'latitude',
+            title: 'Latitude',
             type: 'number',
             validation: (rule) => rule.required(),
         }),
         defineField({
-            name: 'latitude',
-            title: 'Latitude',
+            name: 'longtitude',
+            title: 'Longtitude',
             type: 'number',
             validation: (rule) => rule.required(),
         }),

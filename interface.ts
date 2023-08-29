@@ -97,10 +97,10 @@ export interface HostProps {
     response_rate: number,
     response_time: number,
     super_host: boolean,
-    co_host?: CoHostProps
+    co_host?: CoHostProps[]
 }
 
-interface CoHostProps {
+export interface CoHostProps {
     name: string,
     image: Image
 }
