@@ -5,7 +5,6 @@ import React, { useEffect, useRef, useState } from 'react'
 
 import '@splidejs/react-splide/css';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
-import '@splidejs/splide/dist/css/themes/splide-default.min.css';
 
 import SubCategoryItem from './SubCategoryItem';
 import { BsSearch } from "react-icons/bs"
@@ -27,8 +26,8 @@ function Avatar() {
 
 const Header = () => {
 
-    const totalItems = 40;   // Total number of items
-    const itemsPerPage = 17;
+    const totalItems = 22;   // Total number of items
+    const itemsPerPage = 12;
 
     const [menu, setMenu] = useState<boolean>(false);
 
@@ -59,31 +58,38 @@ const Header = () => {
     }, [menu])
 
     return (
-        <nav className={`${pathName === '/' ? 'fixed' : 'block'} top-0 left-30 bg-white z-20 w-[1750px]`}>
+        <nav className={`${pathName === '/' ? 'fixed' : 'block'} top-0  md:right-0 md:left-30 bg-white z-20 
+            max-w-sm md:max-w-3xl lg:max-w-5xl xl:max-w-[1750px] md:px-6 lg:px-4 xl:px-0 mx-auto`}>
             {
                 pathName === '/' && (
-                    <div className="max-w-[1750px] mx-auto flex items-center justify-between py-4">
+                    <div className=" mx-auto flex items-center justify-center md:justify-between py-4 ">
                         {/*Logo */}
                         <Link href="/">
-                            <Image src="/assets/logo.png" alt="Airbnb Logo" width={110} height={110} />
+                            <Image src="/assets/logo.png" alt="Airbnb Logo" width={110} height={110}
+                                className='hidden lg:block' />
+                            <Image src="/assets/logo-small.png" alt="Airbnb Logo" width={40} height={40}
+                                className='hidden md:block lg:hidden' />
                         </Link>
                         {/*Search bar */}
                         <nav className='flex items-center justify-center rounded-3xl border shadow-sm hover:shadow-lg'>
-                            <div className='border-r-2 border-l-gray-500 text-base font-semibold px-4'>
+                            <div className='border-r-2 border-l-gray-500 text-sm md:text-base font-semibold px-2 
+                            md:px-3 lg:px-4'>
                                 Anywhere
                             </div>
-                            <div className='border-r-2 border-l-gray-500 text-base font-semibold px-4'>
+                            <div className='border-r-2 border-l-gray-500 text-sm md:text-base font-semibold px-2 
+                            md:px-3 lg:px-4'>
                                 Any week
                             </div>
                             <div className='flex items-center justify-center p-2'>
-                                <input placeholder='Add guests' className=' placeholder:text-gray-500 w-24' />
-                                <div className='p-2 bg-[#fe385d] rounded-full'>
+                                <input placeholder='Add guests' className=' placeholder:text-gray-500 text-sm md:text-base
+                                w-24' />
+                                <div className='p-1 lg:p-2 bg-[#fe385d] rounded-full'>
                                     <BsSearch className="text-white font-black" />
                                 </div>
                             </div>
                         </nav>
                         {/*User profile and other */}
-                        <nav className='flex items-center gap-5 '>
+                        <nav className='items-center md:gap-2 lg:gap-5 hidden md:flex'>
                             <p className='font-semibold text-gray-600 leading-tight'>Airbnb your home</p>
                             <BiGlobe size={22} className="text-gray-700" />
                             <div className='border-2 flex items-center justify-between rounded-3xl 
@@ -101,18 +107,37 @@ const Header = () => {
             }
             {
                 pathName === "/" && (
-                    <section className='-z-20 mb-4'>
+                    <section className='-z-20 mb-4 md:px-6 lg:px-4 xl:px-0 '>
                         <div className='border border-gray-200 w-full' />
-                        <div className='flex items-center justify-start max-w-[1750px] gap-4'>
-                            <section className='mt-[20px] max-w-[1650px]'>
+                        <div className='flex items-center justify-start 
+                        md:gap-1 lg:gap-3 xl:gap-4'>
+                            <section className='mt-[20px] max-w-sm md:max-w-[584px] 
+                            lg:max-w-[824px] xl:max-w-[1650px]'>
                                 <Splide
                                     options={{
-                                        perPage: itemsPerPage,
                                         pagination: false,
-                                        gap: '1rem',
                                         rewind: false,
+                                        gap: '12px',
                                         focus: 'center',
-                                        perMove: itemsPerPage,
+                                        perPage: itemsPerPage,
+                                        perMove: 9,
+                                        breakpoints: {
+                                            1024: {
+                                                perPage: 9,
+                                                perMove: 6,
+                                                gap: '10px'
+                                            },
+                                            765: {
+                                                perPage: 7,
+                                                perMove: 4,
+                                                gap: '8px'
+                                            },
+                                            380: {
+                                                perPage: 4,
+                                                perMove: 2,
+                                                gap: '6px'
+                                            }
+                                        }
                                     }}
                                 >
                                     {Array.from({ length: totalItems }).map((_, index) => (
@@ -122,7 +147,7 @@ const Header = () => {
                                     ))}
                                 </Splide>
                             </section>
-                            <div className='flex items-center justify-center py-4 px-2 gap-2 border rounded-lg'>
+                            <div className='hidden md:flex items-center justify-center py-4 px-2 gap-2 border rounded-lg'>
                                 <HiAdjustmentsHorizontal size={22} />
                                 <p>Filter</p>
                             </div>

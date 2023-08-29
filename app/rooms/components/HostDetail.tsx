@@ -53,7 +53,7 @@ const HostDetail: React.FC<{ host: HostProps }> = ({ host }) => {
                     <div className='flex flex-col gap-2 items-start'>
                         <h4 className='font-semibold text-xl'>Co-Hosts</h4>
                         {
-                            host.co_host?.length > 0 && (
+                            host.co_host?.map > 0 && (
                                 <div className='flex items-center justify-start gap-4'>
                                     {
                                         host.co_host?.map((host) => (
@@ -71,9 +71,21 @@ const HostDetail: React.FC<{ host: HostProps }> = ({ host }) => {
 
                 </div>
                 <div className='text-lg flex flex-col items-start gap-6 w-full'>
-                    <p>Language: <span>{host.languages.toString().split(' ')}</span> </p>
-                    <p>Responsive Rate: <span>{host.response_rate}%</span></p>
-                    <p>Response time: {host.response_time}</p>
+                    {
+                        host.languages.length > 0 && (
+                            <p>Language: <span>{host.languages.toString().split(' ')}</span> </p>
+                        )
+                    }
+                    {
+                        host.response_rate && (
+                            <p>Responsive Rate: <span>{host.response_rate}%</span></p>
+                        )
+                    }
+                    {
+                        host.response_time && (
+                            <p>Response time: {host.response_time}</p>
+                        )
+                    }
                     <button className='py-2 px-6 border border-black rounded-lg font-semibold'>
                         Contact Host
                     </button>

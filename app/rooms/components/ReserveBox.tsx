@@ -55,9 +55,14 @@ const ReserveBox: React.FC<ReserveBoxProps> =
                 <div className='flex items-center justify-between w-full'>
                     {/*Price */}
                     <div className='flex items-center justify-center gap-2'>
-                        <span className='text-2xl line-through font-semibold text-gray-400'>
-                            ${original_price}
-                        </span>
+                        {
+                            original_price && (
+                                <span className='text-2xl line-through font-semibold text-gray-400'>
+                                    ${original_price}
+                                </span>
+                            )
+                        }
+
                         <span className='text-2xl  font-semibold'>
                             ${price}
                         </span>
@@ -128,7 +133,7 @@ const ReserveBox: React.FC<ReserveBoxProps> =
                     )
                 }
                 {
-                    airbnb_fee && (
+                    clean_fee && (
                         <div className='flex items-center justify-between w-full mt-5'>
                             <p className='text-gray-600 underline cursor-pointer'>Cleaning Fee</p>
                             <span className='text-gray-600'>{clean_fee}</span>
