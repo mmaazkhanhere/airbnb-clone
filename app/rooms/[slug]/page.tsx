@@ -137,14 +137,14 @@ const RoomDetails = ({ params }: { params: { slug: string } }) => {
 
             <section className='max-w-6xl mx-auto'>
                 <div className='my-14 border border-gray-200 w-full' />
-                {/* <Map
+                <Map
                     latitude={data.latitude}
                     longtitude={data.longtitude}
                     city={data.city}
                     state={data.state}
                     country={data.country}
                     sub_direction={data.sub_direction}
-                /> */}
+                />
             </section>
 
             {/*Host Information */}

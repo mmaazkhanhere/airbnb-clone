@@ -18,7 +18,7 @@ const Map: React.FC<MapProps> = ({ longtitude, latitude, state, city, country, s
     return (
         <article>
             <h2 className='text-2xl font-semibold my-2'>
-                Where you&absp;ll be
+                Where you&apos;ll be
             </h2>
             <div className='w-full '>
                 <MapContainer

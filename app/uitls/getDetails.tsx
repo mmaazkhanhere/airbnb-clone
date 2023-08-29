@@ -21,6 +21,8 @@ export const getDetails = async (slug: string): Promise<RoomProps> => {
             subcategory,
             original_price,
             price,
+            airbnb_fee,
+            clean_fee,
             discount,
             sub_direction,
             amenities,
