@@ -60,7 +60,7 @@ const RoomDetails = ({ params }: { params: { slug: string } }) => {
 
             <div className='flex items-center justify-between gap-5 mt-2 mx-auto
             max-w-sm md:max-w-3xl lg:max-w-5xl xl:max-w-[1750px]'>
-                <div className='flex items-center justify-center gap-4 text-lg'>
+                <div className='flex items-center justify-center gap-4 text-base lg:text-lg'>
                     <div className='flex items-center gap-2 '>
                         <BsFillStarFill />
                         <span className='text-bold'>{data.ratings_recieved}</span>
@@ -101,9 +101,8 @@ const RoomDetails = ({ params }: { params: { slug: string } }) => {
 
             {/*Information */}
 
-            <section className='flex w-full items-start justify-center mt-10 max-w-sm 
-            md:max-w-3xl lg:max-w-5xl xl:max-w-[1750px] mx-auto'>
-                <div className='lg:w-3/5 xl:w-2/3'>
+            <section className='flex w-full items-start justify-center mt-10 mx-auto'>
+                <div className='md:w-3/5 xl:w-2/3'>
                     <Information
                         host={data.host}
                         bedroom={data.bedrooms}
@@ -112,7 +111,7 @@ const RoomDetails = ({ params }: { params: { slug: string } }) => {
                         amenities={data.amenities}
                     />
                 </div>
-                <div className='lg:w-2/5 xl:w-1/3 mr-6'>
+                <div className='md:w-2/5 xl:w-1/3 mr-6'>
                     <ReserveBox
                         original_price={data.original_price}
                         price={data.price}

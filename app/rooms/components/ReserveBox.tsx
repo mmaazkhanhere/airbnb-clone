@@ -48,12 +48,13 @@ const ReserveBox: React.FC<ReserveBoxProps> =
 
         return (
             <article
-                className={`border shadow-2xl ml-10 rounded-xl ${show} z-10 p-4  
-                `}
+                className={`border shadow-2xl lg:ml-10 rounded-xl ${show} z-10 p-4 
+                md:max-w-sm xl:max-w-md`}
             >
                 {/*Price and Review */}
 
-                <div className='flex items-center justify-between w-full'>
+                <div className='flex flex-col lg:flex-row items-start lg:items-center 
+                justify-between w-full md:gap-2 lg:gap-0'>
                     {/*Price */}
                     <div className='flex items-center justify-center gap-2'>
                         {
@@ -64,10 +65,9 @@ const ReserveBox: React.FC<ReserveBoxProps> =
                             )
                         }
 
-                        <span className='text-2xl  font-semibold'>
-                            ${price}
-                        </span>
-                        <span className='font-thin self-end'>night</span>
+                        <p className='text-2xl font-semibold'>
+                            ${price} <span className='text-base font-thin self-end'>night</span>
+                        </p>
                     </div>
 
                     {/*Ratings */}
@@ -81,11 +81,13 @@ const ReserveBox: React.FC<ReserveBoxProps> =
                 {/*Checkout and checkin settings */}
 
                 <div className='grid grid-cols-2 border rounded-xl w-full mt-6'>
-                    <div className='w-full p-2 flex flex-col items-start justify-center border-r'>
+                    <div className='w-full p-2 flex flex-col items-start justify-center border-r
+                    md:col-span-2 lg:col-span-1'>
                         <p className='text-xs uppercase font-medium'>check-in</p>
                         <span className='w-full py-2'>{formattedStartDate}</span>
                     </div>
-                    <div className='w-full p-2 flex flex-col items-start justify-center border-b'>
+                    <div className='w-full p-2 flex flex-col items-start justify-center border-b
+                    md:col-span-2 lg:col-span-1'>
                         <p className='text-xs uppercase font-medium'>checkout</p>
                         <span className='w-full py-2'>{formattedEndDate}</span>
                     </div>
