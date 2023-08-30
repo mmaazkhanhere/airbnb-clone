@@ -12,7 +12,14 @@ import '@splidejs/react-splide/css';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/splide/dist/css/themes/splide-default.min.css';
 
-const RoomCard: React.FC<{ details: RoomCardProps, dateStart: string, dateEnd: string }> = ({ details, dateStart, dateEnd }) => {
+const RoomCard: React.FC<{ details: RoomCardProps }> = ({ details }) => {
+
+    const dateStart = new Date().toLocaleString('en-US', { month: 'short', day: 'numeric' });
+    const gapDate = new Date(new Date());
+    gapDate.setDate(new Date().getDate() + details.dateGap);
+
+    const dateEnd = gapDate.toLocaleString('en-US', { month: 'short', day: 'numeric' });
+
     return (
         <article className='mt-6 flex inset-0 flex-col items-start justify-center relative max-w-xs mx-auto'>
             <div className='rounded-lg overflow-hidden'>

@@ -63,13 +63,6 @@ const RoomList: React.FC<{ subCategory: string }> = ({ subCategory }) => {
         </div>
     }
 
-    const dateStart = new Date().toLocaleString('en-US', { month: 'short', day: 'numeric' });
-
-    const gapDate = new Date(new Date());
-    gapDate.setDate(new Date().getDate() + data[0].dateGap);
-
-    const dateEnd = gapDate.toLocaleString('en-US', { month: 'short', day: 'numeric' });
-
     return (
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 
         gap-6 items-center justify-center max-w-sm md:max-w-3xl lg:max-w-5xl xl:max-w-[1750px] 
@@ -77,7 +70,7 @@ const RoomList: React.FC<{ subCategory: string }> = ({ subCategory }) => {
         >
             {
                 data.map((room) => (
-                    <RoomCard key={room.name} details={room} dateStart={dateStart} dateEnd={dateEnd} />
+                    <RoomCard key={room.name} details={room} />
                 ))
             }
         </div>

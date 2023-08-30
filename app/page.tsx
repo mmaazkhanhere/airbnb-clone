@@ -31,8 +31,6 @@ const Home = () => {
     fetchData();
   }, [])
 
-  console.log(category);
-
   return (
     <div >
       <Header category={subCat} setCat={setCategory} />

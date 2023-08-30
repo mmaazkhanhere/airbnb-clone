@@ -15,15 +15,5 @@ export const category = defineType({
             title: 'Category Image',
             type: 'image'
         }),
-        defineField({
-            name: 'slug',
-            title: 'Slug',
-            type: 'slug',
-            validation: (rule) => rule.required(),
-            options: {
-                source: 'sub_category',
-                maxLength: 200
-            }
-        }),
     ]
 })
