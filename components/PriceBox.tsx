@@ -19,7 +19,8 @@ const PriceBox = () => {
     }
 
     return (
-        <article className='mx-auto w-full xl:max-w-2xl mt-[200px] border rounded-xl md:block'>
+        <article className='mx-auto max-w-md md:max-w-3xl lg:max-w-5xl xl:max-w-2xl mt-[200px] 
+        border rounded-xl md:block md:px-6 lg:px-4 xl:px-0'>
             <div className='flex items-center justify-between py-2 lg:py-5 px-2'>
                 <div className='flex flex-col md:flex-row items-start md:items-center gap-2 md:gap-4'>
                     <p className='font-semibold border-r border-r-gray-300  pr-12 md:pr-4'>Display total price</p>

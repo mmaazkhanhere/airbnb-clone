@@ -14,7 +14,7 @@ import '@splidejs/splide/dist/css/themes/splide-default.min.css';
 
 const RoomCard: React.FC<{ details: RoomCardProps, dateStart: string, dateEnd: string }> = ({ details, dateStart, dateEnd }) => {
     return (
-        <article className='mt-6 flex inset-0 flex-col items-start justify-center relative max-w-xs'>
+        <article className='mt-6 flex inset-0 flex-col items-start justify-center relative max-w-xs mx-auto'>
             <div className='rounded-lg overflow-hidden'>
                 <div className='absolute z-10 top-5 right-5 
                     text-gray-800 opacity-80'>
@@ -65,7 +65,7 @@ const RoomCard: React.FC<{ details: RoomCardProps, dateStart: string, dateEnd: s
             </div>
             <Link href={`/rooms/${details.slug}`}
                 className='w-full mt-4'>
-                <div className='flex flex-col sm:flex-row items-start justify-between'>
+                <div className='flex md:flex-col flex-row items-start justify-between'>
                     <div className='flex flex-col items-start justify-center'>
                         <p className='font-bold'>{details.city}, {details.country}</p>
                         <p className='text-gray-400'>{details.subtitle}</p>

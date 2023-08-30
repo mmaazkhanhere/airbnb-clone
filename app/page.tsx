@@ -1,3 +1,4 @@
+"use client"
 
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
@@ -5,7 +6,7 @@ import PriceBox from '@/components/PriceBox'
 import RoomList from '@/components/RoomList'
 import { SubCategoryProps } from '@/interface'
 import { client } from '@/sanity/lib/client'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 
 const getData = async () => {
@@ -14,18 +15,29 @@ const getData = async () => {
     image,
     slug
   }`);
-  console.log(query)
   return query;
 }
 
-const Home = async () => {
+const Home = () => {
 
-  const catData: SubCategoryProps[] = await getData();
+  const [subCat, setSubCat] = useState<SubCategoryProps[]>([]);
+  const [category, setCategory] = useState<string>("");
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await getData();
+      setSubCat(data);
+    }
+    fetchData();
+  }, [])
+
+  console.log(category);
+
   return (
     <div >
-      <Header category={catData} />
+      <Header category={subCat} setCat={setCategory} />
       <PriceBox />
-      <RoomList />
+      <RoomList subCategory={category} />
       <Footer />
     </div>
   )

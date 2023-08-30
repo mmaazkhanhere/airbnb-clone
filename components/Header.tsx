@@ -25,9 +25,15 @@ function Avatar() {
     )
 }
 
-const Header: React.FC<{ category: SubCategoryProps[] }> = ({ category }) => {
+const Header: React.FC<{ category: SubCategoryProps[], setCat: (value: string) => void }> = ({ category, setCat }) => {
 
     const [menu, setMenu] = useState<boolean>(false);
+    const [catSelected, setCatSelected] = useState<string>("");
+    setCat(catSelected);
+
+    const handleCategory = (value: string) => {
+        setCatSelected(value);
+    }
 
     const pathName = usePathname();
 
@@ -107,7 +113,7 @@ const Header: React.FC<{ category: SubCategoryProps[] }> = ({ category }) => {
                 pathName === "/" && (
                     <section className='-z-20 mb-4 md:px-6 lg:px-4 xl:px-0 '>
                         <div className='border border-gray-200 w-full' />
-                        <div className='flex items-center justify-start 
+                        <div className='flex items-centem r justify-start 
                         md:gap-1 lg:gap-3 xl:gap-4'>
                             <section className='mt-[20px] w-[380px] md:w-[584px] 
                             lg:w-[824px] xl:w-full'>
@@ -138,7 +144,7 @@ const Header: React.FC<{ category: SubCategoryProps[] }> = ({ category }) => {
                                     {
                                         category.map((cat) => (
                                             <SplideSlide key={cat.sub_category}>
-                                                <SubCategoryItem subCat={cat} />
+                                                <SubCategoryItem subCat={cat} onCategorySelect={handleCategory} />
                                             </SplideSlide>
                                         ))
                                     }

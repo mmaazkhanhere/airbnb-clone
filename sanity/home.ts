@@ -1,5 +1,4 @@
 import { defineField, defineType } from "sanity";
-import { category } from "./category";
 
 export const home = defineType({
     name: 'homes',
