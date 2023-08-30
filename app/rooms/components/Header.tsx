@@ -7,7 +7,11 @@ import Image from 'next/image'
 import { GiHamburgerMenu } from "react-icons/gi"
 import { BiGlobe } from "react-icons/bi"
 import { FaStar } from 'react-icons/fa';
+import { IoIosArrowBack } from "react-icons/io"
 import { HeaderProps } from '@/interface';
+import { LuShare } from 'react-icons/lu';
+import { AiOutlineHeart } from 'react-icons/ai';
+
 
 
 function Avatar() {
@@ -64,51 +68,71 @@ const Header: React.FC<HeaderProps> = ({ price, original_price, ratings_recieved
     }, [lastScrollY])
 
     return (
-        <header className='relative w-full max-w-sm md:max-w-3xl lg:max-w-5xl xl:max-w-[1750px]
-        md:px-8 xl:px-0 mx-auto'>
+        <header className='relative mx-auto'>
             {
                 (lastScrollY > 0 || lastScrollY <= 400) && (
-                    <nav className='flex items-center justify-between max-w-6xl mx-auto py-4 '>
-                        {/*Icon */}
-                        <Link href="/">
-                            <Image src="/assets/logo.png" alt="Airbnb Logo" width={110} height={110} />
-                        </Link>
-                        {/*Search bar */}
-                        <nav className='flex items-center justify-center rounded-3xl border shadow-md 
-                    hover:shadow-lg py-2 pl-6 pr-2 cursor-pointer'
-                        >
-                            <input placeholder='Start your search' className=' placeholder:text-gray-700 font-semibold w-60' />
-                            <div className='p-2 bg-[#fe385d] rounded-full'>
-                                <BsSearch className="text-white font-black" />
-                            </div>
-                        </nav>
-                        {/*User and avatar */}
-                        <nav className='flex items-center gap-5 '>
-                            <p className='font-semibold text-gray-600 leading-tight rounded-xl hover:bg-gray-100
-                    py-2 px-4 cursor-pointer'>
-                                Airbnb your home
-                            </p>
-                            <div className='rounded-full hover:bg-gray-100 cursor-pointer p-2'>
-                                <BiGlobe size={22} className="text-gray-700 " />
-                            </div>
-                            <div className='border-2 flex items-center justify-between rounded-3xl 
-                        gap-2 px-4 py-1 hover:shadow-md cursor-pointer'>
-                                <button onClick={handleMenu}>
-                                    <GiHamburgerMenu className="text-gray-600" />
-                                </button>
-                                <div className="text-gray-500">
-                                    <Avatar />
+                    <>
+                        <nav className='hidden md:flex items-center justify-between mx-auto py-4'>
+                            {/*Icon */}
+                            <Link href="/" className='hidden lg:block'>
+                                <Image src="/assets/logo.png" alt="Airbnb Logo" width={110} height={110} />
+                            </Link>
+                            <Link href="/" className='block lg:hidden'>
+                                <Image src="/assets/logo-small.png" alt="Airbnb Logo" width={40} height={40} />
+                            </Link>
+                            {/*Search bar */}
+                            <nav className='flex items-center justify-center rounded-3xl border shadow-md 
+                        hover:shadow-lg py-2 lg:pl-6 lg:pr-2 cursor-pointer'
+                            >
+                                <input placeholder='Start your search'
+                                    className=' placeholder:text-gray-700 md:text-sm lg:text-base 
+                                font-semibold w-60 md:px-3 lg:px-0'
+                                />
+                                <div className='p-2 bg-[#fe385d] rounded-full mr-2'>
+                                    <BsSearch className="text-white font-black" />
                                 </div>
+                            </nav>
+                            {/*User and avatar */}
+                            <nav className='flex items-center lg:gap-5 md:text-sm lg:text-base'>
+                                <p className='font-semibold text-gray-600 leading-tight rounded-xl hover:bg-gray-100
+                            py-2 md:px-2 lg:px-4  cursor-pointer'>
+                                    Airbnb your home
+                                </p>
+                                <div className='rounded-full hover:bg-gray-100 cursor-pointer p-2'>
+                                    <BiGlobe size={22} className="text-gray-700 " />
+                                </div>
+                                <div className='border-2 flex items-center justify-between rounded-3xl 
+                            gap-2 px-4 py-1 hover:shadow-md cursor-pointer'>
+                                    <button onClick={handleMenu}>
+                                        <GiHamburgerMenu className="text-gray-600" />
+                                    </button>
+                                    <div className="text-gray-500">
+                                        <Avatar />
+                                    </div>
+                                </div>
+                            </nav>
+                        </nav>
+                        {/*Navbar for mobile */}
+                        <nav className='flex md:hidden items-center justify-between bg-gray-100 p-2
+                        mx-auto max-w-sm'>
+                            <Link href='/' >
+                                <IoIosArrowBack size={20} className='p-2 w-10 h-10 rounded-full' />
+                            </Link>
+                            <div className="flex items-center justify-center">
+                                <LuShare className='p-2 w-10 h-10 rounded-full' />
+                                <AiOutlineHeart className='p-2 w-10 h-10 rounded-full' />
                             </div>
                         </nav>
-                    </nav>
+                    </>
+
                 )
             }
             {
                 menu && (
                     <section
                         ref={menuRef}
-                        className='absolute border p-4 rounded-lg text-sm shadow-md w-52 top-18 right-72 z-50 bg-white'>
+                        className='absolute border p-4 rounded-lg text-sm shadow-md w-52 top-18 
+                        md:right-0 xl:right-72 z-50 bg-white'>
                         <div className='w-full p-2 hover:bg-gray-100 font-semibold cursor-pointer'>
                             Sign up
                         </div>

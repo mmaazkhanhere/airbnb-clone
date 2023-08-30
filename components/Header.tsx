@@ -62,103 +62,94 @@ const Header: React.FC<{ category: SubCategoryProps[], setCat: (value: string) =
     }, [menu])
 
     return (
-        <nav className={`${pathName === '/' ? 'fixed' : 'block'} top-0 md:left-30 bg-white z-20 
-            w-[390px] md:w-[770px] lg:w-[1024px] xl:w-[1750px] mx-auto`}>
-            {
-                pathName === '/' && (
-                    <div className=" mx-auto flex  items-center justify-center md:justify-between py-4 ">
-                        {/*Logo */}
-                        <Link href="/">
-                            <Image src="/assets/logo.png" alt="Airbnb Logo" width={110} height={110}
-                                className='hidden lg:block' />
-                            <Image src="/assets/logo-small.png" alt="Airbnb Logo" width={40} height={40}
-                                className='hidden md:block lg:hidden' />
-                        </Link>
-                        {/*Search bar */}
-                        <nav className='flex items-center justify-center rounded-3xl border shadow-sm hover:shadow-lg'>
-                            <div className='border-r-2 border-l-gray-500 text-sm md:text-base font-semibold px-2 
+        <nav className={`sticky top-0 md:left-30 bg-white z-50 w-[390px] md:w-[770px] 
+        lg:w-[1024px] xl:w-[1750px] mx-auto`}>
+            <div className=" mx-auto flex  items-center justify-center md:justify-between py-4 ">
+                {/*Logo */}
+                <Link href="/">
+                    <Image src="/assets/logo.png" alt="Airbnb Logo" width={110} height={110}
+                        className='hidden lg:block' />
+                    <Image src="/assets/logo-small.png" alt="Airbnb Logo" width={40} height={40}
+                        className='hidden md:block lg:hidden' />
+                </Link>
+                {/*Search bar */}
+                <nav className='flex items-center justify-center rounded-3xl border shadow-sm hover:shadow-lg'>
+                    <div className='border-r-2 border-l-gray-500 text-sm md:text-base font-semibold px-2 
                             md:px-3 lg:px-4'>
-                                Anywhere
-                            </div>
-                            <div className='border-r-2 border-l-gray-500 text-sm md:text-base font-semibold px-2 
-                            md:px-3 lg:px-4'>
-                                Any week
-                            </div>
-                            <div className='flex items-center justify-center p-2'>
-                                <input placeholder='Add guests' className=' placeholder:text-gray-500 text-sm md:text-base
-                                w-24' />
-                                <div className='p-1 lg:p-2 bg-[#fe385d] rounded-full'>
-                                    <BsSearch className="text-white font-black" />
-                                </div>
-                            </div>
-                        </nav>
-                        {/*User profile and other */}
-                        <nav className='items-center md:gap-2 lg:gap-5 hidden md:flex'>
-                            <p className='font-semibold text-gray-600 leading-tight'>Airbnb your home</p>
-                            <BiGlobe size={22} className="text-gray-700" />
-                            <div className='border-2 flex items-center justify-between rounded-3xl 
-                                gap-2 px-4 py-1 hover:shadow-md cursor-pointer'>
-                                <button onClick={handleMenu}>
-                                    <GiHamburgerMenu className="text-gray-600" />
-                                </button>
-                                <div className="text-gray-500">
-                                    <Avatar />
-                                </div>
-                            </div>
-                        </nav>
+                        Anywhere
                     </div>
-                )
-            }
-            {
-                pathName === "/" && (
-                    <section className='-z-20 mb-4 md:px-6 lg:px-4 xl:px-0 '>
-                        <div className='border border-gray-200 w-full' />
-                        <div className='flex items-centem r justify-start 
-                        md:gap-1 lg:gap-3 xl:gap-4'>
-                            <section className='mt-[20px] w-[380px] md:w-[584px] 
-                            lg:w-[824px] xl:w-full'>
-                                <Splide
-                                    options={{
-                                        pagination: false,
-                                        rewind: false,
-                                        gap: '12px',
-                                        focus: 'center',
-                                        perPage: 15,
-                                        perMove: 2,
-                                        breakpoints: {
-                                            1024: {
-                                                perPage: 9,
-                                                gap: '10px'
-                                            },
-                                            765: {
-                                                perPage: 7,
-                                                gap: '8px'
-                                            },
-                                            380: {
-                                                perPage: 4,
-                                                gap: '6px'
-                                            }
-                                        }
-                                    }}
-                                >
-                                    {
-                                        category.map((cat) => (
-                                            <SplideSlide key={cat.sub_category}>
-                                                <SubCategoryItem subCat={cat} onCategorySelect={handleCategory} />
-                                            </SplideSlide>
-                                        ))
-                                    }
-                                </Splide>
-                            </section>
-                            <div className='hidden md:flex items-center justify-center py-4 px-2 gap-2 border rounded-lg'>
-                                <HiAdjustmentsHorizontal size={22} />
-                                <p>Filter</p>
-                            </div>
+                    <div className='border-r-2 border-l-gray-500 text-sm md:text-base font-semibold px-2 
+                            md:px-3 lg:px-4'>
+                        Any week
+                    </div>
+                    <div className='flex items-center justify-center p-2'>
+                        <input placeholder='Add guests' className=' placeholder:text-gray-500 text-sm md:text-base
+                                w-24' />
+                        <div className='p-1 lg:p-2 bg-[#fe385d] rounded-full'>
+                            <BsSearch className="text-white font-black" />
                         </div>
+                    </div>
+                </nav>
+                {/*User profile and other */}
+                <nav className='items-center md:gap-2 lg:gap-5 hidden md:flex'>
+                    <p className='font-semibold text-gray-600 leading-tight'>Airbnb your home</p>
+                    <BiGlobe size={22} className="text-gray-700" />
+                    <div className='border-2 flex items-center justify-between rounded-3xl 
+                                gap-2 px-4 py-1 hover:shadow-md cursor-pointer'>
+                        <button onClick={handleMenu}>
+                            <GiHamburgerMenu className="text-gray-600" />
+                        </button>
+                        <div className="text-gray-500">
+                            <Avatar />
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <section className='-z-20 md:px-6 lg:px-4 xl:px-0 '>
+                <div className='border border-gray-200 w-full' />
+                <div className='flex items-center justify-start 
+                md:gap-1 lg:gap-3 xl:gap-4 p-2'>
+                    <section className='mt-[20px] w-[380px] md:w-[584px] 
+                            lg:w-[824px] xl:w-full'>
+                        <Splide
+                            options={{
+                                pagination: false,
+                                rewind: false,
+                                gap: '12px',
+                                focus: 'center',
+                                perPage: 15,
+                                perMove: 2,
+                                breakpoints: {
+                                    1024: {
+                                        perPage: 9,
+                                        gap: '10px'
+                                    },
+                                    765: {
+                                        perPage: 7,
+                                        gap: '8px'
+                                    },
+                                    380: {
+                                        perPage: 4,
+                                        gap: '6px'
+                                    }
+                                }
+                            }}
+                        >
+                            {
+                                category.map((cat) => (
+                                    <SplideSlide key={cat.sub_category}>
+                                        <SubCategoryItem subCat={cat} onCategorySelect={handleCategory} />
+                                    </SplideSlide>
+                                ))
+                            }
+                        </Splide>
                     </section>
-                )
-
-            }
+                    <div className='hidden md:flex items-center justify-center py-4 px-2 gap-2 border rounded-lg'>
+                        <HiAdjustmentsHorizontal size={22} />
+                        <p>Filter</p>
+                    </div>
+                </div>
+            </section>
             {
                 menu && (
                     <section
@@ -181,7 +172,6 @@ const Header: React.FC<{ category: SubCategoryProps[], setCat: (value: string) =
                 )
             }
         </nav>
-
     )
 }
 

@@ -60,8 +60,6 @@ const getRoomDetail = async (subCategory?: string) => {
 
 const RoomList: React.FC<{ subCategory: string }> = ({ subCategory }) => {
 
-    console.log(subCategory);
-
     const [data, setData] = useState<RoomCardProps[] | null>(null);
 
     useEffect(() => {
@@ -81,7 +79,7 @@ const RoomList: React.FC<{ subCategory: string }> = ({ subCategory }) => {
     return (
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 
         gap-6 items-center justify-center max-w-sm md:max-w-3xl lg:max-w-5xl xl:max-w-[1750px] 
-        mx-auto md:px-6 lg:px-4 xl:px-0 '
+        mx-auto md:px-6 lg:px-4 xl:px-0'
         >
             {
                 data.map((room) => (

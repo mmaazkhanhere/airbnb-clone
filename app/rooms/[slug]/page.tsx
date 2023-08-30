@@ -43,7 +43,7 @@ const RoomDetails = ({ params }: { params: { slug: string } }) => {
     }
 
     return (
-        <main className='max-w-sm md:max-w-2xl lg:max-w-5xl xl:max-w-6xl
+        <main className='max-w-sm md:max-w-3xl lg:max-w-5xl xl:max-w-6xl
         md:px-8 lg:px-4 xl:px-0 mx-auto'>
             <Header
                 price={data.price}
