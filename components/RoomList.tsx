@@ -7,24 +7,37 @@ import { RoomCardProps } from '@/interface';
 import Image from 'next/image';
 
 const getRoomDetail = async (subCategory?: string) => {
-    console.log(subCategory);
+
+    const catData: any = [];
+
     if (subCategory) {
-        const catQuery = await client.fetch(`
-        *[_type == 'homes'&& subcat[0].category == '${subCategory}']{
-            city,
-            state,
-            country,
-            subtitle,
-            price,
-            thumbnail,
-            ratings_recieved,
-            "slug":slug.current,
-            dateGap,
-            images
-        }`)
-        console.log(catQuery);
-        return catQuery;
+        const promises = Array.from({ length: 2 }).slice(0, 3).map(async (_, index) => {
+            const catQuery = await client.fetch(`
+                *[_type == 'homes' && subcat[${index}].sub_category == '${subCategory}']{
+                    city,
+                    state,
+                    country,
+                    subtitle,
+                    price,
+                    thumbnail,
+                    ratings_recieved,
+                    "slug": slug.current,
+                    dateGap,
+                    images
+                }
+            `);
+            return catQuery;
+        });
+
+        await Promise.all(promises);
+
+        promises.forEach(async catQuery => {
+            catData.push(...await catQuery);
+        });
+
+        return catData;
     }
+
     const query = await client.fetch(`
     *[_type=='homes']{
         city,
@@ -35,6 +48,8 @@ const getRoomDetail = async (subCategory?: string) => {
         thumbnail,
         ratings_recieved,
         "slug":slug.current,
+        subcat,
+
         dateGap,
         images
         }

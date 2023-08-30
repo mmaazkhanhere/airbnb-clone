@@ -64,7 +64,8 @@ const Header: React.FC<HeaderProps> = ({ price, original_price, ratings_recieved
     }, [lastScrollY])
 
     return (
-        <header className='relative w-full'>
+        <header className='relative w-full max-w-sm md:max-w-3xl lg:max-w-5xl xl:max-w-[1750px]
+        md:px-8 xl:px-0 mx-auto'>
             {
                 (lastScrollY > 0 || lastScrollY <= 400) && (
                     <nav className='flex items-center justify-between max-w-6xl mx-auto py-4 '>

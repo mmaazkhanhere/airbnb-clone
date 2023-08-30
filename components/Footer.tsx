@@ -16,7 +16,8 @@ const Footer = () => {
             {
                 pathName === "/" && (
                     <section className={`${pathName === '/' ? 'fixed' : 'block border-t-2 border-t-gray-100'} w-full 
-                    bottom-0 left-0 z-50  flex flex-col items-center justify-center gap-14 `}>
+                    bottom-0 left-0 z-50  flex flex-col items-center justify-center gap-14 
+                    w-sm md:w-3xl lg:w-5xl xl:w-[1750px] md:px-6 lg:px-4 xl:px-0 mt-10`}>
                         {pathName === '/' && (
                             <div className='bg-black text-white flex items-center justify-center 
                         px-6 py-2 rounded-2xl gap-3 -mt-24 '

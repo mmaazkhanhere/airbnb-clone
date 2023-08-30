@@ -4,9 +4,9 @@ import { IoIosArrowForward } from "react-icons/io"
 const Rules = () => {
     return (
         <div>
-            <h2 className='text-2xl font-semibold pb-6'>Things to know</h2>
-            <div className='flex items-start justify-between w-full'>
-                <div className='flex flex-col items-start justify-center gap-2 text-lg max-w-xs'>
+            <h2 className='text-xl xl:text-2xl font-semibold pb-6'>Things to know</h2>
+            <div className='flex items-start justify-between w-full md:text-base xl:text-lg'>
+                <div className='flex flex-col items-start justify-center gap-2 max-w-xs'>
                     <h4 className='font-semibold'>
                         House rules
                     </h4>
@@ -18,7 +18,7 @@ const Rules = () => {
                         <IoIosArrowForward size={20} />
                     </div>
                 </div>
-                <div className='flex flex-col items-start justify-center gap-2 text-lg max-w-xs'>
+                <div className='flex flex-col items-start justify-center gap-2 max-w-xs'>
                     <h4 className='font-semibold'>
                         Safety & property
                     </h4>
@@ -30,7 +30,7 @@ const Rules = () => {
                         <IoIosArrowForward size={20} />
                     </div>
                 </div>
-                <div className='flex flex-col items-start justify-center gap-2 text-lg max-w-md'>
+                <div className='flex flex-col items-start justify-center gap-2 max-w-sm xl:max-w-md'>
                     <h4 className='font-semibold'>
                         Cancellation policy
                     </h4>

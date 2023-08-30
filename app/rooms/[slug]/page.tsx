@@ -43,25 +43,27 @@ const RoomDetails = ({ params }: { params: { slug: string } }) => {
     }
 
     return (
-        <main >
+        <main className='max-w-sm md:max-w-2xl lg:max-w-5xl xl:max-w-6xl
+        md:px-8 lg:px-4 xl:px-0 mx-auto'>
             <Header
                 price={data.price}
                 original_price={data.original_price}
                 ratings_recieved={data.ratings_recieved}
                 review={data.reviews}
             />
-            <div className='max-w-6xl mx-auto mt-6'>
-                <h1 className='font-semibold text-2xl'>{data.name}</h1>
+            <div className='w-full mx-auto mt-6'>
+                <h1 className='font-semibold text-3xl'>{data.name}</h1>
             </div>
 
 
             {/*Review and location */}
 
-            <div className='flex items-center justify-between gap-5 mt-2 text-sm max-w-6xl mx-auto'>
-                <div className='flex items-center justify-center gap-4'>
+            <div className='flex items-center justify-between gap-5 mt-2 mx-auto
+            max-w-sm md:max-w-3xl lg:max-w-5xl xl:max-w-[1750px]'>
+                <div className='flex items-center justify-center gap-4 text-lg'>
                     <div className='flex items-center gap-2 '>
                         <BsFillStarFill />
-                        <span>{data.ratings_recieved}</span>
+                        <span className='text-bold'>{data.ratings_recieved}</span>
                     </div>
                     <p className='underline font-semibold cursor-pointer leading-tight'>
                         <span>{data.reviews}</span> reviews
@@ -99,8 +101,9 @@ const RoomDetails = ({ params }: { params: { slug: string } }) => {
 
             {/*Information */}
 
-            <section className='flex w-full items-start justify-center mt-10 max-w-6xl mx-auto'>
-                <div className=' w-2/3'>
+            <section className='flex w-full items-start justify-center mt-10 max-w-sm 
+            md:max-w-3xl lg:max-w-5xl xl:max-w-[1750px] mx-auto'>
+                <div className='lg:w-3/5 xl:w-2/3'>
                     <Information
                         host={data.host}
                         bedroom={data.bedrooms}
@@ -109,7 +112,7 @@ const RoomDetails = ({ params }: { params: { slug: string } }) => {
                         amenities={data.amenities}
                     />
                 </div>
-                <div className='w-1/3 mr-6'>
+                <div className='lg:w-2/5 xl:w-1/3 mr-6'>
                     <ReserveBox
                         original_price={data.original_price}
                         price={data.price}
@@ -122,20 +125,20 @@ const RoomDetails = ({ params }: { params: { slug: string } }) => {
 
             {/*Calendar */}
 
-            <section className='w-2/3 max-w-6xl mx-auto'>
+            <section className='w-2/3'>
                 <BookingCalendar dateBooked={[data.dateBooked]} />
             </section>
 
             {/*Ratings */}
 
-            <section className='max-w-6xl mx-auto'>
+            <section className=' mx-auto'>
                 <div className='my-14 border border-gray-200 w-full' />
                 <RatingList criteria={data.ratings} />
             </section>
 
             {/*Map */}
 
-            <section className='max-w-6xl mx-auto'>
+            {/* <section className='max-w-6xl mx-auto'>
                 <div className='my-14 border border-gray-200 w-full' />
                 <Map
                     latitude={data.latitude}
@@ -145,7 +148,7 @@ const RoomDetails = ({ params }: { params: { slug: string } }) => {
                     country={data.country}
                     sub_direction={data.sub_direction}
                 />
-            </section>
+            </section> */}
 
             {/*Host Information */}
             <section className='mx-auto max-w-6xl'>

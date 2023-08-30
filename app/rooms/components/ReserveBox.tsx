@@ -27,7 +27,7 @@ const ReserveBox: React.FC<ReserveBoxProps> =
             const controlBox = () => {
                 const scrollY = window.scrollY;
 
-                if (scrollY > 400 && scrollY <= 1900) {
+                if (scrollY > 400 && scrollY <= 1500) {
                     setShow('sticky-center'); // Stick to the center
                 }
                 else {
@@ -48,7 +48,8 @@ const ReserveBox: React.FC<ReserveBoxProps> =
 
         return (
             <article
-                className={`border shadow-2xl ml-10 rounded-xl ${show} z-10 w-full p-4 max-w-sm`}
+                className={`border shadow-2xl ml-10 rounded-xl ${show} z-10 p-4  
+                `}
             >
                 {/*Price and Review */}
 

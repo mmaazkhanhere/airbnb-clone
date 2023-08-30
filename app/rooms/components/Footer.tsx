@@ -8,12 +8,12 @@ import { FaInstagramSquare } from 'react-icons/fa'
 const Footer = () => {
     return (
         <footer>
-            <div className='max-w-6xl mx-auto'>
-                <h2 className='text-2xl font-semibold py-8'>
+            <div className='mx-auto'>
+                <h2 className='lg:text-xl xl:text-2xl font-semibold py-8'>
                     Explore other options in and around <span>Pimplad Nasik</span>
                 </h2>
-                <h4 className='text-xl py-6'>Other types of stays on Airbnb</h4>
-                <div className='grid grid-cols-2 xl:grid-cols-4 w-full gap-4 justify-start
+                <h4 className='lg:text-lg xl:text-xl py-6'>Other types of stays on Airbnb</h4>
+                <div className='grid grid-cols-2 xl:grid-cols-4 w-full lg:gap-3 xl:gap-4 justify-start
                 font-medium text-gray-400'>
                     <p className='hover:cursor-pointer'>Wellington vacation rentals</p>
                     <p className='hover:cursor-pointer'>Wellington monthly stays</p>
@@ -34,7 +34,7 @@ const Footer = () => {
             </div>
             <div className='my-10 w-full border border-gray-200' />
             <div className='flex items-start justify-between gap-5 max-w-6xl mx-auto'>
-                <div className='flex flex-col items-start justify-center gap-4'>
+                <div className='flex flex-col items-start justify-center lg:gap-3 xl:gap-4'>
                     <h3 className='font-semibold'>Support</h3>
                     <p className='hover:underline cursor-pointer'>Help Center</p>
                     <p className='hover:underline cursor-pointer'>Air Cover</p>
@@ -43,12 +43,12 @@ const Footer = () => {
                     <p className='hover:underline cursor-pointer'>Our COVID-19 Response</p>
                     <p className='hover:underline cursor-pointer'>Report a neighborhood concern</p>
                 </div>
-                <div className='flex flex-col items-start justify-center gap-4'>
+                <div className='hidden xl:flex-col items-start justify-center lg:gap-3 xl:gap-4 xl:flex'>
                     <h3 className='font-semibold'>Community</h3>
                     <p className='hover:underline cursor-pointer'>Airbnb.org: disaster relief housing</p>
                     <p className='hover:underline cursor-pointer'>Combatinf discrimination</p>
                 </div>
-                <div className='flex flex-col items-start justify-center gap-4'>
+                <div className='flex flex-col items-start justify-center lg:gap-3 xl:gap-4'>
                     <h3 className='font-semibold'>Hosting</h3>
                     <p className='hover:underline cursor-pointer'>Airbnb your home</p>
                     <p className='hover:underline cursor-pointer'>AirCover for hosts</p>
@@ -57,7 +57,7 @@ const Footer = () => {
                     <p className='hover:underline cursor-pointer'>How to host responsibly</p>
                     <p className='hover:underline cursor-pointer'>Airbnb-friendly apartments</p>
                 </div>
-                <div className='flex flex-col items-start justify-center gap-4'>
+                <div className='flex flex-col items-start justify-center lg:gap-3 xl:gap-4'>
                     <h3 className='font-semibold'>Airbnb</h3>
                     <p className='hover:underline cursor-pointer'>Newsroom</p>
                     <p className='hover:underline cursor-pointer'>Learn about new features</p>
@@ -68,9 +68,11 @@ const Footer = () => {
                 </div>
             </div>
             <div className='my-5 w-full border border-gray-200' />
-            <footer className='flex items-center justify-between max-w-6xl mx-auto pb-5'>
-                <div className='flex items-center justify-center gap-5'>
-                    <ul className='flex items-center justify-center gap-4 list-disc text-gray-600'>
+            {/*Footer  */}
+            <footer className='flex flex-col xl:flex-row items-center justify-between mx-auto pb-5 
+            lg:gap-3 xl:gap-0'>
+                <div className='flex items-center justify-center gap-5  order-2 xl:order-1'>
+                    <ul className='flex items-center justify-center lg:gap-3 xl:gap-4 list-disc text-gray-600'>
                         <li className='flex items-center justify-center gap-1 text-sm'>
                             <BiCopyright />
                             <p>2023 Airbnb, Inc.</p>
@@ -81,7 +83,7 @@ const Footer = () => {
                         <li className='hover:underline hover:cursor-pointer ml-4'>Your Privacy Choices</li>
                     </ul>
                 </div>
-                <div className='flex items-center justify-center gap-4'>
+                <div className='flex items-center justify-center gap-4 order-1 xl:order-2'>
                     <div className='flex items-center justify-center gap-4 font-semibold cursor-pointer
                     hover:underline'>
                         <BiGlobe />

@@ -63,16 +63,13 @@ const RoomCard: React.FC<{ details: RoomCardProps }> = ({ details }) => {
                                     </SplideSlide>
                                 ))
                             }
-
-
-
                         </Splide>
                     </section>
                 </div>
             </div>
             <Link href={`/rooms/${details.slug}`}
                 className='w-full mt-4'>
-                <div className='flex md:flex-col flex-row items-start justify-between'>
+                <div className='flex items-start justify-between'>
                     <div className='flex flex-col items-start justify-center'>
                         <p className='font-bold'>{details.city}, {details.country}</p>
                         <p className='text-gray-400'>{details.subtitle}</p>

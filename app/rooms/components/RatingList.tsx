@@ -12,14 +12,14 @@ const RatingList: React.FC<{ criteria: RatingCriteriaProps[] }> = ({ criteria })
                 <span className='font-semibold text-2xl'>5.0</span>
                 <p className='font-semibold text-2xl'><span>5</span> Reviews</p>
             </div>
-            <div className='py-8 grid grid-cols-2 gap-4 '>
+            <div className='py-8 grid grid-cols-1 lg:grid-cols-2 gap-4 '>
                 {
                     criteria.map((rating) => (
                         <RatingCriteria key={rating.category} criteria={rating} />
                     ))
                 }
             </div>
-            <div className='grid grid-cols-2 gap-14 mt-5'>
+            <div className='grid grid-cols-1 xl:grid-cols-2 gap-14 mt-5'>
                 <Rating />
             </div>
         </section>

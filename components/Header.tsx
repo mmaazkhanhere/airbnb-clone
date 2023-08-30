@@ -63,10 +63,10 @@ const Header: React.FC<{ category: SubCategoryProps[], setCat: (value: string) =
 
     return (
         <nav className={`${pathName === '/' ? 'fixed' : 'block'} top-0 md:left-30 bg-white z-20 
-            w-sm md:w-3xl lg:w-5xl xl:w-[1750px] md:px-6 lg:px-4 xl:px-0 mx-auto`}>
+            w-[390px] md:w-[770px] lg:w-[1024px] xl:w-[1750px] mx-auto`}>
             {
                 pathName === '/' && (
-                    <div className=" mx-auto flex items-center justify-center md:justify-between py-4 ">
+                    <div className=" mx-auto flex  items-center justify-center md:justify-between py-4 ">
                         {/*Logo */}
                         <Link href="/">
                             <Image src="/assets/logo.png" alt="Airbnb Logo" width={110} height={110}
