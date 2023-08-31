@@ -9,10 +9,10 @@ const RatingList: React.FC<{ criteria: RatingCriteriaProps[] }> = ({ criteria })
         <section>
             <div className='flex items-center justify-items-center gap-3'>
                 <FaStar size={26} />
-                <span className='font-semibold text-2xl'>5.0</span>
-                <p className='font-semibold text-2xl'><span>5</span> Reviews</p>
+                <span className='font-semibold md:text-xl lg:text-2xl'>5.0</span>
+                <p className='font-semibold md:text-xl lg:text-2xl'><span>5</span> Reviews</p>
             </div>
-            <div className='py-8 grid grid-cols-1 lg:grid-cols-2 gap-4 '>
+            <div className='py-8 grid md:grid-cols-2 gap-4 '>
                 {
                     criteria.map((rating) => (
                         <RatingCriteria key={rating.category} criteria={rating} />

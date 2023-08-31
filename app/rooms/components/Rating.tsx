@@ -12,11 +12,11 @@ const Rating = () => {
                     />
                 </div>
                 <div className='flex flex-col items-start justify-center'>
-                    <span className='text-xl font-semibold'>Apeksha</span>
+                    <span className='text-lg lg:text-xl font-semibold'>Apeksha</span>
                     <span className='text-gray-600'>May 2023</span>
                 </div>
             </div>
-            <div className='py-2 text-lg pr-14'>
+            <div className='py-2 lg:text-lg pr-14'>
                 <p>
                     This villa stands by it name.. Jannat.. breathe taking view, peace and amazing food quality..
                     It is a complete package... must visit!

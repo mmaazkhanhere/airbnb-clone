@@ -82,7 +82,8 @@ const Information: React.FC<RoomInformationProps> = ({ amenities, bedroom, bedro
 
             <section className='w-full'>
                 <h2 className='text-2xl font-semibold'>Where you&apos;ll sleep</h2>
-                <div className='grid grid-cols-2 items-center justify-between'>
+                <div className='grid grid-cols-2 items-center justify-between
+                md:gap-4 lg:gap-0'>
                     {/*1st Bedroom */}
                     {
                         bedroomImages.map((image, index) => (
@@ -101,7 +102,8 @@ const Information: React.FC<RoomInformationProps> = ({ amenities, bedroom, bedro
                 <h2 className='text-2xl font-semibold'>
                     What this place offers
                 </h2>
-                <div className='grid grid-cols-2 gap-4 items-start justify-center text-xl mt-8'>
+                <div className='grid grid-cols1 lg:grid-cols-2 lg:gap-4 items-start 
+                justify-start lg:justify-center text-xl mt-8'>
                     {
                         amenities.map((amentiy) => (
                             <AmenitiesBox amenity={amentiy} key={amentiy.name} />
