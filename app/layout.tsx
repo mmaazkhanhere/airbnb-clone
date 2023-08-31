@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className='h-screen mx-auto' >
+      <body className='mx-auto' >
         {children}
       </body>
     </html>

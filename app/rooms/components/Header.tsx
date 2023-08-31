@@ -150,43 +150,74 @@ const Header: React.FC<HeaderProps> = ({ price, original_price, ratings_recieved
                 )
             }
             {
-                lastScrollY > 450 && (
-                    <section className='w-full p-6 fixed top-0 left-0 bg-white z-20 border-b-2 border-b-gray-300'
+                lastScrollY > 0 && (
+                    <section className='w-full md:p-6 fixed bottom-0 md:top-0 left-0 bg-white z-0 md:z-20 border-b-2 border-b-gray-300'
                     >
-                        <div className={`max-w-6xl w-full mx-auto flex items-center 
+                        {
+                            lastScrollY > 450 && (
+
+                                <div className={`w-full mx-auto hidden md:flex items-center 
                         ${lastScrollY > 450 && lastScrollY < 1900 ? 'justify-start' : 'justify-between'}`}>
-                            <div className='flex items-center justify-start gap-6 
+                                    <div className='flex items-center justify-start gap-6 
                             font-semibold'>
-                                <p className='hover:border-b-2 hover:border-b-black'>Photos</p>
-                                <p className='hover:border-b-2 hover:border-b-black'>Amenities</p>
-                                <p className='hover:border-b-2 hover:border-b-black'>Reviews</p>
-                                <p className='hover:border-b-2 hover:border-b-black'>Location</p>
-                            </div>
-                            {
-                                lastScrollY >= 1900 && (
-                                    <div className='flex items-center justify-center gap-4'>
-                                        <div className='flex flex-col items-start gap-2'>
-                                            <div className='flex items-center justify-center gap-2 text-lg font-semibold'>
-                                                <p className=' text-gray-500 line-through'>${original_price}</p>
-                                                <p><span>${price}</span> night</p>
-                                            </div>
-                                            <div className='flex items-center justify-start gap-2'>
-                                                <div className='flex items-start justify-center gap-1'>
-                                                    <FaStar />
-                                                    <p className='text-xs'>{ratings_recieved}</p>
-                                                </div>
-                                                <p className='underline text-medium text-gray-400 text-xs'>
-                                                    ({review} reviews)
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <button className='py-4 px-6 text-white font-bold bg-[#dd3c59] 
-                                        rounded-lg text-lg'>
-                                            Reserve
-                                        </button>
+                                        <p className='hover:border-b-2 hover:border-b-black'>Photos</p>
+                                        <p className='hover:border-b-2 hover:border-b-black'>Amenities</p>
+                                        <p className='hover:border-b-2 hover:border-b-black'>Reviews</p>
+                                        <p className='hover:border-b-2 hover:border-b-black'>Location</p>
                                     </div>
-                                )
-                            }
+                                    {
+                                        lastScrollY >= 1900 && (
+                                            <div className='flex items-center justify-center gap-4'>
+                                                {/*Original price and reviews */}
+                                                <div className='flex flex-col items-start gap-2'>
+                                                    <div className='flex items-center justify-center gap-2 text-lg font-semibold'>
+                                                        {
+                                                            original_price && (
+                                                                <p className=' text-gray-500 line-through'>${original_price}</p>
+                                                            )
+                                                        }
+
+                                                        <p><span>${price}</span> night</p>
+                                                    </div>
+                                                    <div className='flex items-center justify-start gap-2'>
+                                                        <div className='flex items-start justify-center gap-1'>
+                                                            <FaStar />
+                                                            <p className='text-xs'>{ratings_recieved}</p>
+                                                        </div>
+                                                        <p className='underline text-medium text-gray-400 text-xs'>
+                                                            ({review} reviews)
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                {/*Reserve */}
+                                                <button className='py-4 px-6 text-white font-bold bg-[#dd3c59] 
+                                                rounded-lg text-lg'>
+                                                    Reserve
+                                                </button>
+                                            </div>
+                                        )
+                                    }
+                                </div>
+                            )
+                        }
+
+
+                        <div className='flex md:hidden items-center justify-between border-t 
+                        border-gray-200 py-2 z-20'>
+                            {/*Original price */}
+                            <div className='flex items-center justify-center gap-2 font-semibold'>
+                                {
+                                    original_price && (
+                                        <p className=' text-gray-500 line-through'>${original_price}</p>
+                                    )
+                                }
+                                <p><span>${price}</span> night</p>
+                            </div>
+                            {/*Reserve */}
+                            <button className='p-2 px-4 text-white font-bold bg-[#dd3c59] 
+                                rounded-lg'>
+                                Reserve
+                            </button>
                         </div>
                     </section>
                 )

@@ -45,7 +45,7 @@ const RoomDetails = ({ params }: { params: { slug: string } }) => {
 
     return (
         <main className='max-w-sm md:max-w-3xl lg:max-w-5xl xl:max-w-6xl
-        md:px-8 lg:px-4 xl:px-0 mx-auto'>
+        mx-auto'>
             <Header
                 price={data.price}
                 original_price={data.original_price}
@@ -61,7 +61,7 @@ const RoomDetails = ({ params }: { params: { slug: string } }) => {
             {/*Review and location */}
 
             <div className='flex items-center justify-between gap-5 mt-2 mx-auto
-            '>
+            px-4 md:px-8 lg:px-4 xl:px-0'>
                 <div className='flex items-center justify-start gap-2 md:gap-4 text-base lg:text-lg
                 flex-wrap md:flex-nowrap'>
                     {/*Ratings */}
@@ -104,16 +104,17 @@ const RoomDetails = ({ params }: { params: { slug: string } }) => {
 
             {/*Image Grid */}
 
-            <div className='hidden md:block'>
+            <div className='hidden md:block px-4 md:px-8 lg:px-4 xl:px-0'>
                 <ImageGrid key={data.name} image={data.images} />
             </div>
-            <div className='block md:hidden mt-5'>
+            <div className='block md:hidden mt-5 px-4 md:px-8 lg:px-4 xl:px-0'>
                 <ImageSlide key={data.name} image={data.images} />
             </div>
 
             {/*Information */}
 
-            <section className='flex w-full items-start justify-center mt-10 mx-auto'>
+            <section className='flex w-full items-start justify-center mt-10 mx-auto
+            px-4 md:px-8 lg:px-4 xl:px-0'>
                 <div className='w-full md:w-3/5 xl:w-2/3'>
                     <Information
                         host={data.host}
@@ -136,20 +137,20 @@ const RoomDetails = ({ params }: { params: { slug: string } }) => {
 
             {/*Calendar */}
 
-            <section className='w-2/3'>
+            <section className='w-full md:w-2/3 px-4 md:px-8 lg:px-4 xl:px-0'>
                 <BookingCalendar dateBooked={[data.dateBooked]} />
             </section>
 
             {/*Ratings */}
 
-            <section className=' mx-auto'>
+            <section className=' mx-auto px-4 md:px-8 lg:px-4 xl:px-0'>
                 <div className='my-14 border border-gray-200 w-full' />
                 <RatingList criteria={data.ratings} />
             </section>
 
             {/*Map */}
 
-            {/* <section className='max-w-6xl mx-auto'>
+            {/* <section className='mx-auto px-4 md:px-8 lg:px-4 xl:px-0'>
                 <div className='my-14 border border-gray-200 w-full' />
                 <Map
                     latitude={data.latitude}
@@ -162,14 +163,14 @@ const RoomDetails = ({ params }: { params: { slug: string } }) => {
             </section> */}
 
             {/*Host Information */}
-            <section className='mx-auto max-w-6xl'>
+            <section className='mx-auto px-4 md:px-8 lg:px-4 xl:px-0'>
                 <div className='my-14 border border-gray-200 w-full' />
                 <HostDetail host={data.host} />
             </section>
 
             {/*Rules and safety */}
 
-            <section className='max-w-6xl mx-auto'>
+            <section className='px-4 md:px-8 lg:px-4 xl:px-0 mx-auto'>
                 <div className='my-14 border border-gray-200 w-full' />
                 <Rules />
             </section>

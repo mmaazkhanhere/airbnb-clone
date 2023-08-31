@@ -7,7 +7,7 @@ import { FaInstagramSquare } from 'react-icons/fa'
 
 const Footer = () => {
     return (
-        <footer>
+        <footer className='p-2'>
             <div className='mx-auto'>
                 <h2 className='lg:text-xl xl:text-2xl font-semibold py-8'>
                     Explore other options in and around <span>Pimplad Nasik</span>
@@ -80,11 +80,12 @@ const Footer = () => {
             <div className='my-5 w-full border border-gray-200' />
 
             {/*Footer  */}
-            <footer className='flex flex-col xl:flex-row items-center justify-between mx-auto pb-5 
+            <footer className='flex flex-col xl:flex-row items-start md:items-center justify-between mx-auto pb-5 
             md:gap-3 xl:gap-0'>
                 {/*Terms and privacy */}
-                <div className='flex flex-col md:flex-row items-center justify-center gap-5  order-2 xl:order-1'>
-                    <ul className='flex items-center justify-center lg:gap-3 xl:gap-4 lg:list-disc text-gray-600'>
+                <div className='flex items-tart md:items-center justify-center gap-5 order-2 xl:order-1'>
+                    <ul className='flex flex-col md:flex-row items-start md:items-center justify-center 
+                    lg:gap-3 xl:gap-4 lg:list-disc text-gray-600'>
                         <li className='flex items-center justify-center gap-1 text-sm'>
                             <BiCopyright />
                             <p>2023 Airbnb, Inc.</p>
