@@ -9,7 +9,7 @@ import { urlForImage } from '@/sanity/lib/image'
 import { RoomCardProps } from '@/interface'
 
 import '@splidejs/react-splide/css';
-import { Splide, SplideSlide } from '@splidejs/react-splide';
+const { Splide, SplideSlide } = require('@splidejs/react-splide');
 import '@splidejs/splide/dist/css/themes/splide-default.min.css';
 
 const RoomCard: React.FC<{ details: RoomCardProps }> = ({ details }) => {

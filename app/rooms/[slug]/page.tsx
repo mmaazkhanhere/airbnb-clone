@@ -131,6 +131,9 @@ const RoomDetails = ({ params }: { params: { slug: string } }) => {
                         ratings_recieved={data.ratings_recieved}
                         review={data.reviews}
                         discount={data.discount}
+                        airbnb_fee={data.airbnb_fee}
+                        clean_fee={data.clean_fee}
+
                     />
                 </div>
             </section>
@@ -149,8 +152,8 @@ const RoomDetails = ({ params }: { params: { slug: string } }) => {
             </section>
 
             {/*Map */}
-
-            {/* <section className='mx-auto px-4 md:px-8 lg:px-4 xl:px-0'>
+            {/* 
+            <section className='mx-auto px-4 md:px-8 lg:px-4 xl:px-0'>
                 <div className='my-14 border border-gray-200 w-full' />
                 <Map
                     latitude={data.latitude}

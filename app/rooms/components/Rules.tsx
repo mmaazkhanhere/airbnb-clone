@@ -10,20 +10,21 @@ const Rules = () => {
             <div className='flex flex-col md:flex-row items-start justify-between w-full md:text-base xl:text-lg
             gap-3 md:gap-0'>
                 {/*House Rules */}
-                <div className='flex flex-col items-start justify-center gap-1 md:gap-2 max-w-xs'>
+                <div className='flex flex-col items-start border border-blue-500 justify-between w-full md:text-base xl:text-lg
+                gap-3 md:gap-0'>
                     <h4 className='text-lg md:text-base font-semibold'>
                         House rules
                     </h4>
                     <p>Checkin: 1:00 PM - 6:00 PM</p>
                     <p>Checkout before 10:00 AM</p>
                     <p>12 guests maximum</p>
-                    <div className='flex items-center justify-start gap-4 font-semibold hover:cursor-pointer md:mt-2'>
+                    <div className='flex items-center  justify-start gap-4 font-semibold hover:cursor-pointer md:mt-2'>
                         <span className='underline'>Show more </span>
                         <IoIosArrowForward size={20} />
                     </div>
                 </div>
                 {/*Safety and Property */}
-                <div className='flex flex-col md:flex-row items-start justify-between w-full md:text-base xl:text-lg
+                <div className='flex flex-col items-start border border-blue-500 justify-between w-full md:text-base xl:text-lg
                 gap-3 md:gap-0'>
                     <h4 className='text-lg md:text-base font-semibold'>
                         Safety & property
@@ -37,7 +38,7 @@ const Rules = () => {
                     </div>
                 </div>
                 {/*Cancellation policy */}
-                <div className='flex flex-col md:flex-row items-start justify-between w-full md:text-base xl:text-lg
+                <div className='flex flex-col items-start border border-green-500 justify-between w-full md:text-base xl:text-lg
                 gap-3 md:gap-0'>
                     <h4 className='text-lg md:text-base font-semibold'>
                         Cancellation policy

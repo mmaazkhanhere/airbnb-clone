@@ -12,9 +12,23 @@ interface BookingCalendarProps {
 }
 
 
+
 const BookingCalendar: React.FC<BookingCalendarProps> = ({ dateBooked }) => {
 
     const [date, setDate] = useState(selectedDateRange);
+
+    const handleDateChange = (item: any) => {
+        const newDateRange = [
+            {
+                startDate: item.selection.startDate,
+                endDate: item.selection.endDate,
+                key: 'selection',
+            },
+        ];
+
+        setDate(newDateRange);
+        setSelectedDateRange(newDateRange);
+    };
 
     return (
         <>
@@ -24,10 +38,7 @@ const BookingCalendar: React.FC<BookingCalendarProps> = ({ dateBooked }) => {
                 </h2>
                 <DateRange
                     editableDateInputs={true}
-                    onChange={item => {
-                        setDate([item.selection]);
-                        setSelectedDateRange([item.selection]);
-                    }}
+                    onChange={handleDateChange}
                     moveRangeOnFirstSelection={false}
                     ranges={date}
                     months={2}
@@ -49,10 +60,7 @@ const BookingCalendar: React.FC<BookingCalendarProps> = ({ dateBooked }) => {
                 </h2>
                 <DateRange
                     editableDateInputs={true}
-                    onChange={item => {
-                        setDate([item.selection]);
-                        setSelectedDateRange([item.selection]);
-                    }}
+                    onChange={handleDateChange}
                     moveRangeOnFirstSelection={false}
                     ranges={date}
                     months={2}

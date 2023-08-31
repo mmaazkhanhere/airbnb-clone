@@ -75,7 +75,7 @@ const HostDetail: React.FC<{ host: HostProps }> = ({ host }) => {
                     <div className='flex flex-col gap-2 items-start'>
                         <h4 className='font-semibold textl-lg lg:text-xl'>Co-Hosts</h4>
                         {
-                            host.co_host?.map > 0 && (
+                            host.co_host && (
                                 <div className='flex items-center justify-start gap-4'>
                                     {
                                         host.co_host?.map((host) => (

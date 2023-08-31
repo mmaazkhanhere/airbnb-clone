@@ -39,8 +39,8 @@ export interface RoomProps {
     superhost: boolean,
     subcat?: string,
     original_price: number,
-    airbnb_fee?: number,
-    clean_fee?: number,
+    airbnb_fee: number,
+    clean_fee: number,
     price: number,
     discount: number,
     sub_direction: string,
@@ -60,8 +60,8 @@ export interface RoomInformationProps {
 export interface ReserveBoxProps {
     original_price: number,
     price: number,
-    airbnb_fee?: number,
-    clean_fee?: number,
+    airbnb_fee: number,
+    clean_fee: number,
     ratings_recieved: number,
     review: number,
     discount?: number
@@ -98,7 +98,7 @@ export interface HostProps {
     response_rate: number,
     response_time: number,
     super_host: boolean,
-    co_host?: CoHostProps[]
+    co_host: CoHostProps[]
 }
 
 export interface CoHostProps {

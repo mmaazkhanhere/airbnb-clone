@@ -4,7 +4,7 @@ import Image from 'next/image'
 import React, { useEffect, useRef, useState } from 'react'
 
 import '@splidejs/react-splide/css';
-import { Splide, SplideSlide } from '@splidejs/react-splide';
+const { Splide, SplideSlide } = require('@splidejs/react-splide');
 
 import SubCategoryItem from './SubCategoryItem';
 import { BsSearch } from "react-icons/bs"
@@ -12,7 +12,6 @@ import { HiAdjustmentsHorizontal } from "react-icons/hi2"
 import { BiGlobe } from "react-icons/bi"
 import { GiHamburgerMenu } from "react-icons/gi"
 
-import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { SubCategoryProps } from '@/interface';
 
@@ -35,7 +34,6 @@ const Header: React.FC<{ category: SubCategoryProps[], setCat: (value: string) =
         setCatSelected(value);
     }
 
-    const pathName = usePathname();
 
     const handleMenu = () => {
         setMenu(!menu);

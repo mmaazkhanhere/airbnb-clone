@@ -1,9 +1,11 @@
+"use client"
 import React from 'react'
 import { Image as SanityImage } from 'sanity'
 import Image from 'next/image'
 
+const { Splide, SplideSlide } = require('@splidejs/react-splide');
 import '@splidejs/react-splide/css';
-import { Splide, SplideSlide } from '@splidejs/react-splide';
+
 import '@splidejs/splide/dist/css/themes/splide-default.min.css';
 import { urlForImage } from '@/sanity/lib/image';
 

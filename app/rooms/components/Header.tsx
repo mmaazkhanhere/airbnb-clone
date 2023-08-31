@@ -69,163 +69,165 @@ const Header: React.FC<HeaderProps> = ({ price, original_price, ratings_recieved
 
     return (
         <header className='relative mx-auto'>
-            {
-                (lastScrollY > 0 || lastScrollY <= 400) && (
-                    <>
-                        <nav className='hidden md:flex items-center justify-between mx-auto py-4'>
-                            {/*Icon */}
-                            <Link href="/" className='hidden lg:block'>
-                                <Image src="/assets/logo.png" alt="Airbnb Logo" width={110} height={110} />
-                            </Link>
-                            <Link href="/" className='block lg:hidden'>
-                                <Image src="/assets/logo-small.png" alt="Airbnb Logo" width={40} height={40} />
-                            </Link>
-                            {/*Search bar */}
-                            <nav className='flex items-center justify-center rounded-3xl border shadow-md 
-                        hover:shadow-lg py-2 lg:pl-6 lg:pr-2 cursor-pointer'
-                            >
-                                <input placeholder='Start your search'
-                                    className=' placeholder:text-gray-700 md:text-sm lg:text-base 
-                                font-semibold w-60 md:px-3 lg:px-0'
-                                />
-                                <div className='p-2 bg-[#fe385d] rounded-full mr-2'>
-                                    <BsSearch className="text-white font-black" />
-                                </div>
-                            </nav>
-                            {/*User and avatar */}
-                            <nav className='flex items-center lg:gap-5 md:text-sm lg:text-base'>
-                                <p className='font-semibold text-gray-600 leading-tight rounded-xl hover:bg-gray-100
-                            py-2 md:px-2 lg:px-4  cursor-pointer'>
-                                    Airbnb your home
-                                </p>
-                                <div className='rounded-full hover:bg-gray-100 cursor-pointer p-2'>
-                                    <BiGlobe size={22} className="text-gray-700 " />
-                                </div>
-                                <div className='border-2 flex items-center justify-between rounded-3xl 
-                            gap-2 px-4 py-1 hover:shadow-md cursor-pointer'>
-                                    <button onClick={handleMenu}>
-                                        <GiHamburgerMenu className="text-gray-600" />
-                                    </button>
-                                    <div className="text-gray-500">
-                                        <Avatar />
-                                    </div>
-                                </div>
-                            </nav>
-                        </nav>
-                        {/*Navbar for mobile */}
-                        <nav className='flex md:hidden items-center justify-between bg-gray-100 p-2
-                        mx-auto max-w-sm'>
-                            <Link href='/' >
-                                <IoIosArrowBack size={20} className='p-2 w-10 h-10 rounded-full' />
-                            </Link>
-                            <div className="flex items-center justify-center">
-                                <LuShare className='p-2 w-10 h-10 rounded-full' />
-                                <AiOutlineHeart className='p-2 w-10 h-10 rounded-full' />
-                            </div>
-                        </nav>
-                    </>
-
-                )
-            }
-            {
-                menu && (
-                    <section
-                        ref={menuRef}
-                        className='absolute border p-4 rounded-lg text-sm shadow-md w-52 top-18 
-                        md:right-0 xl:right-72 z-50 bg-white'>
-                        <div className='w-full p-2 hover:bg-gray-100 font-semibold cursor-pointer'>
-                            Sign up
-                        </div>
-                        <div className='w-full p-2 hover:bg-gray-100 cursor-pointer'>
-                            Log in
-                        </div>
-                        <div className='w-full border my-2 border-gray-200' />
-                        <div className='w-full p-2 hover:bg-gray-100 cursor-pointer'>
-                            Airbnb your home
-                        </div>
-                        <div className='w-full p-2 hover:bg-gray-100 cursor-pointer'>
-                            Help Center
-                        </div>
-                    </section>
-                )
-            }
-            {
-                lastScrollY > 0 && (
-                    <section className='w-full md:p-6 fixed bottom-0 md:top-0 left-0 bg-white z-0 md:z-20 border-b-2 border-b-gray-300'
-                    >
-                        {
-                            lastScrollY > 450 && (
-
-                                <div className={`w-full mx-auto hidden md:flex items-center 
-                        ${lastScrollY > 450 && lastScrollY < 1900 ? 'justify-start' : 'justify-between'}`}>
-                                    <div className='flex items-center justify-start gap-6 
-                            font-semibold'>
-                                        <p className='hover:border-b-2 hover:border-b-black'>Photos</p>
-                                        <p className='hover:border-b-2 hover:border-b-black'>Amenities</p>
-                                        <p className='hover:border-b-2 hover:border-b-black'>Reviews</p>
-                                        <p className='hover:border-b-2 hover:border-b-black'>Location</p>
-                                    </div>
-                                    {
-                                        lastScrollY >= 1900 && (
-                                            <div className='flex items-center justify-center gap-4'>
-                                                {/*Original price and reviews */}
-                                                <div className='flex flex-col items-start gap-2'>
-                                                    <div className='flex items-center justify-center gap-2 text-lg font-semibold'>
-                                                        {
-                                                            original_price && (
-                                                                <p className=' text-gray-500 line-through'>${original_price}</p>
-                                                            )
-                                                        }
-
-                                                        <p><span>${price}</span> night</p>
-                                                    </div>
-                                                    <div className='flex items-center justify-start gap-2'>
-                                                        <div className='flex items-start justify-center gap-1'>
-                                                            <FaStar />
-                                                            <p className='text-xs'>{ratings_recieved}</p>
-                                                        </div>
-                                                        <p className='underline text-medium text-gray-400 text-xs'>
-                                                            ({review} reviews)
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                                {/*Reserve */}
-                                                <button className='py-4 px-6 text-white font-bold bg-[#dd3c59] 
-                                                rounded-lg text-lg'>
-                                                    Reserve
-                                                </button>
-                                            </div>
-                                        )
-                                    }
-                                </div>
-                            )
-                        }
-
-
-                        <div className='flex md:hidden items-center justify-between border-t 
-                        border-gray-200 py-2 z-20'>
-                            {/*Original price */}
-                            <div className='flex items-center justify-center gap-2 font-semibold'>
-                                {
-                                    original_price && (
-                                        <p className=' text-gray-500 line-through'>${original_price}</p>
-                                    )
-                                }
-                                <p><span>${price}</span> night</p>
-                            </div>
-                            {/*Reserve */}
-                            <button className='p-2 px-4 text-white font-bold bg-[#dd3c59] 
-                                rounded-lg'>
-                                Reserve
-                            </button>
-                        </div>
-                    </section>
-                )
-            }
-
-            <div className='absolute bottom-0 left-0 z-10 border border-gray-100 w-full' />
+            Header
         </header>
     )
 }
 
 export default Header
+
+// {
+//     (lastScrollY > 0 || lastScrollY <= 400) && (
+//         <>
+//             <nav className='hidden md:flex items-center justify-between mx-auto py-4'>
+//                 {/*Icon */}
+//                 <Link href="/" className='hidden lg:block'>
+//                     <Image src="/assets/logo.png" alt="Airbnb Logo" width={110} height={110} />
+//                 </Link>
+//                 <Link href="/" className='block lg:hidden'>
+//                     <Image src="/assets/logo-small.png" alt="Airbnb Logo" width={40} height={40} />
+//                 </Link>
+//                 {/*Search bar */}
+//                 <nav className='flex items-center justify-center rounded-3xl border shadow-md
+//                             hover:shadow-lg py-2 lg:pl-6 lg:pr-2 cursor-pointer'
+//                 >
+//                     <input placeholder='Start your search'
+//                         className=' placeholder:text-gray-700 md:text-sm lg:text-base
+//                                 font-semibold w-60 md:px-3 lg:px-0'
+//                     />
+//                     <div className='p-2 bg-[#fe385d] rounded-full mr-2'>
+//                         <BsSearch className="text-white font-black" />
+//                     </div>
+//                 </nav>
+//                 {/*User and avatar */}
+//                 <nav className='flex items-center lg:gap-5 md:text-sm lg:text-base'>
+//                     <p className='font-semibold text-gray-600 leading-tight rounded-xl hover:bg-gray-100
+//                             py-2 md:px-2 lg:px-4  cursor-pointer'>
+//                         Airbnb your home
+//                     </p>
+//                     <div className='rounded-full hover:bg-gray-100 cursor-pointer p-2'>
+//                         <BiGlobe size={22} className="text-gray-700 " />
+//                     </div>
+//                     <div className='border-2 flex items-center justify-between rounded-3xl
+//                             gap-2 px-4 py-1 hover:shadow-md cursor-pointer'>
+//                         <button onClick={handleMenu}>
+//                             <GiHamburgerMenu className="text-gray-600" />
+//                         </button>
+//                         <div className="text-gray-500">
+//                             <Avatar />
+//                         </div>
+//                     </div>
+//                 </nav>
+//             </nav>
+//             {/*Navbar for mobile */}
+//             <nav className='flex md:hidden items-center justify-between bg-gray-100 p-2
+//                         mx-auto max-w-sm'>
+//                 <Link href='/' >
+//                     <IoIosArrowBack size={20} className='p-2 w-10 h-10 rounded-full' />
+//                 </Link>
+//                 <div className="flex items-center justify-center">
+//                     <LuShare className='p-2 w-10 h-10 rounded-full' />
+//                     <AiOutlineHeart className='p-2 w-10 h-10 rounded-full' />
+//                 </div>
+//             </nav>
+//         </>
+
+//     )
+// }
+// {
+//     menu && (
+//         <section
+//             ref={menuRef}
+//             className='absolute border p-4 rounded-lg text-sm shadow-md w-52 top-18
+//                         md:right-0 xl:right-72 z-50 bg-white'>
+//             <div className='w-full p-2 hover:bg-gray-100 font-semibold cursor-pointer'>
+//                 Sign up
+//             </div>
+//             <div className='w-full p-2 hover:bg-gray-100 cursor-pointer'>
+//                 Log in
+//             </div>
+//             <div className='w-full border my-2 border-gray-200' />
+//             <div className='w-full p-2 hover:bg-gray-100 cursor-pointer'>
+//                 Airbnb your home
+//             </div>
+//             <div className='w-full p-2 hover:bg-gray-100 cursor-pointer'>
+//                 Help Center
+//             </div>
+//         </section>
+//     )
+// }
+// {
+//     lastScrollY > 0 && (
+//         <section className='w-full md:p-6 fixed bottom-0 md:top-0 left-0 bg-white z-0 md:z-20 border-b-2 border-b-gray-300'
+//         >
+//             {
+//                 lastScrollY > 450 && (
+
+//                     <div className={`w-full mx-auto hidden md:flex items-center
+//                         ${lastScrollY > 450 && lastScrollY < 1900 ? 'justify-start' : 'justify-between'}`}>
+//                         <div className='flex items-center justify-start gap-6
+//                             font-semibold'>
+//                             <p className='hover:border-b-2 hover:border-b-black'>Photos</p>
+//                             <p className='hover:border-b-2 hover:border-b-black'>Amenities</p>
+//                             <p className='hover:border-b-2 hover:border-b-black'>Reviews</p>
+//                             <p className='hover:border-b-2 hover:border-b-black'>Location</p>
+//                         </div>
+//                         {
+//                             lastScrollY >= 1900 && (
+//                                 <div className='flex items-center justify-center gap-4'>
+//                                     {/*Original price and reviews */}
+//                                     <div className='flex flex-col items-start gap-2'>
+//                                         <div className='flex items-center justify-center gap-2 text-lg font-semibold'>
+//                                             {
+//                                                 original_price && (
+//                                                     <p className=' text-gray-500 line-through'>${original_price}</p>
+//                                                 )
+//                                             }
+
+//                                             <p><span>${price}</span> night</p>
+//                                         </div>
+//                                         <div className='flex items-center justify-start gap-2'>
+//                                             <div className='flex items-start justify-center gap-1'>
+//                                                 <FaStar />
+//                                                 <p className='text-xs'>{ratings_recieved}</p>
+//                                             </div>
+//                                             <p className='underline text-medium text-gray-400 text-xs'>
+//                                                 ({review} reviews)
+//                                             </p>
+//                                         </div>
+//                                     </div>
+//                                     {/*Reserve */}
+//                                     <button className='py-4 px-6 text-white font-bold bg-[#dd3c59]
+//                                                 rounded-lg text-lg'>
+//                                         Reserve
+//                                     </button>
+//                                 </div>
+//                             )
+//                         }
+//                     </div>
+//                 )
+//             }
+
+
+//             <div className='flex md:hidden items-center justify-between border-t
+//                         border-gray-200 py-2 z-20'>
+//                 {/*Original price */}
+//                 <div className='flex items-center justify-center gap-2 font-semibold'>
+//                     {
+//                         original_price && (
+//                             <p className=' text-gray-500 line-through'>${original_price}</p>
+//                         )
+//                     }
+//                     <p><span>${price}</span> night</p>
+//                 </div>
+//                 {/*Reserve */}
+//                 <button className='p-2 px-4 text-white font-bold bg-[#dd3c59]
+//                                 rounded-lg'>
+//                     Reserve
+//                 </button>
+//             </div>
+//         </section>
+//     )
+// }
+
+// <div className='absolute bottom-0 left-0 z-10 border border-gray-100 w-full' />

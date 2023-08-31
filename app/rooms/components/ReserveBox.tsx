@@ -44,7 +44,7 @@ const ReserveBox: React.FC<ReserveBoxProps> =
             };
         }, [lastScrollY]);
 
-        const total = price * totalDays;
+        const total = (price + airbnb_fee + clean_fee) * totalDays;
 
         return (
             <article
