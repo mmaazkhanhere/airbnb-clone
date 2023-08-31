@@ -18,6 +18,7 @@ import Header from '../components/Header'
 import { RoomProps } from "@/interface";
 import Image from 'next/image'
 import { getDetails } from '@/app/uitls/getDetails'
+import ImageSlide from '../components/ImageSlide'
 
 const RoomDetails = ({ params }: { params: { slug: string } }) => {
 
@@ -51,23 +52,28 @@ const RoomDetails = ({ params }: { params: { slug: string } }) => {
                 ratings_recieved={data.ratings_recieved}
                 review={data.reviews}
             />
+            {/*Title */}
             <div className='w-full mx-auto mt-6'>
-                <h1 className='font-semibold text-3xl'>{data.name}</h1>
+                <h1 className='font-semibold text-2xl md:text-3xl'>{data.name}</h1>
             </div>
 
 
             {/*Review and location */}
 
             <div className='flex items-center justify-between gap-5 mt-2 mx-auto
-            max-w-sm md:max-w-3xl lg:max-w-5xl xl:max-w-[1750px]'>
-                <div className='flex items-center justify-center gap-4 text-base lg:text-lg'>
+            '>
+                <div className='flex items-center justify-start gap-2 md:gap-4 text-base lg:text-lg
+                flex-wrap md:flex-nowrap'>
+                    {/*Ratings */}
                     <div className='flex items-center gap-2 '>
                         <BsFillStarFill />
                         <span className='text-bold'>{data.ratings_recieved}</span>
                     </div>
+                    {/*Reviews */}
                     <p className='underline font-semibold cursor-pointer leading-tight'>
                         <span>{data.reviews}</span> reviews
                     </p>
+                    {/*Superhost */}
                     {
                         data.superhost && (
                             <div className='flex items-center gap-2'>
@@ -76,16 +82,19 @@ const RoomDetails = ({ params }: { params: { slug: string } }) => {
                             </div>
                         )
                     }
+                    {/*City and Country */}
                     <p className='font-semibold underline'>
-                        <span>{data.city}</span>, <span>{data.country}</span>
+                        <span>{data.city}</span>, {data.state && <span>{data.state},</span>} <span>{data.country}</span>
                     </p>
                 </div>
                 {/*Share and save */}
-                <div className='flex items-center justify-start gap-5'>
+                <div className='hidden md:flex items-center justify-start gap-5'>
+                    {/*Share */}
                     <div className='flex items-center justify-center gap-2'>
                         <LuShare />
                         <span>Share</span>
                     </div>
+                    {/*Save */}
                     <div className='flex items-center justify-center gap-2'>
                         <AiOutlineHeart />
                         <span>Save</span>
@@ -95,14 +104,17 @@ const RoomDetails = ({ params }: { params: { slug: string } }) => {
 
             {/*Image Grid */}
 
-            <div>
+            <div className='hidden md:block'>
                 <ImageGrid key={data.name} image={data.images} />
+            </div>
+            <div className='block md:hidden mt-5'>
+                <ImageSlide key={data.name} image={data.images} />
             </div>
 
             {/*Information */}
 
             <section className='flex w-full items-start justify-center mt-10 mx-auto'>
-                <div className='md:w-3/5 xl:w-2/3'>
+                <div className='w-full md:w-3/5 xl:w-2/3'>
                     <Information
                         host={data.host}
                         bedroom={data.bedrooms}
@@ -111,7 +123,7 @@ const RoomDetails = ({ params }: { params: { slug: string } }) => {
                         amenities={data.amenities}
                     />
                 </div>
-                <div className='md:w-2/5 xl:w-1/3 mr-6'>
+                <div className='w-full hidden md:block md:w-2/5 xl:w-1/3 mr-6'>
                     <ReserveBox
                         original_price={data.original_price}
                         price={data.price}

@@ -83,7 +83,7 @@ const Footer = () => {
             <footer className='flex flex-col xl:flex-row items-center justify-between mx-auto pb-5 
             md:gap-3 xl:gap-0'>
                 {/*Terms and privacy */}
-                <div className='flex items-center justify-center gap-5  order-2 xl:order-1'>
+                <div className='flex flex-col md:flex-row items-center justify-center gap-5  order-2 xl:order-1'>
                     <ul className='flex items-center justify-center lg:gap-3 xl:gap-4 lg:list-disc text-gray-600'>
                         <li className='flex items-center justify-center gap-1 text-sm'>
                             <BiCopyright />

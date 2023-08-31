@@ -15,18 +15,21 @@ const Information: React.FC<RoomInformationProps> = ({ amenities, bedroom, bedro
         <main className='flex flex-col items-start justify-center inset-0 pr-10'>
             {/*Beds and host information */}
             <section className='flex items-center justify-between w-full'>
+                {/*Rooms and host name */}
                 <div className='flex flex-col items-start justify-center'>
                     <h2 className='text-2xl font-semibold'>
                         Entire villa hosted by <span>{host.name}</span>
                     </h2>
+                    {/*Rooms information */}
                     <ul className='flex items-center justify-center md:text-sm xl:text-base 
                     lg:list-inside lg:list-disc text-gray-600 mt-1'>
-                        <li>12 guests</li>
+                        <li>4 guests</li>
                         <li className='ml-2'>{bedroom} bedrooms</li>
                         <li className='ml-2'> {bedroom} beds</li>
                         <li className='ml-2'>{bedroom} baths</li>
                     </ul>
                 </div>
+                {/*Host image */}
                 <div className='w-16 h-16 rounded-full overflow-hidden'>
                     <Image src={urlForImage(host.profile).url()} alt={host.name} width={80} height={80}
                         className='object-cover'
@@ -70,7 +73,7 @@ const Information: React.FC<RoomInformationProps> = ({ amenities, bedroom, bedro
 
             {/*Detailed Information */}
             <section className='w-full'>
-                <p className='text-md'>
+                <p className='text-base'>
                     {information}
                 </p>
             </section>
@@ -82,7 +85,7 @@ const Information: React.FC<RoomInformationProps> = ({ amenities, bedroom, bedro
 
             <section className='w-full'>
                 <h2 className='text-2xl font-semibold'>Where you&apos;ll sleep</h2>
-                <div className='grid grid-cols-2 items-center justify-between
+                <div className='grid grid-cols-1 md:grid-cols-2 items-center justify-between
                 md:gap-4 lg:gap-0'>
                     {/*1st Bedroom */}
                     {
