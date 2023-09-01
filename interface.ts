@@ -23,6 +23,7 @@ export interface AmenityProps {
 
 export interface RoomProps {
     name: string,
+    slug: string,
     city: string,
     state: string,
     country: string,
@@ -64,7 +65,8 @@ export interface ReserveBoxProps {
     clean_fee: number,
     ratings_recieved: number,
     review: number,
-    discount?: number
+    discount?: number,
+    slug: string
 }
 
 export interface HeaderProps {
@@ -109,5 +111,15 @@ export interface CoHostProps {
 export interface SubCategoryProps {
     sub_category: string,
     image: Image,
+}
+
+export interface BookDataProps {
+    name: string,
+    thumbnail: Image,
+    ratings_recieved: number,
+    review: number,
+    price: number,
+    airbnb_fee: number,
+    clean_fee: number,
     slug: string
 }

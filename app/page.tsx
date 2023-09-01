@@ -13,7 +13,6 @@ const getData = async () => {
   const query = await client.fetch(`*[_type=='category']{
     sub_category,
     image,
-    slug
   }`);
   return query;
 }

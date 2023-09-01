@@ -10,7 +10,7 @@ import React, { useEffect, useState } from 'react'
 import { AiFillStar } from "react-icons/ai"
 
 const ReserveBox: React.FC<ReserveBoxProps> =
-    ({ original_price, price, ratings_recieved, review, discount, airbnb_fee, clean_fee }) => {
+    ({ original_price, price, ratings_recieved, review, discount, airbnb_fee, clean_fee, slug }) => {
 
         const [show, setShow] = useState('block');
         const [lastScrollY, setLastScrollY] = useState(0);
@@ -45,9 +45,7 @@ const ReserveBox: React.FC<ReserveBoxProps> =
         }, [lastScrollY]);
 
         const total = (price + airbnb_fee + clean_fee) * totalDays;
-        console.log(airbnb_fee, price)
-        console.log(price + airbnb_fee)
-        console.log(total);
+        console.log(total)
 
         return (
             <article
@@ -115,7 +113,7 @@ const ReserveBox: React.FC<ReserveBoxProps> =
 
                 {/*Button */}
 
-                <Link href="/book/1">
+                <Link href={`/book/${slug}`}>
                     <button className='w-full py-3 bg-[#dd3c59] text-white rounded-lg mt-4 font-bold'>
                         Reserve
                     </button>

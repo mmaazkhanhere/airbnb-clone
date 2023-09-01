@@ -20,6 +20,8 @@ const RoomCard: React.FC<{ details: RoomCardProps }> = ({ details }) => {
 
     const dateEnd = gapDate.toLocaleString('en-US', { month: 'short', day: 'numeric' });
 
+    console.log(details.slug)
+
     return (
         <article className='mt-6 flex inset-0 flex-col items-start justify-center relative max-w-xs mx-auto'>
             <div className='rounded-lg overflow-hidden'>

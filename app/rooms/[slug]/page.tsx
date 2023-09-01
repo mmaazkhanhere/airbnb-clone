@@ -133,7 +133,7 @@ const RoomDetails = ({ params }: { params: { slug: string } }) => {
                         discount={data.discount}
                         airbnb_fee={data.airbnb_fee}
                         clean_fee={data.clean_fee}
-
+                        slug={data.slug}
                     />
                 </div>
             </section>

@@ -4,23 +4,38 @@ import { MdOutlineKeyboardArrowLeft } from "react-icons/md"
 import { GoMail } from "react-icons/go"
 import Image from 'next/image'
 import { FaStar } from 'react-icons/fa'
+import { BookDataProps } from '@/interface'
+import { urlForImage } from '@/sanity/lib/image'
+import { selectedDateRange } from '@/app/uitls/dateUtils'
+import calculateTotalDays from '@/app/uitls/calculateTotalDays'
 
-const BookingDetailMobile = () => {
+const BookingDetailMobile: React.FC<{ roomMobile: BookDataProps }> = ({ roomMobile }) => {
+
+    const startDate = selectedDateRange[0].startDate;
+    const endDate = selectedDateRange[0].endDate;
+
+    const totalDays = calculateTotalDays(startDate, endDate);
+
+    const total = ((roomMobile.price + roomMobile.airbnb_fee + roomMobile.clean_fee) * totalDays) + (50.88 * totalDays);
     return (
         <section className='flex flex-col items-start justify-center md:hidden max-w-sm 
             mt-5'>
             {/*Image and details */}
             <div className='flex items-center justify-start w-full gap-2 p-4'>
-                <Image src="/assets/room1.webp" alt='Room Picture'
+                <Image src={urlForImage(roomMobile.thumbnail).url()} alt={roomMobile.name}
                     width={150} height={150} className='rounded-lg overflow-hidden'
                 />
                 <div className='flex flex-col items-start justify-center gap-2'>
                     <p className='text-xs'>Entire Villa</p>
                     <p className='text-sm'>
-                        Jannat 100% PetFriendly Pool villa with LakeView
+                        {roomMobile.name}
                     </p>
                     <p className='text-xs'>
-                        <span>5.00</span> (5 reviews)
+                        {
+                            roomMobile.review && (
+                                <p> <span>5.00</span> (5 reviews)</p>
+                            )
+                        }
                     </p>
                 </div>
             </div>
@@ -32,7 +47,7 @@ const BookingDetailMobile = () => {
                 <div className='flex items-center justify-between w-full'>
                     <div className='flex flex-col items-start justify-center'>
                         <p className=' font-semibold'>Dates</p>
-                        <span>Sep 3 - 9</span>
+                        <span>{startDate.toLocaleDateString()} - {endDate.toLocaleDateString()}</span>
                     </div>
                     <p className='font-semibold underline cursor-pointer'>Edit</p>
                 </div>
@@ -50,12 +65,28 @@ const BookingDetailMobile = () => {
             <div className='p-4 flex flex-col items-start justify-center gap-3 w-full'>
                 <h1 className='text-xl font-semibold'>Price Details</h1>
                 <div className='flex items-center justify-between w-full md:text-base lg:text-lg'>
-                    <p>$507.30 x 6 nights</p>
-                    <span>$3043.80</span>
+                    <p>${roomMobile.price} x {totalDays} nights</p>
+                    <span>${totalDays * roomMobile.price}</span>
                 </div>
+                {
+                    roomMobile.airbnb_fee && (
+                        <div className='flex items-center justify-between w-full md:text-base lg:text-lg'>
+                            <p>Airbnb fee</p>
+                            <span>${roomMobile.airbnb_fee}</span>
+                        </div>
+                    )
+                }
+                {
+                    roomMobile.clean_fee && (
+                        <div className='flex items-center justify-between w-full md:text-base lg:text-lg'>
+                            <p>Clean fee</p>
+                            <span>${roomMobile.clean_fee}</span>
+                        </div>
+                    )
+                }
                 <div className='flex items-center justify-between w-full md:text-base lg:text-lg'>
                     <p>Taxes</p>
-                    <span>$547.88</span>
+                    <span>$50.88</span>
                 </div>
                 <div className='w-full my-2 border border-gray-200' />
             </div>
@@ -63,7 +94,7 @@ const BookingDetailMobile = () => {
             <div className='flex items-start justify-between p-4  font-semibold w-full'>
                 <span className=' underline'>Total (USD)</span>
                 <div className='flex flex-col items-start justify-start gap-2'>
-                    <span>$3591.68</span>
+                    <span>${total}</span>
                     <span className='underline'>More info</span>
                 </div>
             </div>

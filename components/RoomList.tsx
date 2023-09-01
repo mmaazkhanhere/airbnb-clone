@@ -49,7 +49,6 @@ const getRoomDetail = async (subCategory?: string) => {
         ratings_recieved,
         "slug":slug.current,
         subcat,
-
         dateGap,
         images
         }
