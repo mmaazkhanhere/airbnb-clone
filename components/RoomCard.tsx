@@ -20,8 +20,6 @@ const RoomCard: React.FC<{ details: RoomCardProps }> = ({ details }) => {
 
     const dateEnd = gapDate.toLocaleString('en-US', { month: 'short', day: 'numeric' });
 
-    console.log(details.slug)
-
     return (
         <article className='mt-6 flex inset-0 flex-col items-start justify-center relative max-w-xs mx-auto'>
             <div className='rounded-lg overflow-hidden'>
@@ -56,7 +54,8 @@ const RoomCard: React.FC<{ details: RoomCardProps }> = ({ details }) => {
                                     details.images.map((image) => (
                                         <SplideSlide key={image.asset?._ref}>
                                             <Link href={`/rooms/${details.slug}`}>
-                                                <Image src={urlForImage(image).url()} alt={details.name}
+                                                <Image src={urlForImage(image).url()}
+                                                    alt={details.name}
                                                     width={353}
                                                     height={324}
                                                     loading='lazy'

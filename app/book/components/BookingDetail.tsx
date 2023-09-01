@@ -118,7 +118,8 @@ const BookingDetail: React.FC<{ room: BookDataProps }> = ({ room }) => {
                     border border-gray-300 rounded-lg p-6 md:sticky md:top-0 md:left-0'>
                     <div className='flex items-center justify-start gap-3 '>
                         <div className='md:w-3/5'>
-                            <Image src={urlForImage(room.thumbnail).url()} alt={room.name}
+                            <Image src={urlForImage(room.thumbnail).url()}
+                                alt={room.name}
                                 className='rounded-lg overflow-hidden'
                                 width={200} height={200}
                             />

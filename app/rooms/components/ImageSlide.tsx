@@ -27,7 +27,8 @@ const ImageSlide: React.FC<ImageSlideProps> = ({ image }) => {
                 {
                     image.map((image) => (
                         <SplideSlide key={image.asset?._ref}>
-                            <Image src={urlForImage(image).url()} alt={"Room Images"}
+                            <Image src={urlForImage(image).url()}
+                                alt="Room Images"
                                 width={400}
                                 height={400}
                                 loading='lazy'

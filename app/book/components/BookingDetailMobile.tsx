@@ -24,8 +24,10 @@ const BookingDetailMobile: React.FC<{ roomMobile: BookDataProps }> = ({ roomMobi
             mt-5'>
             {/*Image and details */}
             <div className='flex items-center justify-start w-full gap-2 p-4'>
-                <Image src={urlForImage(roomMobile.thumbnail).url()} alt={roomMobile.name}
-                    width={150} height={150} className='rounded-lg overflow-hidden'
+                <Image src={urlForImage(roomMobile.thumbnail).url()}
+                    alt={roomMobile.name}
+                    width={150} height={150}
+                    className='rounded-lg overflow-hidden'
                 />
                 <div className='flex flex-col items-start justify-center gap-2'>
                     <p className='text-xs'>Entire Villa</p>

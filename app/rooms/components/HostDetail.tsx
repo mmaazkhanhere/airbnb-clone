@@ -17,7 +17,8 @@ const HostDetail: React.FC<{ host: HostProps }> = ({ host }) => {
             <div className='flex items-center justify-start gap-5'>
                 {/*Image */}
                 <div className='w-16 h-16 rounded-full overflow-hidden'>
-                    <Image src={urlForImage(host.profile).url()} alt={host.name}
+                    <Image src={urlForImage(host.profile).url()}
+                        alt={host.name}
                         width={120} height={120}
                         className='object-cover'
                     />

@@ -6,7 +6,8 @@ const Rating = () => {
         <article className='flex flex-col items-start justify-center w-full'>
             <div className='flex items-center justify-center gap-5'>
                 <div className='w-14 h-14 rounded-full overflow-hidden'>
-                    <Image src="/assets/person1.webp" alt='Person Profile'
+                    <Image src="/assets/person1.webp"
+                        alt='Person Profile'
                         width={100} height={100}
                         className='object-cover'
                     />

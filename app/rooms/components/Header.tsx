@@ -201,7 +201,26 @@ const Header: React.FC<HeaderProps> = ({ price, original_price, ratings_recieved
                     )
                 }
             </nav>
+            <nav className='fixed md:hidden bottom-0 left-0 border-t border-gray-200 
+            p-2 z-20 w-full bg-white'>
+                <div className='flex items-center justify-between'>
+                    <div className='flex items-center justify-center gap-2 font-semibold'>
+                        {
+                            original_price && (
+                                <p className='text-gray-500 line-through'>${original_price}</p>
+                            )
+                        }
+                        <p><span>${price}</span> night</p>
+                    </div>
+                    {/*Reserve */}
+                    <button className='p-2 px-4 text-white font-bold bg-[#dd3c59]
+                                rounded-lg'>
+                        Reserve
+                    </button>
+                </div>
+                {/*Original price */}
 
+            </nav>
         </header>
     )
 }

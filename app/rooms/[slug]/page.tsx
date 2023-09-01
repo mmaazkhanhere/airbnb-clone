@@ -152,7 +152,7 @@ const RoomDetails = ({ params }: { params: { slug: string } }) => {
             </section>
 
             {/*Map */}
-            {/* 
+
             <section className='mx-auto px-4 md:px-8 lg:px-4 xl:px-0'>
                 <div className='my-14 border border-gray-200 w-full' />
                 <Map
@@ -163,7 +163,7 @@ const RoomDetails = ({ params }: { params: { slug: string } }) => {
                     country={data.country}
                     sub_direction={data.sub_direction}
                 />
-            </section> */}
+            </section>
 
             {/*Host Information */}
             <section className='mx-auto px-4 md:px-8 lg:px-4 xl:px-0'>
