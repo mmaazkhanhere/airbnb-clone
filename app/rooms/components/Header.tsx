@@ -225,9 +225,5 @@ const Header: React.FC<HeaderProps> = ({ price, original_price, ratings_recieved
         </header>
     )
 }
+
 export default Header
-
-
-
-
-// <div className='absolute bottom-0 left-0 z-10 border border-gray-100 w-full' />
