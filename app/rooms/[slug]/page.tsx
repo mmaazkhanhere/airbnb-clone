@@ -51,6 +51,7 @@ const RoomDetails = ({ params }: { params: { slug: string } }) => {
                 original_price={data.original_price}
                 ratings_recieved={data.ratings_recieved}
                 review={data.reviews}
+                slug={data.slug}
             />
             {/*Title */}
             <div className='w-full mx-auto mt-6'>

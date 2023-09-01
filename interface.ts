@@ -74,6 +74,7 @@ export interface HeaderProps {
     price: number,
     ratings_recieved: number,
     review: number,
+    slug: string
 }
 
 export interface MapProps {

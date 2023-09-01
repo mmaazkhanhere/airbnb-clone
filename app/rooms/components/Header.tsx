@@ -23,7 +23,7 @@ function Avatar() {
     )
 }
 
-const Header: React.FC<HeaderProps> = ({ price, original_price, ratings_recieved, review }) => {
+const Header: React.FC<HeaderProps> = ({ price, original_price, ratings_recieved, review, slug }) => {
 
     const [menu, setMenu] = useState<boolean>(false);
 
@@ -73,7 +73,7 @@ const Header: React.FC<HeaderProps> = ({ price, original_price, ratings_recieved
                 {
                     (lastScrollY > 0 || lastScrollY <= 400) && (
                         <>
-                            <nav className='hidden md:flex items-center justify-between mx-auto py-4'>
+                            <section className='hidden md:flex items-center justify-between mx-auto py-4'>
                                 {/*Icon */}
                                 <Link href="/" className='hidden lg:block'>
                                     <Image src="/assets/logo.png" alt="Airbnb Logo" width={110} height={110} />
@@ -112,7 +112,7 @@ const Header: React.FC<HeaderProps> = ({ price, original_price, ratings_recieved
                                         </div>
                                     </div>
                                 </nav>
-                            </nav>
+                            </section>
                             {/*Navbar for mobile */}
                             <nav className='flex md:hidden items-center justify-between bg-gray-100 p-2
                             mx-auto max-w-sm'>
@@ -189,10 +189,11 @@ const Header: React.FC<HeaderProps> = ({ price, original_price, ratings_recieved
                                                 </div>
                                             </div>
                                             {/*Reserve */}
-                                            <button className='py-4 px-6 text-white font-bold bg-[#dd3c59]
+                                            <Link href={`/book/${slug}`}
+                                                className='py-4 px-6 text-white font-bold bg-[#dd3c59]
                                                 rounded-lg text-lg'>
                                                 Reserve
-                                            </button>
+                                            </Link>
                                         </div>
                                     )
                                 }
@@ -201,7 +202,7 @@ const Header: React.FC<HeaderProps> = ({ price, original_price, ratings_recieved
                     )
                 }
             </nav>
-            <nav className='fixed md:hidden bottom-0 left-0 border-t border-gray-200 
+            <section className='fixed md:hidden bottom-0 left-0 border-t border-gray-200 
             p-2 z-20 w-full bg-white'>
                 <div className='flex items-center justify-between'>
                     <div className='flex items-center justify-center gap-2 font-semibold'>
@@ -213,18 +214,17 @@ const Header: React.FC<HeaderProps> = ({ price, original_price, ratings_recieved
                         <p><span>${price}</span> night</p>
                     </div>
                     {/*Reserve */}
-                    <button className='p-2 px-4 text-white font-bold bg-[#dd3c59]
-                                rounded-lg'>
-                        Reserve
-                    </button>
-                </div>
-                {/*Original price */}
 
-            </nav>
+                    <Link href={`/book/${slug}`}
+                        className='p-2 px-4 text-white font-bold bg-[#dd3c59]
+                    rounded-lg'>
+                        Reserve
+                    </Link>
+                </div>
+            </section>
         </header>
     )
 }
-
 export default Header
 
 
