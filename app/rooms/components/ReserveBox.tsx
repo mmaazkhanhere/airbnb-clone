@@ -27,7 +27,7 @@ const ReserveBox: React.FC<ReserveBoxProps> =
             const controlBox = () => {
                 const scrollY = window.scrollY;
 
-                if (scrollY > 400 && scrollY <= 1500) {
+                if (scrollY > 400 && scrollY <= 1600) {
                     setShow('sticky-center'); // Stick to the center
                 }
                 else {

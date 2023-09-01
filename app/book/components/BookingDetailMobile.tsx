@@ -8,6 +8,8 @@ import { BookDataProps } from '@/interface'
 import { urlForImage } from '@/sanity/lib/image'
 import { selectedDateRange } from '@/app/uitls/dateUtils'
 import calculateTotalDays from '@/app/uitls/calculateTotalDays'
+import { calculateTotal } from '@/app/uitls/calculateTotal'
+import Link from 'next/link'
 
 const BookingDetailMobile: React.FC<{ roomMobile: BookDataProps }> = ({ roomMobile }) => {
 
@@ -16,7 +18,7 @@ const BookingDetailMobile: React.FC<{ roomMobile: BookDataProps }> = ({ roomMobi
 
     const totalDays = calculateTotalDays(startDate, endDate);
 
-    const total = ((roomMobile.price + roomMobile.airbnb_fee + roomMobile.clean_fee) * totalDays) + (50.88 * totalDays);
+    const total = ((roomMobile.price + roomMobile.airbnb_fee + roomMobile.clean_fee) * totalDays) + (15.88 * totalDays);
     return (
         <section className='flex flex-col items-start justify-center md:hidden max-w-sm 
             mt-5'>
@@ -86,7 +88,7 @@ const BookingDetailMobile: React.FC<{ roomMobile: BookDataProps }> = ({ roomMobi
                 }
                 <div className='flex items-center justify-between w-full md:text-base lg:text-lg'>
                     <p>Taxes</p>
-                    <span>$50.88</span>
+                    <span>$15.88 x {totalDays}</span>
                 </div>
                 <div className='w-full my-2 border border-gray-200' />
             </div>
@@ -94,7 +96,7 @@ const BookingDetailMobile: React.FC<{ roomMobile: BookDataProps }> = ({ roomMobi
             <div className='flex items-start justify-between p-4  font-semibold w-full'>
                 <span className=' underline'>Total (USD)</span>
                 <div className='flex flex-col items-start justify-start gap-2'>
-                    <span>${total}</span>
+                    <span>${calculateTotal(total)}</span>
                     <span className='underline'>More info</span>
                 </div>
             </div>
@@ -130,9 +132,12 @@ const BookingDetailMobile: React.FC<{ roomMobile: BookDataProps }> = ({ roomMobi
                     We’ll call or text you to confirm your number. Standard message and data rates apply.
                     <span className='font-semibold underline cursor-pointer'>Privacy Policy</span>
                 </p>
-                <button className='w-full py-4 text-white font-semibold bg-[#dd3c59] rounded-lg'>
-                    Contiune
-                </button>
+                <Link href={'/success'}
+                    className='w-full py-4 text-white font-semibold bg-[#dd3c59] rounded-lg
+                        text-center'
+                >
+                    Continue
+                </Link>
                 <div className='flex items-center justify-center gap-2 w-full'>
                     <div className='w-full border' />
                     <p>or</p>

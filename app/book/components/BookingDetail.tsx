@@ -18,7 +18,7 @@ const BookingDetail: React.FC<{ room: BookDataProps }> = ({ room }) => {
 
     const totalDays = calculateTotalDays(startDate, endDate);
 
-    const total = ((room.price + room.airbnb_fee + room.clean_fee) * totalDays) + (50.88 * totalDays);
+    const total = ((room.price + room.airbnb_fee + room.clean_fee) * totalDays) + (15.88 * totalDays);
 
     return (
 
@@ -73,9 +73,12 @@ const BookingDetail: React.FC<{ room: BookDataProps }> = ({ room }) => {
                         We’ll call or text you to confirm your number. Standard message and data rates apply.
                         <span className='font-semibold underline cursor-pointer'>Privacy Policy</span>
                     </p>
-                    <button className='w-full py-4 text-white font-semibold bg-[#dd3c59] rounded-lg'>
-                        Contiune
-                    </button>
+                    <Link href={'/success'}
+                        className='w-full py-4 text-white font-semibold bg-[#dd3c59] rounded-lg
+                        text-center'
+                    >
+                        Continue
+                    </Link>
                     <div className='flex items-center justify-center gap-2 w-full'>
                         <div className='w-full border' />
                         <p>or</p>
@@ -157,7 +160,7 @@ const BookingDetail: React.FC<{ room: BookDataProps }> = ({ room }) => {
                     }
                     <div className='flex items-center justify-between w-full md:text-base lg:text-lg'>
                         <p>Taxes</p>
-                        <span>$50.88</span>
+                        <span>$15.88 x {totalDays}</span>
                     </div>
                     <div className='md:my-3 lg:my-4 w-full border border-gray-300' />
                     <div className='flex items-center justify-between w-full md:text-base lg:text-lg'>
