@@ -7,10 +7,10 @@ const Rules = () => {
             {/*Heading */}
             <h2 className='text-xl xl:text-2xl font-semibold pb-6'>Things to know</h2>
             {/*Rules */}
-            <div className='flex flex-col md:flex-row items-start justify-between w-full md:text-base xl:text-lg
-            gap-3 md:gap-0'>
+            <div className='flex flex-col lg:flex-row items-start justify-between w-full md:text-base xl:text-lg
+            gap-3 md:gap-0 max-w-lg lg:max-w-5xl xl:max-w-[1750px]'>
                 {/*House Rules */}
-                <div className='flex flex-col items-start border border-blue-500 justify-between w-full md:text-base xl:text-lg
+                <div className='flex flex-col items-start  justify-between w-full md:text-base xl:text-lg
                 gap-3 md:gap-0'>
                     <h4 className='text-lg md:text-base font-semibold'>
                         House rules
@@ -24,7 +24,7 @@ const Rules = () => {
                     </div>
                 </div>
                 {/*Safety and Property */}
-                <div className='flex flex-col items-start border border-blue-500 justify-between w-full md:text-base xl:text-lg
+                <div className='flex flex-col items-start justify-between w-full md:text-base xl:text-lg
                 gap-3 md:gap-0'>
                     <h4 className='text-lg md:text-base font-semibold'>
                         Safety & property
@@ -38,7 +38,7 @@ const Rules = () => {
                     </div>
                 </div>
                 {/*Cancellation policy */}
-                <div className='flex flex-col items-start border border-green-500 justify-between w-full md:text-base xl:text-lg
+                <div className='flex flex-col items-start justify-between w-full md:text-base xl:text-lg
                 gap-3 md:gap-0'>
                     <h4 className='text-lg md:text-base font-semibold'>
                         Cancellation policy

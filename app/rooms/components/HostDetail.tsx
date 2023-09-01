@@ -30,11 +30,12 @@ const HostDetail: React.FC<{ host: HostProps }> = ({ host }) => {
                 </div>
             </div>
             {/*Information */}
-            <div className='flex items-start justify-start gap-16 mt-5'>
+            <div className='flex flex-col lg:flex-row items-start justify-start gap-16 mt-5'>
                 <div className='flex flex-col items-start justify-center gap-5 w-full
                 max-w-lg'>
                     {/*Rating and Reviews */}
-                    <div className='flex items-center justify-between gap-5'>
+                    <div className='flex flex-col lg:flex-row items-start md:items-center 
+                    justify-between gap-5'>
                         {/*Reviews and ratings */}
                         <div className='flex items-center justify-start gap-2'>
                             {

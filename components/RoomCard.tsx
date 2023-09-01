@@ -40,34 +40,37 @@ const RoomCard: React.FC<{ details: RoomCardProps }> = ({ details }) => {
                     </Link>
                     <section className='absolute top-0 left-0 z-20 opacity-0 hover:opacity-100 
                         max-w-[360px]'>
-                        <Splide
-                            options={{
-                                perPage: 1,
-                                pagination: true,
-                                rewind: false,
-                                focus: 'center',
-                                perMove: 1,
-                            }}
-                        >
-                            {
-                                details.images.map((image) => (
-                                    <SplideSlide key={image.asset?._ref}>
-                                        <Link href={`/rooms/${details.slug}`}>
-                                            <Image src={urlForImage(image).url()} alt={"Room Images"}
-                                                width={353}
-                                                height={324}
-                                                loading='lazy'
-                                                className='object-cover w-[353px] h-[304px]'
-                                            />
-                                        </Link>
-                                    </SplideSlide>
-                                ))
-                            }
-                        </Splide>
+                        <Link href={`/rooms/${details.slug}`} target='_blank'>
+                            <Splide
+                                options={{
+                                    perPage: 1,
+                                    pagination: true,
+                                    rewind: false,
+                                    focus: 'center',
+                                    perMove: 1,
+                                }}
+                            >
+                                {
+                                    details.images.map((image) => (
+                                        <SplideSlide key={image.asset?._ref}>
+                                            <Link href={`/rooms/${details.slug}`}>
+                                                <Image src={urlForImage(image).url()} alt={details.name}
+                                                    width={353}
+                                                    height={324}
+                                                    loading='lazy'
+                                                    className='object-cover w-[353px] h-[304px]'
+                                                />
+                                            </Link>
+                                        </SplideSlide>
+                                    ))
+                                }
+                            </Splide>
+                        </Link>
+
                     </section>
                 </div>
             </div>
-            <Link href={`/rooms/${details.slug}`}
+            <Link href={`/rooms/${details.slug}`} target='_blank'
                 className='w-full mt-4'>
                 <div className='flex items-start justify-between'>
                     <div className='flex flex-col items-start justify-center'>

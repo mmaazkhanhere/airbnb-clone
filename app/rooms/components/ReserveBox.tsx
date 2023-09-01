@@ -45,6 +45,9 @@ const ReserveBox: React.FC<ReserveBoxProps> =
         }, [lastScrollY]);
 
         const total = (price + airbnb_fee + clean_fee) * totalDays;
+        console.log(airbnb_fee, price)
+        console.log(price + airbnb_fee)
+        console.log(total);
 
         return (
             <article
@@ -125,7 +128,7 @@ const ReserveBox: React.FC<ReserveBoxProps> =
 
                 <div className='flex items-center justify-between w-full mt-5'>
                     <p className='underline text-gray-600'><span>${price}</span> x <span>{totalDays}</span> nights</p>
-                    <span>{total}</span>
+                    <span>{price * totalDays}</span>
                 </div>
                 {
                     airbnb_fee && (

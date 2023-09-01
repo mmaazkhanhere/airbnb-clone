@@ -21,12 +21,12 @@ const Information: React.FC<RoomInformationProps> = ({ amenities, bedroom, bedro
                         Entire villa hosted by <span>{host.name}</span>
                     </h2>
                     {/*Rooms information */}
-                    <ul className='flex items-center justify-center md:text-sm xl:text-base 
-                    lg:list-inside lg:list-disc text-gray-600 mt-1'>
+                    <ul className='flex flex-col md:flex-row items-start md:items-center 
+                    justify-center md:text-sm xl:text-base lg:list-inside lg:list-disc text-gray-600 mt-1'>
                         <li>4 guests</li>
-                        <li className='ml-2'>{bedroom} bedrooms</li>
-                        <li className='ml-2'> {bedroom} beds</li>
-                        <li className='ml-2'>{bedroom} baths</li>
+                        <li className='md:ml-2'>{bedroom} bedrooms</li>
+                        <li className='md:ml-2'> {bedroom} beds</li>
+                        <li className='md:ml-2'>{bedroom} baths</li>
                     </ul>
                 </div>
                 {/*Host image */}
